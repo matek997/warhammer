@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import MenuIcon from '@material-ui/icons/Menu';
 import './App.css';
+import { Box, Button, Container, Typography } from '@material-ui/core';
+import { AppBar, IconButton, Toolbar } from '@material-ui/core';
 
 function App() {
+  ;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <AppBar >
+  <Toolbar>
+    <IconButton   color="inherit" aria-label="menu">
+      <MenuIcon />
+    </IconButton>
+    <Typography variant="h6">
+      News
+    </Typography>
+    <Button color="inherit">Login</Button>
+  </Toolbar>
+</AppBar>
+      <Container maxWidth='sm'>
+        a
+      </Container>
+    </Box>
   );
 }
 
