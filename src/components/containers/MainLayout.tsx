@@ -6,7 +6,6 @@ export const MainLayout = (props:{children?:JSX.Element})=>{
 	return(
     <Box>
       <TopBar />
-			
 			{props.children}
     </Box>
   );

@@ -1,14 +1,19 @@
 import React from 'react';
 import './App.css';
-import { Box, Button, Container, Grid, Typography } from '@material-ui/core';
-import { AppBar, IconButton, Toolbar } from '@material-ui/core';
 import { MainLayout } from './components/containers/MainLayout';
 import { Home } from './components/views/Home';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 function App() {
-  return <MainLayout>
+  return <Router>
+    <MainLayout>
       <Home />
     </MainLayout>
+    </Router>
 }
 
 export default App;
