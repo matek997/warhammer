@@ -1,18 +1,25 @@
 import React from 'react';
 import './App.css';
 import { MainLayout } from './components/containers/MainLayout';
-import { Home } from './components/views/Home';
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  Link
+  Switch
 } from "react-router-dom";
+import { Routes } from './Routes';
+import { Home } from './components/views/Home';
 function App() {
   return <Router>
+      <Switch>
     <MainLayout>
-      <Home />
+            <Route path='/'>
+              <Home />
+            </Route>
+            <Route path='/nav'>
+              <Home />
+            </Route>
     </MainLayout>
+      </Switch>
     </Router>
 }
 
