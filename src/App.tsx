@@ -6,17 +6,20 @@ import {
   Route,
   Switch
 } from "react-router-dom";
-import { Routes } from './Routes';
 import { Home } from './components/views/Home';
+import {Map} from './components/views/Map';
 function App() {
   return <Router>
       <Switch>
     <MainLayout>
-            <Route path='/'>
+            <Route path='/' exact>
               <Home />
             </Route>
-            <Route path='/nav'>
+            {/* <Route path='/nav' exact>
               <Home />
+            </Route> */}
+            <Route path='/map' exact>
+              <Map />
             </Route>
     </MainLayout>
       </Switch>
