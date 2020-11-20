@@ -30,7 +30,7 @@ export const Map = () => {
       </Typography>
 
 
-		<Network data={data} />
+		<Network container={{style:{height:'80vh'}}} network={{physics:false,autoResize:true}} data={data} />
 
 	</Container>
 }
