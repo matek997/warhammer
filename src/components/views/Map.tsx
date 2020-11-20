@@ -1,5 +1,6 @@
 import { Container, Typography } from "@material-ui/core";
 import React from "react";
+import Profession from "../../models/Profession";
 import INetworkData from "../graph/INetworkData";
 import INetworkParams from "../graph/INetworkParams";
 import { Network } from "../graph/Network";
@@ -23,6 +24,14 @@ export const Map = () => {
 			{ from: 3, to: 3 },
 		]
 	};
+
+	const proflist = Profession.getAsNetwork(
+		[
+			new Profession('cuttthroat', 0, [1]),
+			new Profession('bandit chief', 1),
+		]
+	)
+	const opts = {physics:false,autoResize:true,edges:{arrows:{to:true}}}
 	return <Container>
 
 		<Typography variant="h3" gutterBottom>
@@ -30,7 +39,7 @@ export const Map = () => {
       </Typography>
 
 
-		<Network container={{style:{height:'80vh'}}} network={{physics:false,autoResize:true}} data={data} />
+		<Network container={{style:{height:'80vh'}}} network={opts} data={proflist} />
 
 	</Container>
 }
