@@ -6,6 +6,8 @@ import INetworkParams from "../graph/INetworkParams";
 import { Network } from "../graph/Network";
 
 export const Map = () => {
+  // const proflist = ProfessionProvider.getAll();
+
   const proflist = Profession.getAsNetwork([
     new Profession("cuttthroat", 0, [3]),
     new Profession("peasant", 1, [0, 2]),
@@ -15,8 +17,8 @@ export const Map = () => {
   ]);
   const opts = {
     physics: false,
-		autoResize: true,
-		nodes:{},
+    autoResize: true,
+    nodes: {},
     edges: {
       arrows: {
         to: true,
