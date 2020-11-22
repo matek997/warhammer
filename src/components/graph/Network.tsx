@@ -29,6 +29,7 @@ export const Network = <NodeData extends Node, EdgeData extends Edge>(
       props.network ?? {}
     );
     network.on("selectNode", (params) => {
+      // network.stabilize()
       console.log(params);
       const node: any = nodes.get(params.nodes[0]);
       node.color = getRandomColor();
