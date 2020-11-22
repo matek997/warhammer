@@ -71,6 +71,7 @@ export class ProfessionProvider {
 		return {
 			id: obj.id,
 			name: this.createIStat<string>(LangData.PROFESSION_NAME, '', obj.Name),
+			label: obj.Name,
 			description: this.createIStat<string>(LangData.PROFESSION_NAME, '', obj.Name),
 			role: this.createIStat<string>(LangData.PROFESSION_ROLE, LangData.PROFESSION_ROLE_DESCRIPTION, obj.Name),
 			isAdvanced: this.createIStat<boolean>(LangData.PROFESSION_ADVANCED, LangData.PROFESSION_ADVANCED_DESCRIPTION, obj.Type === 'Advanced'),
@@ -113,9 +114,9 @@ export class ProfessionProvider {
  * @todo create json file with mappings
  */
 
-	private static getAdaptableObject(name: Professions): Adaptable {
+	private static getAdaptableObject(id: Professions): Adaptable {
 
-		const cArray = arrCareers[name] as any;
+		const cArray = arrCareers[id] as any;
 		for (var i = 2; i <= 18; i++) {
 			if (cArray[i] == 0) {
 				cArray[i] = '-'
@@ -126,9 +127,9 @@ export class ProfessionProvider {
 				cArray[i] = cArray[i].replace("++", "+") // avoids double ++
 			}
 		}
-
+		//	console.log(Professions[id], id)
 		return {
-			id: Professions[name] as unknown as number,
+			id,
 			Name: cArray[0],
 			Type: cArray[1],
 			Role: cArray[2],

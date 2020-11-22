@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useRef } from "react";
 import { DataSet, Network as vNetwork } from "vis-network/standalone";
 import INetworkParams from "./INetworkParams";
-import { Data, Node, Edge } from "vis-network/dist/types/network/Network";
+import { Node, Edge } from "vis-network/dist/types/network/Network";
 
 function getRandomColor() {
   var letters = "0123456789ABCDEF";
@@ -19,8 +19,8 @@ export const Network = <NodeData extends Node, EdgeData extends Edge>(
   const divRef = useRef<HTMLDivElement>(null);
   const containerElement = <div {...props.container} ref={divRef}></div>;
   useEffect(() => {
-    const nodes = new DataSet(props.data?.nodes ?? []);
-    const edges = new DataSet(props.data?.edges ?? []);
+    const nodes = props.data?.nodes instanceof DataSet ? props.data.nodes : new DataSet(props.data?.nodes ?? []);
+    const edges = props.data?.edges instanceof DataSet ? props.data.edges : new DataSet(props.data?.edges ?? []);
     const data = { nodes, edges };
 
     const network = new vNetwork(

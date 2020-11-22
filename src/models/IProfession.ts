@@ -9,6 +9,7 @@ import { ISecondaryProfile } from "./ISecondaryProfile";
 export interface IProfession {
 	id: number;
 	name: IStat<string>;
+	label: string;
 	description: IStat<string>;
 	role: IStat<string>;
 	isAdvanced: IStat<boolean>;

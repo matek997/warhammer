@@ -1,7 +1,8 @@
 import { Node, Edge } from "vis-network/dist/types/network/Network"
 import INetworkData from "../components/graph/INetworkData";
 import { IProfession } from "./IProfession";
-import { DataSet } from 'vis-network';
+import { DataSet, Network as vNetwork } from "vis-network/standalone";
+
 class ProfessionNode implements Node {
 
 	label: string;
@@ -20,16 +21,18 @@ export class NetworkBuilder {
 
 
 
-	static getAsNetwork(list: IProfession[], forward = true) {
 
+	static getAsNetwork(list: IProfession[]) {
 
-		const data: INetworkData<ProfessionNode, Edge> = { edges: [], nodes: [] };
+		const edges: { to: number, from: number }[] = [];
 
 		list.forEach(el => {
-			const node = new ProfessionNode(el);
-			(forward ? el.advanceTo : el.advanceFrom).forEach(next => { data.edges?.push({ to: next, from: el.id }); })
-			data.nodes?.push(node)
+			el.advanceTo.forEach(to => { edges.push({ to, from: el.id }); })
 		})
+		const data: INetworkData<IProfession, Edge> = {
+			edges: new DataSet<Edge, 'id'>(edges),
+			nodes: new DataSet<IProfession, 'id'>(list)
+		};
 		return data;
 	}
 }
