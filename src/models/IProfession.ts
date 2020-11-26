@@ -1,43 +1,23 @@
-import INetworkData from "../components/graph/INetworkData";
-import { Node, Edge } from "vis-network/dist/types/network/Network"
-import { IStat } from "./IStat";
 import { IMainProfile } from "./IMainProfile";
 import { ISecondaryProfile } from "./ISecondaryProfile";
 
 
-
 export interface IProfession {
-	id: number;
-	name: IStat<string>;
+	id: string;
 	label: string;
-	description: IStat<string>;
-	role: IStat<string>;
-	isAdvanced: IStat<boolean>;
+	description: string;
+	role: string;
+	isAdvanced: boolean;
 	mainProfile: IMainProfile;
 	secondaryProfile: ISecondaryProfile;
-	advanceFrom: number[];
-	advanceTo: number[];
+	advanceFrom: string[];
+	advanceTo: string[];
+	skills: string[];
+	talents: string[];
+	trappings: string[];
+	notes: string;
+	source: string;
+	numberOfSkills: number;
+	numberOfTalents: number;
+	numberOfAdvances: number;
 }
-/*
-export default class Profession {
-
-	constructor(
-
-		public label = 'Unnamed profession',
-		public id = -1,
-		public leadsTo: number[] = [],
-		// public source: number[] = [],
-	) { }
-
-
-	static getAsNetwork(list: Profession[]) {
-		const data: INetworkData<Profession, Edge> = { edges: [], nodes: [] };
-
-		list.forEach(el => {
-			el.leadsTo.forEach(to => { data.edges?.push({ to, from: el.id }); })
-			data.nodes?.push(el)
-		})
-		return data;
-	}
-}
-*/
