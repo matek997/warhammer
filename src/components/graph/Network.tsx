@@ -1,17 +1,9 @@
 import React, { useEffect } from "react";
 import { useRef } from "react";
 import { DataSet, Network as vNetwork } from "vis-network/standalone";
-import INetworkParams from "./INetworkParams";
+import INetworkParams, { EventFunction } from "./INetworkParams";
 import { Node, Edge } from "vis-network/dist/types/network/Network";
-
-function getRandomColor() {
-  var letters = "0123456789ABCDEF";
-  var color = "#";
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
+import { NetworkEvents } from "vis-network/declarations/network/Network";
 
 export const Network = <NodeData extends Node, EdgeData extends Edge>(
   props: INetworkParams<NodeData, EdgeData>
@@ -19,8 +11,14 @@ export const Network = <NodeData extends Node, EdgeData extends Edge>(
   const divRef = useRef<HTMLDivElement>(null);
   const containerElement = <div {...props.container} ref={divRef}></div>;
   useEffect(() => {
-    const nodes = props.data?.nodes instanceof DataSet ? props.data.nodes : new DataSet(props.data?.nodes ?? []);
-    const edges = props.data?.edges instanceof DataSet ? props.data.edges : new DataSet(props.data?.edges ?? []);
+    const nodes =
+      props.data?.nodes instanceof DataSet
+        ? props.data.nodes
+        : new DataSet(props.data?.nodes ?? []);
+    const edges =
+      props.data?.edges instanceof DataSet
+        ? props.data.edges
+        : new DataSet(props.data?.edges ?? []);
     const data = { nodes, edges };
 
     const network = new vNetwork(
@@ -28,14 +26,11 @@ export const Network = <NodeData extends Node, EdgeData extends Edge>(
       data as any,
       props.network ?? {}
     );
-    network.on("selectNode", (params) => {
-      // network.stabilize()
-      console.log(params);
-      const node: any = nodes.get(params.nodes[0]);
-      node.color = getRandomColor();
-      ///@ts-ignore
-      nodes.update(node);
-    });
+
+    for (const evName in props.events ?? {}) {
+      const func = props.events![evName as NetworkEvents];
+      network.on(evName as NetworkEvents, func as EventFunction);
+    }
   });
 
   return <div>{containerElement}</div>;

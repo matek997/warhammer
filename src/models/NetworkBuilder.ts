@@ -1,4 +1,4 @@
-import {  Edge } from "vis-network/dist/types/network/Network";
+import { Edge } from "vis-network/dist/types/network/Network";
 import INetworkData from "../components/graph/INetworkData";
 import { IProfession } from "./IProfession";
 import { DataSet } from "vis-network/standalone";
@@ -15,7 +15,7 @@ export class NetworkBuilder {
     let toFollow = [this.prof];
     const ignoreIds: string[] = [];
 
-    for (let depth = 0; depth < maxDepth || maxDepth === 0; depth++) {
+    for (let depth = 0; depth <= maxDepth || maxDepth === 0; depth++) {
       list = [...list, ...toFollow];
       ignoreIds.push(...toFollow.map((el) => el.id));
       let toFollowChildren: string[] = [];
@@ -57,6 +57,7 @@ export class NetworkBuilder {
     if (direction === "FORWARD" || direction === "BOTH") {
       list = [...list, ...this.follow("FORWARD", depth)];
     }
+    list = list.filter((v, i, a) => a.findIndex(t => (t.id === v.id)) === i);
     return NetworkBuilder.getAsNetwork(list);
   }
 

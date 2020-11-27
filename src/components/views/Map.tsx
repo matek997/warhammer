@@ -10,6 +10,7 @@ import Select from "@material-ui/core/Select";
 import { useState } from "react";
 import { NetworkBuilder } from "../../models/NetworkBuilder";
 import { Professions } from "../../data/Professions";
+import { CharacterCard } from "../CharacterCard";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -24,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
 export const Map = () => {
   // const proflist = ;
   const iprofs = ProfessionProvider.getAll();
+  const [depth, setDepth] = useState(1);
+  const [direction, setDirection] = useState(
+    "FORWARD" as "FORWARD" | "BACK" | "BOTH"
+  );
   const [focus, setFocus] = useState(
     iprofs[Object.keys(iprofs)[0] as Professions]
   );
@@ -58,7 +63,8 @@ export const Map = () => {
     event: React.ChangeEvent<{
       name?: string | undefined;
       value: unknown;
-    }>  ) => {
+    }>
+  ) => {
     setFocus(iprofs[event.target.value as Professions]);
   };
   return (
@@ -70,30 +76,72 @@ export const Map = () => {
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <InputLabel>Class</InputLabel>
-              <Select
-                //labelId="demo-simple-select-label"
-                //	id="demo-simple-select"
-                value={focus.id}
-                onChange={handleChange}
+              <div
+                style={{
+                  display: "flex",
+                  flexFlow: "row",
+                  justifyContent: "space-around",
+                }}
               >
-                {Object.keys(iprofs).map((id) => (
-                  <MenuItem value={id}>
-                    {iprofs[id as Professions].label}
-                  </MenuItem>
-                ))}
-              </Select>
+                <div>
+                  <InputLabel>Class</InputLabel>
+                  <Select value={focus.id} onChange={handleChange}>
+                    {Object.keys(iprofs).map((id, index) => (
+                      <MenuItem key={focus.id + "select" + index} value={id}>
+                        {iprofs[id as Professions].label}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </div>
+                <div>
+                  <InputLabel>Follow related classes</InputLabel>
+                  <Select
+                    value={depth}
+                    onChange={(ev) => {
+                      setDepth(parseInt(ev.target.value as string));
+                    }}
+                  >
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                  </Select>
+                </div>
+                <div>
+                  <InputLabel>Direction</InputLabel>
+                  <Select
+                    value={direction}
+                    onChange={(ev) => {
+                      setDirection(
+                        ev.target.value as "FORWARD" | "BACK" | "BOTH"
+                      );
+                    }}
+                  >
+                    <MenuItem value={"BACK"}>Back only</MenuItem>
+                    <MenuItem value={"FORWARD"}>Forward only</MenuItem>
+                    <MenuItem value={"BOTH"}>Both</MenuItem>
+                  </Select>
+                </div>
+              </div>
             </Paper>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Paper className={classes.paper}>xs=12 sm=6</Paper>
+            <Paper className={classes.paper}>
+              <CharacterCard profession={focus} />
+            </Paper>
           </Grid>
           <Grid item xs={12} sm={6}>
             <Paper className={classes.paper}>
               <Network
                 container={{ style: { height: "80vh", width: "100%" } }}
                 network={opts}
-                data={new NetworkBuilder(focus).buildNetwork("FORWARD", 2)}
+                events={{
+                  selectNode: (params) => {
+                    console.log(params);
+                    // const node: any = nodes.get(params.nodes[0]);
+                    // nodes.update(node);
+                  },
+                }}
+                data={new NetworkBuilder(focus).buildNetwork(direction, depth)}
               />
             </Paper>
           </Grid>
