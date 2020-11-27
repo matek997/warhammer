@@ -32,10 +32,10 @@ export const TopBar = () => {
         <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
           <List>
             {Routes.map((el: RouteType) => (
-              <Link to={el.url}>
-                <ListItem button key={el.label}>
-                  <ListItemIcon>{el.icon}</ListItemIcon>
-                  <ListItemText primary={el.label} />
+              <Link key={el.url + "link"} to={el.url}>
+                <ListItem key={el.url + "item"} button>
+                  <ListItemIcon key={el.url + "icon"}>{el.icon}</ListItemIcon>
+                  <ListItemText key={el.url + "text"} primary={el.label} />
                 </ListItem>
               </Link>
             ))}
