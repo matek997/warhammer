@@ -35,6 +35,12 @@ export const CharacterCard = (props: { profession: IProfession }) => {
         </Typography>
         <ProfileTable profiles={[profession.secondaryProfile]} />
       </div>
+      <div>
+        <CaptionedText caption="Talents" text={profession.talents.join(", ")} />
+      </div>
+      <div>
+        <CaptionedText caption="Skills" text={profession.skills.join(", ")} />
+      </div>
     </div>
   );
 };
