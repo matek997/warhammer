@@ -136,7 +136,11 @@ export const Map = () => {
                 network={opts}
                 events={{
                   selectNode: (params) => {
-                    console.log(params);
+                    const profId = params.nodes[0] as Professions;
+                    const prof = iprofs[profId];
+
+                    if (prof === undefined) return;
+                    setFocus(prof);
                     // const node: any = nodes.get(params.nodes[0]);
                     // nodes.update(node);
                   },
