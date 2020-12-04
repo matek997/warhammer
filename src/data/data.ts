@@ -47,18 +47,66 @@ export const ProfDefs: ProfDefsType = {
 			"SCHOLAR"
 		],
 		"skills": [
-			"Academic Knowledge (any two)",
-			"Academic Knowledge (Theology)",
-			"Animal Care",
-			"Arcane Language (Magick)",
-			"Charm",
-			"Common Knowledge (any two)",
-			"Gossip",
-			"Heal",
-			"Perception",
-			"Read/Write",
-			"Speak Language (any two)",
-			"Speak Language (Classical)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			}
 		],
 		"talents": [
 			"Master Orator",
@@ -113,17 +161,72 @@ export const ProfDefs: ProfDefsType = {
 			"GUILD_MASTER"
 		],
 		"skills": [
-			"Academic Knowledge (any one)",
-			"Academic Knowledge (Strategy/Tactics)",
-			"Charm or Dodge Blow",
-			"Command",
-			"Common Knowledge (any three)",
-			"Intimidate",
-			"Perception",
-			"Read/Write",
-			"Sail",
-			"Speak Language (any three)",
-			"Swim"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DODGE_BLOW"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SAIL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Etiquette or Seasonsed Traveller",
@@ -187,21 +290,108 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (Necromancy,  Theology,  plus any one)",
-			"Charm",
-			"Common Knowledge (The Empire,  Tilea)",
-			"Concealment",
-			"Disguise",
-			"Follow Trail",
-			"Gossip",
-			"Heal",
-			"Intimidate",
-			"Perception",
-			"Read/Write",
-			"Search",
-			"Silent Move",
-			"Shadowing",
-			"Speak Language (any two)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "NECROMANCY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "THEOLOGY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "ANY_ONE"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DISGUISE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SHADOWING"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Coolheaded or Stout-Hearted",
@@ -267,14 +457,79 @@ export const ProfDefs: ProfDefsType = {
 			"ZEALOT"
 		],
 		"skills": [
-			"Academic Knowledge (History) or Gossip",
-			"Academic Knowledge (Law) or Common Knowledge (the Empire)",
-			"Concealment",
-			"Charm",
-			"Perception",
-			"Read/Write",
-			"Speak Language (Breton or Tilean)",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "LAW"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Coolheaded or Street Fighting",
@@ -332,17 +587,83 @@ export const ProfDefs: ProfDefsType = {
 			"POLITICIAN"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry or History)",
-			"Blather or Charm",
-			"Command",
-			"Common Knowledge (any two)",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Performer (Actor)",
-			"Read/Write",
-			"Ride",
-			"Speak Language (any three)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "GENEALOGY_HERALDRY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "BLATHER"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "ACTOR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_THREE"
+			}
 		],
 		"talents": [
 			"Dealmaker or Schemer",
@@ -398,11 +719,31 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Concealment",
-			"Outdoor Survival",
-			"Perception",
-			"Scale Sheer Surface",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Flee!",
@@ -461,18 +802,94 @@ export const ProfDefs: ProfDefsType = {
 			"HUNTER"
 		],
 		"skills": [
-			"Animal Care",
-			"Animal Training",
-			"Charm Animal",
-			"Command",
-			"Common Knowledge (any one)",
-			"Drive or Swim",
-			"Perception",
-			"Ride",
-			"Speak Language (any one)",
-			"Trade (any two: Aviarist",
-			"Horse trader",
-			"Kennel master or Stableman)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM_ANIMAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "COMPOSITE",
+						"operator": "OR",
+						"list": [
+							{
+								"type": "VARIABLE",
+								"targetEnum": "AcademicKnowledge",
+								"key": "AVIARIST"
+							},
+							{
+								"type": "VARIABLE",
+								"targetEnum": "AcademicKnowledge",
+								"key": "HORSE_TRADER"
+							},
+							{
+								"type": "VARIABLE",
+								"targetEnum": "AcademicKnowledge",
+								"key": "KENNEL_MASTER"
+							},
+							{
+								"type": "VARIABLE",
+								"targetEnum": "AcademicKnowledge",
+								"key": "STABLEMAN"
+							}
+						]
+					}
+				],
+				"operator": "AND"
+			}
 		],
 		"talents": [
 			"Etiquette or Wrestling",
@@ -530,17 +947,72 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (any two)",
-			"Academic Knowledge (Theology)",
-			"Channelling",
-			"Charm",
-			"Common Knowledge (any two)",
-			"Gossip",
-			"Heal",
-			"Magical Sense",
-			"Ride or Swim",
-			"Speack Arcane Language (Magick)",
-			"Speak Language (any two)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Aethyric Attunement or Meditiation",
@@ -601,15 +1073,62 @@ export const ProfDefs: ProfDefsType = {
 			"SCHOLAR"
 		],
 		"skills": [
-			"Academic Knowledge (Science)",
-			"Gossip",
-			"Haggle",
-			"Heal or Prepare Poison",
-			"Perception",
-			"Read/Write",
-			"Secret Language (Guild Tongue)",
-			"Speak Language (Classical)",
-			"Trade (Apothecary)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "SCIENCE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HEAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PREPARE_POISON"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "GUILD_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "APOTHECARY"
+			}
 		],
 		"talents": [
 			"Etiquette or Resistance to Poison",
@@ -666,21 +1185,63 @@ export const ProfDefs: ProfDefsType = {
 			"SHIELDBREAKER"
 		],
 		"skills": [
-			"Academic Knowledge (Runes)",
-			"Evaluate",
-			"Perception",
-			"Read/Write",
-			"Runecraft",
-			"Speak Arcane Language (Arcane Dwarf)",
-			"Trade (Smith)",
-			"Trade (Armourer or Weaponsmith)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "RUNES"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RUNECRAFT"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "ARCANE_DWARF"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "SMITH"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "ARMOURER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "WEAPONSMITH"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Rune (any two with an Inscription Number of 10 or less)"
 		],
 		"trappings": [
-			"Medium Armour (Leather Jack",
-			"Mail Shirt)",
+			"Medium Armour (Leather Jack, Mail Shirt)",
 			"Trade Tools (Runesmith)"
 		],
 		"notes": "Only Dwarfs can enter this career.",
@@ -722,14 +1283,68 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH"
 		],
 		"skills": [
-			"Academic Knowledge (Magic) or Intimidate",
-			"Channelling",
-			"Common Knowledge (Kislev)",
-			"Magical Sense",
-			"Navigation or Perception",
-			"Outdoor Survival",
-			"Speak Arcane Language (Magick)",
-			"Speak Language (Kislevarin)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "MAGIC"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "KISLEV"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "NAVIGATION"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "KISLEVITE"
+			}
 		],
 		"talents": [
 			"Aethyric Attunement or Lesser Magic (any one)",
@@ -777,14 +1392,46 @@ export const ProfDefs: ProfDefsType = {
 		"advanceFrom": [],
 		"advanceTo": [],
 		"skills": [
-			"Academic Knowledge (Magic)",
-			"Channelling",
-			"Magical Sense",
-			"Perception",
-			"Read/Write",
-			"Search",
-			"Speak Arcane Languages (Magick)",
-			"Speak Language (Classical)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "MAGIC"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			}
 		],
 		"talents": [
 			"Aethyric Attunement or Fast Hands",
@@ -840,13 +1487,41 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Academic Knowledge (Engineering)",
-			"Academic Knowledge (Science)",
-			"Command",
-			"Drive",
-			"Perception",
-			"Secret Language (Battle Tongue)",
-			"Trade (Gunsmith)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ENGINEERING"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "SCIENCE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "GUNSMITH"
+			}
 		],
 		"talents": [
 			"Coolheaded",
@@ -910,14 +1585,62 @@ export const ProfDefs: ProfDefsType = {
 			"MILITIAMAN"
 		],
 		"skills": [
-			"Drive",
-			"Evaluate",
-			"GOssip",
-			"Haggle",
-			"Perception",
-			"Secret Language (Guild Tongue)",
-			"Speak Language (Khazalid or Breton or Tilean)",
-			"Trade (any three)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "GUILD_TONGUE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KHAZALID"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "ANY_THREE"
+			}
 		],
 		"talents": [
 			"Artistic or Etiquette"
@@ -974,15 +1697,51 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Concealment",
-			"Disguise",
-			"Gossip",
-			"Perception",
-			"Prepare Poison",
-			"Scale Sheer Surface",
-			"Secret Signs (Thief)",
-			"Shadowing",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DISGUISE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PREPARE_POISON"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "THIEF"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SHADOWING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Quick Draw",
@@ -1055,25 +1814,113 @@ export const ProfDefs: ProfDefsType = {
 			"SCHOLAR"
 		],
 		"skills": [
-			"Academic Knowledge (Astronomy)",
-			"Academic Knowledge (Science)",
-			"Charm",
-			"Common Knowledge (the Empire)",
-			"Common Knowledge (Bretonnia",
-			"Estalia",
-			"Kislev",
-			"or Tilea)",
-			"Gossip",
-			"Navigation",
-			"Perception",
-			"Performer (Storyteller)",
-			"Read/Write",
-			"Secret Signs (Astrologer)",
-			"Speak Language (Classical)",
-			"Speak Language (Breton",
-			"Estalian",
-			"Kislevian",
-			"or Tilean)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ASTRONOMY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "SCIENCE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "ESTALIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "STORYTELLER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "ASTROLOGER"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ESTALIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Etiquette or Flee!",
@@ -1129,15 +1976,117 @@ export const ProfDefs: ProfDefsType = {
 			"NOBLE_LORD"
 		],
 		"skills": [
-			"Academic Knowledge (History or Law,  Strategy Tactics or Theology)",
-			"Charm or Intimidate",
-			"Command",
-			"Common Knowledge (Kislev or Troll Country)",
-			"Gossip or Outdoor Survival",
-			"Haggle",
-			"Perception",
-			"Ride",
-			"Speak Language (Kislevarin)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "COMPOSITE",
+						"operator": "OR",
+						"list": [
+							{
+								"type": "VARIABLE",
+								"targetEnum": "AcademicKnowledge",
+								"key": "HISTORY"
+							},
+							{
+								"type": "VARIABLE",
+								"targetEnum": "AcademicKnowledge",
+								"key": "LAW"
+							}
+						]
+					},
+					{
+						"type": "COMPOSITE",
+						"operator": "OR",
+						"list": [
+							{
+								"type": "VARIABLE",
+								"targetEnum": "AcademicKnowledge",
+								"key": "STRATEGY_TACTICS"
+							},
+							{
+								"type": "VARIABLE",
+								"targetEnum": "AcademicKnowledge",
+								"key": "THEOLOGY"
+							}
+						]
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TROLL_COUNTRY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "KISLEVITE"
+			}
 		],
 		"talents": [
 			"Coolheaded or Suave",
@@ -1188,14 +2137,46 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Concealment",
-			"Follow Trail",
-			"Outdoor Survival",
-			"Navigation",
-			"Perception",
-			"Scale Sheer Surface",
-			"Search",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Orientation",
@@ -1247,19 +2228,71 @@ export const ProfDefs: ProfDefsType = {
 			"OUTLAW_CHIEF"
 		],
 		"skills": [
-			"Common Knowledge (Border Princes)",
-			"Concealment",
-			"Dodge Blow",
-			"Follow Trail",
-			"Navigation",
-			"Outdoor Survival",
-			"Perception",
-			"Scale Sheer Surface",
-			"Secret Language (Ranger Tongue)",
-			"Secret Signs (Scout)",
-			"Set Trap",
-			"Silent Move",
-			"Swim"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BORDER_PRINCES"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "RANGER_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "SCOUT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SET_TRAP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Flee!",
@@ -1307,14 +2340,79 @@ export const ProfDefs: ProfDefsType = {
 		"advanceFrom": [],
 		"advanceTo": [],
 		"skills": [
-			"Academic Knowledge (Law)",
-			"Animal Care or Gossip",
-			"Charm",
-			"Command or Navigation",
-			"Intimidate or Common Knowledge (the Empire)",
-			"Perception",
-			"Read/Write",
-			"Ride"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "LAW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "COMMAND"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "NAVIGATION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			}
 		],
 		"talents": [
 			"Etiquette or Super Numerate",
@@ -1360,14 +2458,73 @@ export const ProfDefs: ProfDefsType = {
 		"advanceFrom": [],
 		"advanceTo": [],
 		"skills": [
-			"Charm",
-			"Drive or Swim",
-			"Haggle",
-			"Heal",
-			"Perception",
-			"Read/Write",
-			"Speak Language (Breton,  Reikspiel,  or Tilean)",
-			"Trade (Apothecary)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "REIKSPIEL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "APOTHECARY"
+			}
 		],
 		"talents": [
 			"Resistance to Disease or Savvy",
@@ -1419,14 +2576,46 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Charm",
-			"Command",
-			"Common Knowledge (Bretonnia)",
-			"Dodge Blow",
-			"Haggle",
-			"Intimidate",
-			"Outdoor Survival",
-			"Perception"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BRETONNIA"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			}
 		],
 		"talents": [
 			"Flee!",
@@ -1485,12 +2674,58 @@ export const ProfDefs: ProfDefsType = {
 			"SOLDIER"
 		],
 		"skills": [
-			"Animal Care",
-			"Animal Training",
-			"Charm Animal",
-			"Consume Alcohol or Gossip",
-			"Perception or Performer (any one)",
-			"Speak Language (Kislevarin)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM_ANIMAL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Performer",
+						"key": "ANY_ONE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "KISLEVITE"
+			}
 		],
 		"talents": [
 			"Coolheaded or Very Strong",
@@ -1552,13 +2787,52 @@ export const ProfDefs: ProfDefsType = {
 			"VAMPIRE_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (Necromancy,  Theology)",
-			"Dodge Blow",
-			"Intimidate",
-			"Perception",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (any two)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "NECROMANCY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "THEOLOGY"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Menacing",
@@ -1619,15 +2893,84 @@ export const ProfDefs: ProfDefsType = {
 			"SMUGGLER"
 		],
 		"skills": [
-			"Common Knowledge (The Empire or Kislev)",
-			"Consume Alcohol or Gossip",
-			"Navigation",
-			"Outdoor Survival",
-			"Perception",
-			"Row",
-			"Sail",
-			"Secret Language (Ranger) or Speak Language (Kislevian)",
-			"Swim"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ROW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SAIL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretLanguage",
+						"key": "RANGER_TONGUE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVITE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Orientation",
@@ -1685,10 +3028,26 @@ export const ProfDefs: ProfDefsType = {
 			"RACKETEER"
 		],
 		"skills": [
-			"Dodge Blow",
-			"Heal",
-			"Intimidate",
-			"Perception"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			}
 		],
 		"talents": [
 			"Disarm or Quick Draw",
@@ -1751,10 +3110,26 @@ export const ProfDefs: ProfDefsType = {
 			"WARLEADER"
 		],
 		"skills": [
-			"Consume Alcohol",
-			"Gamble",
-			"Gossip",
-			"Intimidate"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GAMBLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			}
 		],
 		"talents": [
 			"Coolheaded or Savvy",
@@ -1814,14 +3189,57 @@ export const ProfDefs: ProfDefsType = {
 			"SMUGGLER"
 		],
 		"skills": [
-			"Animal Care",
-			"Charm or Gossip",
-			"Drive",
-			"Common Knowledge (the Empire)",
-			"Evaluate",
-			"Haggle",
-			"Perception",
-			"Search "
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			}
 		],
 		"talents": [
 			"Coolheaded or Streetwise",
@@ -1879,17 +3297,61 @@ export const ProfDefs: ProfDefsType = {
 			"SPY"
 		],
 		"skills": [
-			"Charm",
-			"Command",
-			"Common Knowledge (Border Princes)",
-			"Concealment",
-			"Dodge Blow",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Prepare Poison",
-			"Search",
-			"Speak Language (Any)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BORDER_PRINCES"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PREPARE_POISON"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY"
+			}
 		],
 		"talents": [
 			"Resistance to Poison",
@@ -1952,13 +3414,41 @@ export const ProfDefs: ProfDefsType = {
 			"VAMPIRE_HUNTER"
 		],
 		"skills": [
-			"Follow Trail",
-			"Intimidate",
-			"Outdoor Survival",
-			"Perception",
-			"Search",
-			"Shadowing",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SHADOWING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Marksman or Strike to Stun",
@@ -2019,15 +3509,89 @@ export const ProfDefs: ProfDefsType = {
 			"VALET"
 		],
 		"skills": [
-			"Common Knowledge (the Empire) or Consume Alcohol",
-			"Drive",
-			"Evaluate",
-			"Gossip or Read/Write",
-			"Haggle",
-			"Perception",
-			"Search",
-			"Speak Language (Breton,  Kislevian or Tilean)",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "READ_WRITE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Dealmaker",
@@ -2089,15 +3653,83 @@ export const ProfDefs: ProfDefsType = {
 			"STUDENT"
 		],
 		"skills": [
-			"Academic Knowledge (Strategy/Tactics)",
-			"Command",
-			"Common Knowledge (Bretonnia,  the Empire,  or Tilea)",
-			"Perception",
-			"Read/Write",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (Classical)",
-			"Speak Language (Breton,  Reikspiel,  or Tilean)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "REIKSPIEL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Disarm",
@@ -2155,15 +3787,140 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Animal Care or Drive",
-			"Charm or Evaluate",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Search",
-			"Any one of: Trade (Armourer,  Bowyer,  Cartographer,  Cook,  Gunsmith,  Herbalist,  Merchant,  Smith,  Tailor,  or Weaponsmith)",
-			"Speak Language (Breton,  Kislevian,  or Tilean)",
-			"Slight of Hand"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "EVALUATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "ARMOURER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "BOWYER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "CARTOGRAPHER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "COOK"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "GUNSMITH"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "HERBALIST"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "MERCHANT"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "SMITH"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "TAILOR"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "WEAPONSMITH"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			}
 		],
 		"talents": [
 			"Dealmaker or Street Fighter",
@@ -2226,14 +3983,46 @@ export const ProfDefs: ProfDefsType = {
 			"ZEALOT"
 		],
 		"skills": [
-			"Academic Knowledge (Theology)",
-			"Charm",
-			" Common Knowledge (any one)",
-			"Perception",
-			"Performer (Musician)",
-			"Performer (Singer)",
-			"Read/Write",
-			"Speak Language (any two)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "MUSICIAN"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "SINGER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Incantation"
@@ -2292,16 +4081,67 @@ export const ProfDefs: ProfDefsType = {
 			"POLITICIAN"
 		],
 		"skills": [
-			"Academic Knowledge (Strategy/Tactics)",
-			"Animal Care",
-			"Command",
-			"Common Knowledge (any three)",
-			"Dodge Blow",
-			"Gossip",
-			"Read/Write",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (Kislevian or Tilean)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVITE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Disarm or Quick Draw",
@@ -2367,14 +4207,46 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Animal Care",
-			"Concealment",
-			"Dodge Blow",
-			"Perception",
-			"Scale Sheer Surface",
-			"Secret Signs (Scout)",
-			"Set Trap",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "SCOUT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SET_TRAP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Flee!",
@@ -2440,13 +4312,52 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Academic Knowledge (geography)",
-			"Navigation",
-			"Outdoor Survival or Ride",
-			"Perception",
-			"Read/Write",
-			"Speak Language (any 2)",
-			"Trade (cartography)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "GEOGRAPHY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "CARTOGRAPHER"
+			}
 		],
 		"talents": [
 			"Excellent Vision",
@@ -2503,17 +4414,61 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Concealment",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Pcik Lock",
-			"Scale Sheer Surface",
-			"Search",
-			"Secret Language (Thieve's Tongue)",
-			"Secret Signs (Thief)",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PICK_LOCK"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "THIEVES_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "THIEF"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Alley Cat",
@@ -2576,12 +4531,36 @@ export const ProfDefs: ProfDefsType = {
 			"ZEALOT"
 		],
 		"skills": [
-			"Academic Knowledge (any one)",
-			"Academic Knowledge (Theology)",
-			"Common Knowledge (any two)",
-			"Read/Write",
-			"Speak Language (any one)",
-			"Speak Language (Classical)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			}
 		],
 		"talents": [
 			"Public Speaking"
@@ -2630,12 +4609,36 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Academic Knowledge (Theology)",
-			"Blather",
-			"Common Knowledge (Border Princes)",
-			"Heal",
-			"Perception",
-			"Torture"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BORDER_PRINCES"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "TORTURE"
+			}
 		],
 		"talents": [
 			"Hardy",
@@ -2681,10 +4684,26 @@ export const ProfDefs: ProfDefsType = {
 		"advanceFrom": [],
 		"advanceTo": [],
 		"skills": [
-			"Dodge Blow",
-			"Evaluate",
-			"Initimidate",
-			"Perception"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			}
 		],
 		"talents": [
 			"Fleet Footed or Lightning Reflexes",
@@ -2746,14 +4765,68 @@ export const ProfDefs: ProfDefsType = {
 			"WOODSMAN"
 		],
 		"skills": [
-			"Common Knowledge (the Empire) or Concealment",
-			"Drive or Gossip",
-			"Haggle",
-			"Outdoor Survival",
-			"Perception",
-			"Scale Sheer Surface",
-			"Search",
-			"Secret Signs (Ranger)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONCEALMENT"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "RANGER"
+			}
 		],
 		"talents": [
 			"Flee!",
@@ -2819,19 +4892,93 @@ export const ProfDefs: ProfDefsType = {
 			"SPY"
 		],
 		"skills": [
-			"Blather",
-			"Charm",
-			"Common Knowledge (Bretonniaor Tilea)",
-			"Disguise",
-			"Evaluate",
-			"Gamble",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Secret Language (Thieves Tongue)",
-			"Sleight of Hand",
-			"Speak Language (Breton or Tilean)",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONNIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DISGUISE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GAMBLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "THIEVES_TONGUE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Flee!",
@@ -2897,14 +5044,57 @@ export const ProfDefs: ProfDefsType = {
 			"WATCHMAN"
 		],
 		"skills": [
-			"Academic Knowledge (Law or Intimidate)",
-			"Command",
-			"Common Knowledge (Kislev)",
-			"Dodge Blow or Shadowing",
-			"Follow Trail",
-			"Perception",
-			"Ride",
-			"Search"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "LAW_OR_INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "KISLEV"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DODGE_BLOW"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SHADOWING"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			}
 		],
 		"talents": [
 			"Disarm or Specialist Weapon Group (Gunpowder)",
@@ -2967,14 +5157,46 @@ export const ProfDefs: ProfDefsType = {
 			"RAT_CATCHER"
 		],
 		"skills": [
-			"Common Knowledge (the Empire)",
-			"Consume Alcohol",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Scale Sheer Surface",
-			"Search",
-			"Silent Move"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Contortionist or Very Strong",
@@ -3043,19 +5265,71 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Charm",
-			"Common Knowledge (any three)",
-			"Concealment",
-			"Disguise",
-			"Gossip",
-			"Perception",
-			"Read/Write",
-			"Search",
-			"Secret Language (any two)",
-			"Secret Signs (any two)",
-			"Silent Move",
-			"Speak Language (any four)",
-			"Trade (any one)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DISGUISE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_FOUR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "ANY_ONE"
+			}
 		],
 		"talents": [
 			"Acute Hearing",
@@ -3120,14 +5394,84 @@ export const ProfDefs: ProfDefsType = {
 			"TOLL_KEEPER"
 		],
 		"skills": [
-			"Animal Care",
-			"Drive",
-			"Gossip or Haggle",
-			"Heal or Ride",
-			"Navigation",
-			"Perception",
-			"Secret Signs (Ranger)",
-			"Speak Language (Breton,  Kislevian,  or Tilean)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HEAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "RANGER"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Quick Draw or Seasoned Traveller",
@@ -3186,18 +5530,115 @@ export const ProfDefs: ProfDefsType = {
 			"SPY"
 		],
 		"skills": [
-			"Academic Knowledge (the Arts or History) or Gamble",
-			"Blather",
-			"Charm",
-			"Command or Performer (any one)",
-			"Common Knowledge (Bretonnia or Tilea)",
-			"Evaluate",
-			"Gossip",
-			"Perception",
-			"Read/Write",
-			"Ride",
-			"Speak Language (Breton or Tilean)",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "THE_ARTS"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "COMMAND"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Performer",
+						"key": "ANY_ONE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONNIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Dealmaker or Etiquette",
@@ -3259,18 +5700,66 @@ export const ProfDefs: ProfDefsType = {
 			"POLITICIAN"
 		],
 		"skills": [
-			"Charm",
-			"Command",
-			"Common Knowledge (the Empire)",
-			"Dodge Blow",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Intimidate",
-			"Perception",
-			"Secret Language (Thieves’ Tongue)",
-			"Secret Signs (Thief)",
-			"Torture"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "THIEVES_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "THIEF"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "TORTURE"
+			}
 		],
 		"talents": [
 			"Dealmaker or Schemer",
@@ -3336,15 +5825,72 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Academic Knowledge (History)",
-			"Academic Knowledge (Strategy/Tactics)",
-			"Common Knowledge (any three)",
-			"Navigation",
-			"Outdoor Survival",
-			"Perception",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (Arabyan,  Breton,  Estalian,  or Tilean)."
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "HISTORY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ARABYAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ESTALIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Orientation or Linguistics",
@@ -3406,14 +5952,46 @@ export const ProfDefs: ProfDefsType = {
 			"STEWARD"
 		],
 		"skills": [
-			"Academic Knowledge (Theology)",
-			"Charm",
-			"Common Knowledge (any one)",
-			"Gossip",
-			"Perception",
-			"Read/Write",
-			"Speak Language (any one)",
-			"Speak Language (Classical)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			}
 		],
 		"talents": [
 			"Dealmaker",
@@ -3459,11 +6037,31 @@ export const ProfDefs: ProfDefsType = {
 		],
 		"advanceTo": [],
 		"skills": [
-			"Common Knowledge (any two)",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Intimidate",
-			"Scale Sheer Surface"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			}
 		],
 		"talents": [
 			" Lightning Parry",
@@ -3514,12 +6112,36 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Dodge Blow",
-			"Navigate",
-			"Perception",
-			"Scale Sheer Surface",
-			"Search",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Evaluate",
@@ -3591,19 +6213,71 @@ export const ProfDefs: ProfDefsType = {
 			"POLITICIAN"
 		],
 		"skills": [
-			"Academic Knowledge (History)",
-			"Academic Knowledge (Law)",
-			"Blather",
-			"Charm",
-			"Command",
-			"Common Knowledge (the Empire)",
-			"Concealment",
-			"Disguise",
-			"Dodge Blow",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "HISTORY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "LAW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DISGUISE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Etiquette or Streetwise",
@@ -3663,18 +6337,104 @@ export const ProfDefs: ProfDefsType = {
 			"VERENEAN_INVESTIGATOR"
 		],
 		"skills": [
-			"Knowledge (any one)",
-			"Blather",
-			"Common Knowledge (any)",
-			"Common Knowledge (any)",
-			"Evaluate or Gossip",
-			"Navigation",
-			"Perception",
-			"Read/Write",
-			"Secret Language (any one) or Secret Signs (any one)",
-			"Speak Language (any)",
-			"Speak Language (any)",
-			"Trade (Artist or Calligrapher or Cartographer) (See special rule,  below)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "EVALUATE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretLanguage",
+						"key": "ANY_ONE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "ANY_ONE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "ARTIST"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "CALLIGRAPHER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "CARTOGRAPHER"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Etiquette"
@@ -3733,15 +6493,84 @@ export const ProfDefs: ProfDefsType = {
 			"SCOUT"
 		],
 		"skills": [
-			"Animal Care",
-			"Animal Training or Charm Animal",
-			"Common Knowledge (Kislev or Troll Country)",
-			"Follow Trail",
-			"Navigation",
-			"Outdoor Survival",
-			"Perception",
-			"Ride",
-			"Speak Language (Kislevarin or Ungol)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_TRAINING"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM_ANIMAL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TROLL_COUNTRY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVITE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "UNGOL"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Orientation",
@@ -3807,13 +6636,41 @@ export const ProfDefs: ProfDefsType = {
 			"SERGEANT"
 		],
 		"skills": [
-			"Charm",
-			"Dodge Blow",
-			"Gamble",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Sleight of Hand"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GAMBLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			}
 		],
 		"talents": [
 			"Ambidextrous or Disarm",
@@ -3879,13 +6736,41 @@ export const ProfDefs: ProfDefsType = {
 			"THUG"
 		],
 		"skills": [
-			"Animal Care",
-			"Common Knowledge (Empire)",
-			"Consume Alcohol",
-			"Drive",
-			"Haggle",
-			"Perception",
-			"Search"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			}
 		],
 		"talents": [
 			"Coolheaded",
@@ -3943,15 +6828,62 @@ export const ProfDefs: ProfDefsType = {
 			"SCHOLAR"
 		],
 		"skills": [
-			"Academic Knowledge (Necromancy,  Science)",
-			"Evaluate",
-			"Haggle",
-			"Heal",
-			"Perception",
-			"Read/Write",
-			"Sleight of Hand",
-			"Speak Language (Classical)",
-			"Trade (Apothecary)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "NECROMANCY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "SCIENCE"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "APOTHECARY"
+			}
 		],
 		"talents": [
 			"Dealmaker or Streetwise",
@@ -4007,18 +6939,66 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Charm",
-			"Command",
-			"Common Knowledge (Border Princes)",
-			"Concealment",
-			"Disguise",
-			"Follow Trail",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Search",
-			"Shadowing",
-			"Torture"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BORDER_PRINCES"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DISGUISE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SHADOWING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "TORTURE"
+			}
 		],
 		"talents": [
 			"Menacing",
@@ -4077,14 +7057,79 @@ export const ProfDefs: ProfDefsType = {
 			"SMUGGLER"
 		],
 		"skills": [
-			"Academic Knowledge (Engineering)",
-			"Academic Knowledge (Science)",
-			"Common Knowledge (Dwarfs or Tilea)",
-			"Drive or Ride",
-			"Perception",
-			"Read/Write",
-			"Speak Language (Khazalid or Tilean)",
-			"Trade (Gunsmith)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ENGINEERING"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "SCIENCE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "DWARFS"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KHAZALID"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "GUNSMITH"
+			}
 		],
 		"talents": [
 			"Master Gunner",
@@ -4141,14 +7186,109 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Animal Care or Swim",
-			"Charm",
-			"Common Knowledge (the Empire)",
-			"Evaluate or Gossip",
-			"Perception",
-			"Performer (any two)",
-			"Speak Language (Reikspiel)",
-			"Any one of: Animal Training,  Blather,  Charm Animal,  Hypnotism,  Ride,  Scale Sheer Surface,  Sleight of Hand,  Ventriloquism"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "EVALUATE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_TRAINING"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "BLATHER"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM_ANIMAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HYPNOTISM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SCALE_SHEER_SURFACE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SLEIGHT_OF_HAND"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "VENTRILOQUISM"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Any two of: Lightning Reflexes,  Mimic,  Public Speaking,  Quick Draw,  Sharpshooter,  Specialist Weapon Group (Throwing),  Trick Riding,  Very Strong,  Wrestling"
@@ -4204,16 +7344,67 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Charm",
-			"Common Knowledge (the Empire or the Wasteland)",
-			"Evaluate",
-			"GOssip",
-			"Haggle",
-			"Perception",
-			"Read/Write",
-			"Secret Language (Guild Tongue)",
-			"Swim",
-			"Trade (Merchant)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "THE_WASTELAND"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "GUILD_TONGUE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "MERCHANT"
+			}
 		],
 		"talents": [
 			"Dealmaker or Seasoned Traveller"
@@ -4264,11 +7455,31 @@ export const ProfDefs: ProfDefsType = {
 			"ROGUE"
 		],
 		"skills": [
-			"Academic Knowledge (Science)",
-			"Common Knowledge (Estalia)",
-			"Dodge Blow",
-			"Read/Write",
-			"Speak Language (Estalian)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "SCIENCE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ESTALIA"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ESTALIAN"
+			}
 		],
 		"talents": [
 			"Lightning Reflexes or Swashbuckler",
@@ -4328,13 +7539,41 @@ export const ProfDefs: ProfDefsType = {
 			"THIEF"
 		],
 		"skills": [
-			"Academic Knowledge (Law)",
-			"Blather",
-			"Charm",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Read/Write"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "LAW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			}
 		],
 		"talents": [
 			"Dealmaker",
@@ -4405,10 +7644,26 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Concealment",
-			"Dodge Blow",
-			"Secret Language (Prison Cant)",
-			"Sleight of Hand"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "PRISON_CANT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			}
 		],
 		"talents": [
 			"Flee!",
@@ -4464,17 +7719,72 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (Theology)",
-			"Academic Knowledge (Daemonology or Necromancy)",
-			"Channelling",
-			"Command",
-			"Hypnotism",
-			"Intimidate",
-			"Magical Sense",
-			"Perception",
-			"Speak Arcane Language (Magick)",
-			"Speak Arcane Language (Daemonic)",
-			"Speak Language (any one)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "DAEMONOLOGY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "NECROMANCY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HYPNOTISM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "DAEMONIC"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			}
 		],
 		"talents": [
 			"Coolheaded or Savvy",
@@ -4543,23 +7853,102 @@ export const ProfDefs: ProfDefsType = {
 			"SPY"
 		],
 		"skills": [
-			"Academic Knowledge (History or Law)",
-			"Command",
-			"Common Knowledge (any three)",
-			"Drive",
-			" Evaluate",
-			"Follow Trail",
-			"Navigation",
-			"Outdoor Survival",
-			"Perception",
-			"Read/Write",
-			"Ride",
-			"Scale Sheer Surface",
-			"Secret Language (Ranger Tongue)",
-			"Secret Signs (Scout)",
-			"Speak Language (any three)",
-			"Swim",
-			"Trade Cartographer)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "LAW"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "RANGER_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "SCOUT"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "CARTOGRAPHER"
+			}
 		],
 		"talents": [
 			"Orientation or Linguistics",
@@ -4627,19 +8016,82 @@ export const ProfDefs: ProfDefsType = {
 			"OUTLAW_CHIEF"
 		],
 		"skills": [
-			"Academic Knowledge (Strategy/Tactics)",
-			"Charm",
-			"Command",
-			"Common Knowledge (Bretonnia)",
-			"Concealment",
-			"Follow Trail",
-			"Gossip",
-			"Outdoor Survival",
-			"Perception",
-			"Scale Sheer Surface",
-			"Secret Language (Battle Tongue)",
-			"Secret Signs (Ranger or Scout)",
-			"Silent Move"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BRETONNIA"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "RANGER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "SCOUT"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Mighty Shot",
@@ -4701,15 +8153,62 @@ export const ProfDefs: ProfDefsType = {
 			"STEWARD"
 		],
 		"skills": [
-			"Animal Care",
-			"Charm Animal",
-			"Drive",
-			"Evaluate",
-			"Haggle",
-			"Intimidate or Charm",
-			"Ride",
-			"Set Trap",
-			"Trade (Farmer)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM_ANIMAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SET_TRAP"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "FARMER"
+			}
 		],
 		"talents": [
 			"Dealmaker",
@@ -4773,13 +8272,41 @@ export const ProfDefs: ProfDefsType = {
 			"RACKETEER"
 		],
 		"skills": [
-			"Evaluate",
-			"Gamble",
-			"Gossip",
-			"Haggle",
-			"Intimidate",
-			"Perception",
-			"Sleight of Hand"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GAMBLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			}
 		],
 		"talents": [
 			"Dealmaker or Streetwise",
@@ -4835,14 +8362,68 @@ export const ProfDefs: ProfDefsType = {
 			"SMUGGLER"
 		],
 		"skills": [
-			"Charm",
-			"Common Knowledge (the Empire)",
-			"Evaluate or Secret Language (Ranger)",
-			"Gossip or Intimidate",
-			"Haggle",
-			"Perception",
-			"Row",
-			"Swim"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "EVALUATE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretLanguage",
+						"key": "RANGER_TONGUE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ROW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Marksman or Suave",
@@ -4896,13 +8477,52 @@ export const ProfDefs: ProfDefsType = {
 			"VAMPIRE_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (Necromancy) or Common Knowledge (the Empire)",
-			"Concealment",
-			"Follow Trail",
-			"Outdoor Survival",
-			"Perception",
-			"Search",
-			"Silent Move"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "NECROMANCY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Fleet Footed or Savvy",
@@ -4960,15 +8580,95 @@ export const ProfDefs: ProfDefsType = {
 			"SEAMAN"
 		],
 		"skills": [
-			"Common Knowledge (the Empire or the Wasteland)",
-			"Consume Alcohol or Haggle",
-			"Navigation or Trade (Merchant)",
-			"Outdoor Survival",
-			"Perception",
-			"Row",
-			"Sail",
-			"Speak Language (Reikspiel or Norse)",
-			"Swim"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "THE_WASTELAND"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "NAVIGATION"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "MERCHANT"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ROW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SAIL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "REIKSPIEL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "NORSE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Hardy or Savvy",
@@ -5024,11 +8724,31 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Academic Knowledge (Theology)",
-			"Charm",
-			" Heal",
-			"Intimidate",
-			"Speak Language (Classical)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			}
 		],
 		"talents": [
 			"Fearless",
@@ -5087,14 +8807,84 @@ export const ProfDefs: ProfDefsType = {
 			"RACKETEER"
 		],
 		"skills": [
-			"Charm or Consume Alcohol",
-			"Command",
-			"Common Knowledge (Kislev or the Empire or the Wasteland)",
-			"Gamble or Gossip",
-			"Haggle",
-			"Perception",
-			"Performer (Singer)",
-			"Secret Language (Guild Tongue)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "THE_WASTELAND"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "SINGER"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "GUILD_TONGUE"
+			}
 		],
 		"talents": [
 			"Public Speaking",
@@ -5154,18 +8944,66 @@ export const ProfDefs: ProfDefsType = {
 			"SCHOLAR"
 		],
 		"skills": [
-			"Academic Knowledge (the Arts)",
-			"Charm",
-			"Common Knowledge (any two)",
-			"Evaluate",
-			"Haggle",
-			"Perception",
-			"Read/Write",
-			"Secret Signs (Thief)",
-			"Speak Language (any one)",
-			"Trade (Artist)",
-			"Trade (Calligrapher)",
-			"Trade (Smith)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THE_ARTS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "THIEF"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "ARTIST"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "CALLIGRAPHER"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "SMITH"
+			}
 		],
 		"talents": [
 			"Artistic",
@@ -5224,15 +9062,51 @@ export const ProfDefs: ProfDefsType = {
 			"SLAVER"
 		],
 		"skills": [
-			"Animal Care",
-			"Command",
-			"Common Knowledge (Norsca)",
-			"Drive",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Speak Language (any one)",
-			"Trade (any one)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "NORSCA"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "ANY_ONE"
+			}
 		],
 		"talents": [
 			"Dealmaker",
@@ -5297,15 +9171,72 @@ export const ProfDefs: ProfDefsType = {
 			"SCHOLAR"
 		],
 		"skills": [
-			"Academic Knowledge (Theology)",
-			"Animal Care",
-			"Common Knowledge (any two)",
-			"Heal",
-			"Outdoor Survival",
-			"Perception",
-			"Speak Language (Breton,  Estalian,  Kislevian,  or Tilean)",
-			"Speak Language (Classical)",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ESTALIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Seasoned Traveller"
@@ -5364,13 +9295,41 @@ export const ProfDefs: ProfDefsType = {
 			"VILLAGE_ELDER"
 		],
 		"skills": [
-			"Common Knowledge (any one)",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Search",
-			"Trade (Cook)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "COOK"
+			}
 		],
 		"talents": [
 			"Dealmaker",
@@ -5434,13 +9393,63 @@ export const ProfDefs: ProfDefsType = {
 			"ROGUE"
 		],
 		"skills": [
-			"Charm",
-			"Evaluate",
-			"Gamble",
-			"Gossip or Secret Language (Thieves’ Tongue)",
-			"Perception",
-			"Sleight of Hand",
-			"Read/Write or Secret Signs (Thief)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GAMBLE"
+			},
+			{
+				"type": "COMPOSITE",
+				"operator": "OR",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretLanguage",
+						"key": "THIEVES_TONGUE"
+					}
+				]
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "READ_WRITE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "THIEF"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Etiquette or Streetwise",
@@ -5493,19 +9502,71 @@ export const ProfDefs: ProfDefsType = {
 			"VAMPIRE_HUNTER"
 		],
 		"skills": [
-			"Concealment",
-			"Dodge Blow",
-			"Follow Trail",
-			"Intimidate",
-			"Lip Reading",
-			"Navigation",
-			"Outdoor Survival",
-			"Perception",
-			"Secret Language (Ranger Tongue)",
-			"Secret Signs (Ranger)",
-			"Set Trap",
-			"Shadowing",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "LIP_READING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "RANGER_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "RANGER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SET_TRAP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SHADOWING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Hardy or Fleet Footed",
@@ -5558,11 +9619,31 @@ export const ProfDefs: ProfDefsType = {
 			"DAEMON_SLAYER"
 		],
 		"skills": [
-			"Common Knowledge (any one)",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Intimidate",
-			"Perception"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			}
 		],
 		"talents": [
 			"Fearless",
@@ -5617,16 +9698,56 @@ export const ProfDefs: ProfDefsType = {
 			"POLITICIAN"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry)",
-			"Academic Knowledge (Religion)",
-			"Academic Knowledge (Strategy/Tactics)",
-			"Charm",
-			"Command",
-			"Common Knowledge (Bretonnia)",
-			"Dodge Blow",
-			"Perception",
-			"Ride",
-			"Secret Language (Battle Tongue)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "GENEALOGY_HERALDRY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "RELIGION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BRETONNIA"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			}
 		],
 		"talents": [
 			"Grail Virtue (the one that matches the character’s Virtue of Knighthood)",
@@ -5699,12 +9820,36 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Charm",
-			"Common Knowledge (Bretonnia)",
-			"Dodge Blow",
-			"Intimidate",
-			"Outdoor Survival",
-			"Perception"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BRETONNIA"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			}
 		],
 		"talents": [
 			"Etiquette",
@@ -5759,20 +9904,108 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry or Religion)",
-			"Academic Knowledge (Strategy/Tactics)",
-			"Animal Training",
-			"Charm",
-			"Command",
-			"Common Knowledge (any three)",
-			"Dodge Blow",
-			"Intimidate",
-			"Perception",
-			"Read/Write",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Secret Signs (Templar)",
-			"Speak Language (Breton,  Estalian,  Kislevian,  or Tilean)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "GENEALOGY_HERALDRY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "RELIGION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "TEMPLAR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ESTALIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Fearless",
@@ -5833,13 +10066,52 @@ export const ProfDefs: ProfDefsType = {
 			"THIEF"
 		],
 		"skills": [
-			"Drive",
-			"Gossip or Haggle",
-			"Perception",
-			"Scale Sheer Surface",
-			"Search",
-			"Secret Signs (Thief)",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "THIEF"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Flee!",
@@ -5898,14 +10170,46 @@ export const ProfDefs: ProfDefsType = {
 			"WATCHMAN"
 		],
 		"skills": [
-			"Academic Knowledge (Theology)",
-			"Common Knowledge (the Empire)",
-			"Dodge Blow",
-			"Drive",
-			"Evaluate",
-			"Perception",
-			"Outdoor Survival",
-			"Search"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			}
 		],
 		"talents": [
 			"Resistance to Disease",
@@ -5961,18 +10265,87 @@ export const ProfDefs: ProfDefsType = {
 			"RACKETEER"
 		],
 		"skills": [
-			"Academic Knowledge (History)",
-			"Charm",
-			"Command",
-			"Common Knowledge (the Empire)",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Secret Language (Guild Tongue)",
-			"Speak Language (Breton,  Estalian,  Kislevian,  or Norse)",
-			"Speak Language (Reikspiel)",
-			"Trade (any two)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "HISTORY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "GUILD_TONGUE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ESTALIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "NORSE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Dealmaker",
@@ -6021,18 +10394,147 @@ export const ProfDefs: ProfDefsType = {
 		],
 		"advanceTo": [],
 		"skills": [
-			"Academic Knowledge (Daemonology or Spirits,  History or Necromancy,  plus any one)",
-			"Animal Care",
-			"Charm Animal",
-			"Command",
-			"Common Knowledge (Kislev or Troll Country,  plus any one)",
-			"Heal or Prepare Poison",
-			"Intimidate",
-			"Magical Sense",
-			"Perception",
-			"Speak Arcane Language (Magick,  plus any one)",
-			"Speak Language (Ungol)",
-			"Trade (Apothecary or Herbalist)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "DAEMONOLOGY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "SPIRITS"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "NECROMANCY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM_ANIMAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TROLL_COUNTRY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HEAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PREPARE_POISON"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "MAGICK"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "ANY_ONE"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "UNGOL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "APOTHECARY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "HERBALIST"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Aethyric Attunement",
@@ -6045,8 +10547,7 @@ export const ProfDefs: ProfDefsType = {
 			"antitoxin kit",
 			"apothecary kit",
 			"at least three healing draughts and healing poultices",
-			"three or more potions (RoS",
-			"page 192)",
+			"three or more potions (RoS, page 192)",
 			"skin of koumiss",
 			"distinctive shawl",
 			"walking stick"
@@ -6093,16 +10594,105 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH"
 		],
 		"skills": [
-			"Academic Knowledge (History or Spirits)",
-			"Command",
-			"Common Knowledge (Kislev or Troll Country)",
-			"Consume Alcohol or Perception",
-			"Heal",
-			"Intimidate",
-			"Magical Sense",
-			"Prepare Poison or Trade (Apothecary or Herbalist)",
-			"Speak Arcane Language (Magick)",
-			"Speak Language (Ungol)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "SPIRITS"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TROLL_COUNTRY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PREPARE_POISON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "APOTHECARY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "HERBALIST"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "UNGOL"
+			}
 		],
 		"talents": [
 			"Fast Hands",
@@ -6162,14 +10752,90 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH"
 		],
 		"skills": [
-			"Animal Care or Haggle",
-			"Charm or Intimidate",
-			"Channelling",
-			"Charm Animal or Trade (Apothecary)",
-			"Heal or Hypnotism",
-			"Magical Sense",
-			"Perception",
-			"Search"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM_ANIMAL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "APOTHECARY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HEAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HYPNOTISM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			}
 		],
 		"talents": [
 			"Hedge Magic",
@@ -6227,16 +10893,144 @@ export const ProfDefs: ProfDefsType = {
 			"ZEALOT"
 		],
 		"skills": [
-			"Animal Care or Channelling",
-			"Charm Animal or Concealment",
-			"Consume Alcohol or Gossip",
-			"Haggle or Outdoor Survival",
-			"Heal",
-			"Magical Sense or Prepare Poisons",
-			"Perception",
-			"Read/Write or Speak Arcane Language (Magick)",
-			"Set Trap or Silent Move",
-			"Trade (Apothecary or Herbalist)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHANNELLING"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM_ANIMAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONCEALMENT"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "MAGICAL_SENSE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PREPARE_POISONS"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "READ_WRITE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "MAGICK"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SET_TRAP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SILENT_MOVE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "APOTHECARY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "HERBALIST"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Coolheaded or Fast Hands",
@@ -6291,19 +11085,181 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH"
 		],
 		"skills": [
-			"Animal Care or Channelling",
-			"Charm Animal or Concealment",
-			"Command",
-			"Evaluate or Navigation",
-			"Follow Trail or Consume Alcohol",
-			"Gossip or Intimidate",
-			"Haggle or Outdoor Survival",
-			"Heal",
-			"Magical Sense or Prepare Poison",
-			"Perception",
-			"Read/Write or Speak Arcane Language (Magick)",
-			"Set Trap or Silent Move",
-			"Trade (Apothecary or Herbalist)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHANNELLING"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM_ANIMAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONCEALMENT"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "EVALUATE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "NAVIGATION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "FOLLOW_TRAIL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "MAGICAL_SENSE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PREPARE_POISON"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "READ_WRITE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "MAGICK"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SET_TRAP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SILENT_MOVE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "APOTHECARY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "HERBALIST"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Dealmaker or Fast Hands",
@@ -6360,23 +11316,179 @@ export const ProfDefs: ProfDefsType = {
 			"WARLOCK"
 		],
 		"skills": [
-			"Academic Knowledge (any two)",
-			"Animal Care or Channelling",
-			"Charm Animal or Concealment",
-			"Command",
-			"Common Knowledge (the Empire)",
-			"Evaluate",
-			"Follow Trail or Consume Alcohol",
-			"Gossip",
-			"Haggle or Outdoor Survival",
-			"Heal",
-			"Intimidate",
-			"Magical Sense or Prepare Poison",
-			"Navigation",
-			"Perception",
-			"Read/Write or Speak Arcane Language (Magick)",
-			"Set Trap or Silent Move",
-			"Trade (Apothecary or Herbalist)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHANNELLING"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM_ANIMAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONCEALMENT"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "FOLLOW_TRAIL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "MAGICAL_SENSE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PREPARE_POISON"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "READ_WRITE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "MAGICK"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SET_TRAP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SILENT_MOVE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "APOTHECARY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "HERBALIST"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Aethyric Attunement or Savvy",
@@ -6436,20 +11548,108 @@ export const ProfDefs: ProfDefsType = {
 			"SQUIRE"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry)",
-			"Academic Knowledge (History)",
-			"Blather",
-			"Charm",
-			"Common Knowledge (Bretonnia,  Kislev or Tilea)",
-			"Common Knowledge (the Empire)",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Read/Write",
-			"Ride",
-			"Speak Language (Breton,  Kislevian or Tilean)",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "GENEALOGY_HERALDRY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "HISTORY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONIA"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Etiquette",
@@ -6518,14 +11718,68 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Animal Care or Charm",
-			"Concealment",
-			"Dodge Blow",
-			"Gossip or Secret Signs (Ranger)",
-			"Outdoor Survival",
-			"Perception",
-			"Scale Sheer Surface",
-			"Silent Move"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "RANGER"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Marksman or Specialist Weapon Group (Longbow)",
@@ -6533,8 +11787,7 @@ export const ProfDefs: ProfDefsType = {
 			"Seasoned Traveller"
 		],
 		"trappings": [
-			"Bow with 10 Arrows (Longbow if you have Specialist Weapon Group (Longbow)",
-			"otherwise a Bow)",
+			"Bow with 10 Arrows (Longbow if you have Specialist Weapon Group (Longbow), otherwise a Bow)",
 			"Light Armour (Leather Jerkin)",
 			"Shield"
 		],
@@ -6579,18 +11832,77 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (any three)",
-			"Academic Knowledge (Theology)",
-			"Channelling",
-			"Charm",
-			"Common Knowledge (any two)",
-			"Gossip",
-			"Heal",
-			"Intimidate",
-			"Magical Sense",
-			"Ride or Swim",
-			"Speak Arcane Language (Magick)",
-			"Speak Language (any three)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_THREE"
+			}
 		],
 		"talents": [
 			"Aethyric Attunement or Meditation",
@@ -6655,14 +11967,46 @@ export const ProfDefs: ProfDefsType = {
 			"SERGEANT"
 		],
 		"skills": [
-			"Animal Care",
-			"Animal Training",
-			"Charm",
-			"Common Knowledge (the Empire)",
-			"Evaluate",
-			"Gossip",
-			"Ride",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Ambidextrous",
@@ -6725,13 +12069,52 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Concealment",
-			"Follow Trail or Set Trap",
-			"Perception",
-			"Scale Sheer Surface",
-			"Secret Language (Ranger Tongue)",
-			"Secret Signs (Ranger)",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "FOLLOW_TRAIL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SET_TRAP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "RANGER_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "RANGER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Frenzy",
@@ -6791,15 +12174,84 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Academic Knowledge (Strategy/Tactics)",
-			"Command or Navigation",
-			"Common Knowledge (Kislev or Troll Country)",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Outdoor Survival",
-			"Perception",
-			"Ride",
-			"Speak Language (Kislevarin or Ungol)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "COMMAND"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "NAVIGATION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TROLL_COUNTRY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVITE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "UNGOL"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Coolheaded or Hardy",
@@ -6866,15 +12318,62 @@ export const ProfDefs: ProfDefsType = {
 			"ROGUE"
 		],
 		"skills": [
-			"Animal Care",
-			"Charm or Consume Alcohol",
-			"Charm Animal",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Ride",
-			"Speak Language (Kislevarin)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM_ANIMAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "KISLEVITE"
+			}
 		],
 		"talents": [
 			"Dealmaker or Flee!",
@@ -6945,14 +12444,57 @@ export const ProfDefs: ProfDefsType = {
 			"WINGED_LANCER"
 		],
 		"skills": [
-			"Animal Care",
-			"Animal Training",
-			"Charm",
-			"Charm Animal",
-			"Consume Alcohol or Dodge Blow",
-			"Drive",
-			"Perception",
-			"Ride"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM_ANIMAL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DODGE_BLOW"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			}
 		],
 		"talents": [
 			"Coolheaded or Hardy",
@@ -7019,13 +12561,63 @@ export const ProfDefs: ProfDefsType = {
 			"TARGETEER"
 		],
 		"skills": [
-			"Concealment",
-			"Follow Trail",
-			"Outdoor Survival",
-			"Perception",
-			"Search or Swim",
-			"Secret Signs (Ranger)",
-			"Silent Move or Set Trap"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SEARCH"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "RANGER"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SILENT_MOVE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SET_TRAP"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Hardy or Specialist Weapon Group (Longbow)",
@@ -7082,16 +12674,89 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH"
 		],
 		"skills": [
-			"Academic Knowledge (Magic)",
-			"Channelling",
-			"Command or Intimidate",
-			"Common Knowledge (Kislev)",
-			"Magical Sense",
-			"Navigation or Read/Write",
-			"Outdoor Survival or Ride",
-			"Perception",
-			"Speak Arcane Language (Magick)",
-			"Speak Language (Kislevarin)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "MAGIC"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "COMMAND"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "KISLEV"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "NAVIGATION"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "READ_WRITE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "KISLEVITE"
+			}
 		],
 		"talents": [
 			"Coolheaded",
@@ -7144,16 +12809,111 @@ export const ProfDefs: ProfDefsType = {
 			"CAPTAIN"
 		],
 		"skills": [
-			"Academic Knowledge (Magic,  plus any one)",
-			"Channelling",
-			"Command or Intimidate",
-			"Common Knowledge (Kislev,  plus any one)",
-			"Magical Sense",
-			"Outdoor Survival or Ride",
-			"Perception",
-			"Read/Write",
-			"Speak Arcane Language (Magick)",
-			"Speak Language (Kislevarin,  plus any two)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "MAGIC"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "ANY_ONE"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "COMMAND"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "ANY_ONE"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVITE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ANY_TWO"
+					}
+				],
+				"operator": "AND"
+			}
 		],
 		"talents": [
 			"Fast Hands",
@@ -7217,14 +12977,46 @@ export const ProfDefs: ProfDefsType = {
 			"ZEALOT"
 		],
 		"skills": [
-			"Academic Knowledge (Astronomy or History)",
-			"Academic Knowledge (Theology)",
-			"Charm",
-			"Heal",
-			"Perception",
-			"Read/Write",
-			"Speak Language (Classical)",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ASTRONOMY_OR_HISTORY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Lightning Reflexes or Very Strong",
@@ -7280,17 +13072,104 @@ export const ProfDefs: ProfDefsType = {
 			"SMUGGLER"
 		],
 		"skills": [
-			"Blather or Lip Reading",
-			"Charm",
-			"Common Knowledge (the Empire)",
-			"Consume Alcohol",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Read/Write or Sleight of Hand",
-			"Speak Language (Breton,  Kislevian,  Reikspiel or Tilean)",
-			"Trade (Cook)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "BLATHER"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "LIP_READING"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "READ_WRITE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SLEIGHT_OF_HAND"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "REIKSPIEL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "COOK"
+			}
 		],
 		"talents": [
 			"Etiquette or Streetwise",
@@ -7346,11 +13225,31 @@ export const ProfDefs: ProfDefsType = {
 			"THIEF"
 		],
 		"skills": [
-			"Charm",
-			"Heal",
-			"Intimidate",
-			"Perception",
-			"Torture"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "TORTURE"
+			}
 		],
 		"talents": [
 			"Menacing",
@@ -7406,13 +13305,52 @@ export const ProfDefs: ProfDefsType = {
 			"WATCHMAN"
 		],
 		"skills": [
-			"Command",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Heal or Sleight of Hand",
-			"Intimidate",
-			"Perception",
-			"Search"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HEAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SLEIGHT_OF_HAND"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			}
 		],
 		"talents": [
 			"Resistance to Disease",
@@ -7466,19 +13404,77 @@ export const ProfDefs: ProfDefsType = {
 			"SHIELDBREAKER"
 		],
 		"skills": [
-			"Academic Knowledge (History",
-			"Runes)",
-			"Common Knowledge (any two)",
-			"Dodge Blow",
-			"Evaluate",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Read/Write",
-			"Runecraft",
-			"Speak Arcane Language (Arcane Dwarf)",
-			"Speak Language (any two)",
-			"Trade (any two)  "
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "RUNES"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RUNECRAFT"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "ARCANE_DWARF"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Artistic or Hardy",
@@ -7528,17 +13524,83 @@ export const ProfDefs: ProfDefsType = {
 			"SCHOLAR"
 		],
 		"skills": [
-			"Academic Knowledge (Magic)",
-			"Academic Knowledge (any one)",
-			"Channelling",
-			"Charm or Intimidate",
-			"Common Knowledge (any two)",
-			"Gossip",
-			"Magical Sense",
-			"Read/Write",
-			"Ride or Swim",
-			"Speak Arcane Language (Magick)",
-			"Speak Language (any two)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "MAGIC"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Arcane Lore (any one) or Dark Lore (any one)",
@@ -7595,8 +13657,16 @@ export const ProfDefs: ProfDefsType = {
 			"ZEALOT"
 		],
 		"skills": [
-			"Dodge Blow",
-			"Perception"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			}
 		],
 		"talents": [
 			"Lightning Parry",
@@ -7654,14 +13724,46 @@ export const ProfDefs: ProfDefsType = {
 		],
 		"advanceTo": [],
 		"skills": [
-			"Academic Knowledge (Necromancy)",
-			"Concealment",
-			"Follow Trail",
-			"Intimidate",
-			"Outdoor Survival",
-			"Shadowing",
-			"Silent Move",
-			"Torture"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "NECROMANCY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SHADOWING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "TORTURE"
+			}
 		],
 		"talents": [
 			"Alley Cat or Rover",
@@ -7726,14 +13828,57 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Common Knowledge (Kislev)",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Gamble or Gossip",
-			"Outdoor Survival",
-			"Perception",
-			"Search",
-			"Speak Language (Kislevian)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "KISLEV"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "KISLEVITE"
+			}
 		],
 		"talents": [
 			"Specialist Weapon Group (Two-handed)",
@@ -7788,14 +13933,57 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Concealment",
-			"Dodge Blow",
-			"Follow Trail",
-			"Heal or Search",
-			"Outdoor Survival",
-			"Perception",
-			"Scale Sheer Surface",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HEAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SEARCH"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Marksman or Rover",
@@ -7846,14 +14034,46 @@ export const ProfDefs: ProfDefsType = {
 			"KNIGHT_OF_THE_REALM"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry)",
-			"Animal Care",
-			"Animal Training",
-			"Common Knowledge (any one)",
-			"Dodge Blow",
-			"Outdoor Survival",
-			"Ride",
-			"Speak Language (any one)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "GENEALOGY_HERALDRY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			}
 		],
 		"talents": [
 			"Etiquette",
@@ -7913,18 +14133,88 @@ export const ProfDefs: ProfDefsType = {
 			"KNIGHT_OF_THE_INNER_CIRCLE"
 		],
 		"skills": [
-			"Academic Knowledge (History)",
-			"Academic Knowledge (Strategy/Tactics)",
-			"Academic Knowledge (Theology)",
-			"Command",
-			"Common Knowledge (Estalia or Tilea)",
-			"Dodge Blow",
-			"Perception",
-			"Read/Write",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Secret Signs (Templar)",
-			"Speak Language (Estalian or Tilean)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "HISTORY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "ESTALIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "TEMPLAR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ESTALIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Disarm",
@@ -7987,19 +14277,114 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry or Religion)",
-			"Academic Knowledge (Strategy/Tactics)",
-			"Animal Training",
-			"Charm",
-			"Command",
-			"Common Knowledge (any three)",
-			"Dodge Blow",
-			"Perception",
-			"Read/Write",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Secret Signs (Scout or Templar)",
-			"Speak Language (Breton,  Estalian,  Kislevian,  or Tilean)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "GENEALOGY_HERALDRY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "RELIGION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "SCOUT"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "TEMPLAR"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ESTALIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Etiquette",
@@ -8063,16 +14448,88 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (History,  Necromancy,  Strategy/Tactics,  Theology)",
-			"Animal Training",
-			"Common Knowledge (any)",
-			"Dodge Blow",
-			"Follow Trail",
-			"Perception",
-			"Read/Write",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (Breton or Kislevian)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "NECROMANCY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "STRATEGY_TACTICS"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "THEOLOGY"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVITE"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Cool-headed or Sixth Sense",
@@ -8142,14 +14599,57 @@ export const ProfDefs: ProfDefsType = {
 			"QUESTING_KNIGHT"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry or Religion)",
-			"Academic Knowledge (Strategy/Tactics)",
-			"Command",
-			"Dodge Blow",
-			"Perception",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (any two)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "GENEALOGY_HERALDRY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "RELIGION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Specialist Weapon Group (Cavalry)",
@@ -8212,16 +14712,89 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Academic Knowledge (Strategy/Tactics)",
-			"Charm Animal",
-			"Command or Intimidate",
-			"Dodge Blow",
-			"Follow Trail",
-			"Outdoor Survival or Scale Sheer Surface",
-			"Perception",
-			"Ride",
-			"Search",
-			"Secret Language (Ranger Tongue) or Secret Signs (Ranger)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM_ANIMAL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "COMMAND"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SCALE_SHEER_SURFACE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretLanguage",
+						"key": "RANGER_TONGUE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "RANGER"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Fleet Footed or Keen Senses",
@@ -8282,16 +14855,56 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry)",
-			"Academic Knowledge (Strategy/Tactics)",
-			"Animal Training",
-			"Command",
-			"Common Knowledge (the Empire)",
-			"Dodge Blow",
-			"Perception",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (any two)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "GENEALOGY_HERALDRY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Coolheaded",
@@ -8360,13 +14973,52 @@ export const ProfDefs: ProfDefsType = {
 			"VAMPIRE_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry or Religion)",
-			"Academic Knowledge (Strategy/Tactics)",
-			"Dodge Blow",
-			"Perception",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (any two)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "GENEALOGY_HERALDRY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "RELIGION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Specialist Weapon Group (Cavalry)",
@@ -8432,13 +15084,52 @@ export const ProfDefs: ProfDefsType = {
 			"WATCHMAN"
 		],
 		"skills": [
-			"Common Knowledge (the Empire)",
-			"Consume Alcohol or Drive",
-			"Gossip",
-			"Haggle",
-			"Outdoor Survival",
-			"Perception",
-			"Scale Sheer Surface"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			}
 		],
 		"talents": [
 			"Excellent Vision or Savvy",
@@ -8496,19 +15187,82 @@ export const ProfDefs: ProfDefsType = {
 			"PRIEST"
 		],
 		"skills": [
-			"Academic Knowledge (any two)",
-			"Academic Knowledge (Theology)",
-			"Charm",
-			"Common Knowledge (any two)",
-			"Gossip",
-			"Haggle",
-			"Heal",
-			"Magical Sense",
-			"Perception",
-			"Read/Write",
-			"Ride or Swim",
-			"Speak Arcane Language (Magick)",
-			"Speak Language (any two)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Etiquette",
@@ -8569,15 +15323,84 @@ export const ProfDefs: ProfDefsType = {
 			"SCHOLAR"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry or History)",
-			"Academic Knowledge (Law)",
-			"Blather or Charm",
-			"Common Knowledge (the Empire)",
-			"Gossip or Haggle",
-			"Perception",
-			"Read/Write",
-			"Secret Language (Guild Tongue)",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "GENEALOGY_HERALDRY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "LAW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "BLATHER"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "GUILD_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Dealmaker or Etiquette",
@@ -8637,12 +15460,36 @@ export const ProfDefs: ProfDefsType = {
 			"YEOMAN"
 		],
 		"skills": [
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Gamble",
-			"Gossip",
-			"Intimidate",
-			"Perception"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GAMBLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			}
 		],
 		"talents": [
 			"Specialist Weapon Group (Two-handed)",
@@ -8700,13 +15547,52 @@ export const ProfDefs: ProfDefsType = {
 			"WARLEADER"
 		],
 		"skills": [
-			"Animal Care",
-			"Consume Alcohol",
-			"Follow Trail",
-			"Navigation",
-			"Perception",
-			"Ride or Sail",
-			"Search"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SAIL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			}
 		],
 		"talents": [
 			"Orientation",
@@ -8767,13 +15653,63 @@ export const ProfDefs: ProfDefsType = {
 			"THIEF"
 		],
 		"skills": [
-			"Common Knowledge (the Wasteland) or Gamble",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Gossip or Secret Language (Battle Tongue)",
-			"Intimidate",
-			"Row",
-			"Swim"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_WASTELAND"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretLanguage",
+						"key": "BATTLE_TONGUE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ROW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Disarm or Quick Draw",
@@ -8828,19 +15764,71 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Academic Knowledge (any three)",
-			"Command",
-			"Common Knowledge (any three)",
-			"Dodge Blow",
-			"Evaluate",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Read/Write",
-			"Runecraft",
-			"Speak Arcane Language (Arcane Dwarf)",
-			"Speak Language (any three)",
-			"Trade (any two)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RUNECRAFT"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "ARCANE_DWARF"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Disarm or Strike Mighty Blow",
@@ -8898,23 +15886,102 @@ export const ProfDefs: ProfDefsType = {
 			"TARGETEER"
 		],
 		"skills": [
-			"Charm",
-			"Concealment",
-			"Disguise",
-			"Dodge Blow",
-			"Evaluate",
-			"Gamble or Lip Reading",
-			"Gossip",
-			"Perception",
-			"Pick Lock",
-			"Read/Write",
-			"Scale Sheer Surface",
-			"Secret Language (Thieves’ Tongue)",
-			"Secret Signs (Thief)",
-			"Search",
-			"Silent Move",
-			"Sleight of Hand",
-			"Swim"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DISGUISE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "LIP_READING"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PICK_LOCK"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "THIEVES_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "THIEF"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Specialist Weapon Group (Crossbow)",
@@ -8975,20 +16042,109 @@ export const ProfDefs: ProfDefsType = {
 			"WIZARD_LORD"
 		],
 		"skills": [
-			"Academic Knowledge (Daemonology,  Magic,  Necromancy)",
-			"Channelling",
-			"Common Knowledge (the Empire and any one)",
-			"Gossip",
-			"Intimidate",
-			"Magical Sense",
-			"Perception",
-			"Read/Write",
-			"Ride",
-			"Search",
-			"Speak Arcane Language (Daemonic",
-			"Magick)",
-			"Speak Language (any two)",
-			"Torture"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "DAEMONOLOGY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "MAGIC"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "NECROMANCY"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "ANY_ONE"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "DAEMONIC"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "MAGICK"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "TORTURE"
+			}
 		],
 		"talents": [
 			"Fast Hands",
@@ -9046,17 +16202,94 @@ export const ProfDefs: ProfDefsType = {
 			"WIZARD_LORD"
 		],
 		"skills": [
-			"Academic Knowledge (Magic)",
-			"Academic Knowledge (any two)",
-			"Channelling",
-			"Charm or Intimidate",
-			"Common Knowledge (any two)",
-			"Gossip or Ride",
-			"Magical Sense",
-			"Read/Write",
-			"Speak Arcane Language (Magick)",
-			"Speak Arcane Language (Daemonic or Arcane Elf)",
-			"Speak Language (any three"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "MAGIC"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "DAEMONIC"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "ARCANE_ELF"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_THREE"
+			}
 		],
 		"talents": [
 			"Aethyric Attunement or Meditation",
@@ -9111,18 +16344,82 @@ export const ProfDefs: ProfDefsType = {
 			"SEA_CAPTAIN"
 		],
 		"skills": [
-			"Command",
-			"Common Knowledge (any two)",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Gamble",
-			"Gossip",
-			"Intimidate",
-			"Row",
-			"Sail",
-			"Speak Language (Breton,  Kislevian,  or Norse)",
-			"Swim",
-			"Trade (Shipwright)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GAMBLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ROW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SAIL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "NORSE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "SHIPWRIGHT"
+			}
 		],
 		"talents": [
 			"Resistance to Disease",
@@ -9178,14 +16475,46 @@ export const ProfDefs: ProfDefsType = {
 			"VILLAGE_ELDER"
 		],
 		"skills": [
-			"Animal Care",
-			"Charm",
-			"Common Knowledge (Bretonnia)",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Intimidate",
-			"Perception"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BRETONNIA"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			}
 		],
 		"talents": [
 			"Dealmaker",
@@ -9253,14 +16582,117 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Animal Care or Gamble",
-			"Common Knowledge (Bretonnia,  Kislev,  or Tilea)",
-			"Dodge Blow",
-			"Drive or Ride",
-			"Gossip or Haggle",
-			"Perception or Search",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (Tilean) or Swim"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONNIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SEARCH"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Disarm or Quick Draw",
@@ -9328,18 +16760,87 @@ export const ProfDefs: ProfDefsType = {
 			"SPY"
 		],
 		"skills": [
-			" Charm",
-			"Common Knowledge (any two)",
-			"Drive",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Read/Write",
-			"Ride",
-			"Secret Language (Guild Tongue)",
-			"Speak Language (Breton,  Estalian,  Kislevian,  or Norse)",
-			"Speak Language (Reikspiel)",
-			"Trade (Merchant)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "GUILD_TONGUE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ESTALIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "NORSE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "MERCHANT"
+			}
 		],
 		"talents": [
 			"Dealmaker or Streetwise",
@@ -9398,15 +16899,67 @@ export const ProfDefs: ProfDefsType = {
 			"SOLDIER"
 		],
 		"skills": [
-			"Animal Care",
-			"Common Knowledge (the Empire or the Wasteland) or Gossip",
-			"Navigation",
-			"Outdoor Survival",
-			"Secret Signs (Scout)",
-			"Perception",
-			"Ride",
-			"Speak Language (Reikspiel)",
-			"Swim"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "THE_WASTELAND"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "SCOUT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Orientation",
@@ -9471,14 +17024,68 @@ export const ProfDefs: ProfDefsType = {
 			"THIEF"
 		],
 		"skills": [
-			"Animal Care",
-			"Dodge Blow",
-			"Drive or Swim",
-			"Gamble or Gossip",
-			"Outdoor Survival",
-			"Perception",
-			"Search",
-			"Trade (any one)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "ANY_ONE"
+			}
 		],
 		"talents": [
 			"Specialist Weapon Group (Two-handed) or Rapid Reload",
@@ -9534,13 +17141,74 @@ export const ProfDefs: ProfDefsType = {
 			"SMUGGLER"
 		],
 		"skills": [
-			"Animal Care",
-			"Concealment or Drive",
-			"Evaluate or Outdoor Survival",
-			"Navigation",
-			"Perception",
-			"Scale Sheer Surface",
-			"Trade (Miner or Prospector)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONCEALMENT"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "EVALUATE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "MINER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "PROSPECTOR"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Orientation",
@@ -9598,14 +17266,62 @@ export const ProfDefs: ProfDefsType = {
 			"STUDENT"
 		],
 		"skills": [
-			"Charm",
-			"Common Knowledge (any two)",
-			"Gossip",
-			"Perception",
-			"Performer (Musician)",
-			"Performer (Singer)",
-			"Read/Write",
-			"Speak Language (Breton,  Eltharin or Tilean)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "MUSICIAN"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "SINGER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ELTHARIN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Etiquette",
@@ -9666,16 +17382,56 @@ export const ProfDefs: ProfDefsType = {
 			"ZEALOT"
 		],
 		"skills": [
-			"Academic Knowledge (any two)",
-			"Academic Knowledge (Theology)",
-			"Animal Care",
-			"Arcane Language (Magick)",
-			"Common Knowledge (any two)",
-			"Heal",
-			"Perception",
-			"Read/Write",
-			"Speak Language (any two)",
-			"and Speak Language (Classical)."
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			}
 		],
 		"talents": [
 			"Linguistics"
@@ -9734,15 +17490,51 @@ export const ProfDefs: ProfDefsType = {
 			"SCOUT"
 		],
 		"skills": [
-			"Animal Care",
-			"Common Knowledge (Border Princes)",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Navigate",
-			"Outdoor Survival",
-			"Perception",
-			"Speak Language (any one)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BORDER_PRINCES"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			}
 		],
 		"talents": [
 			"Orientation",
@@ -9796,13 +17588,41 @@ export const ProfDefs: ProfDefsType = {
 			"ROGUE"
 		],
 		"skills": [
-			"Academic Knowledge (Theology)",
-			"Blather",
-			"Charm",
-			"Command",
-			"Intimidation",
-			"Speak Language (any one)",
-			"Torture"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "TORTURE"
+			}
 		],
 		"talents": [
 			"Menacing",
@@ -9860,14 +17680,46 @@ export const ProfDefs: ProfDefsType = {
 			"SEA_CAPTAIN"
 		],
 		"skills": [
-			"Academic Knowledge (Astronomy)",
-			"Common Knowledge (any two)",
-			"Navigation",
-			"Perception",
-			"Read/Write",
-			"Speak Language (Classical)",
-			"Swim",
-			"Trade (Cartographer)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ASTRONOMY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "CARTOGRAPHER"
+			}
 		],
 		"talents": [
 			"Orientation"
@@ -9926,14 +17778,57 @@ export const ProfDefs: ProfDefsType = {
 			"ZEALOT"
 		],
 		"skills": [
-			"Blather or Sleight of Hand",
-			"Charm",
-			"Common Knowledge (the Empire)",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Performer (Storyteller)",
-			"Read/Write"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "BLATHER"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SLEIGHT_OF_HAND"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "STORYTELLER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			}
 		],
 		"talents": [
 			"Public Speaking",
@@ -9990,18 +17885,77 @@ export const ProfDefs: ProfDefsType = {
 			"SEA_CAPTAIN"
 		],
 		"skills": [
-			"Academic Knowledge (History or Strategy/Tactics)",
-			"Academic Knowledge (Genealogy/Heraldry)",
-			"Charm",
-			"Command",
-			"Common Knowledge (the mpire)",
-			"Evaluate",
-			"Gossip",
-			"Perception",
-			"Read/Write",
-			"Ride",
-			"Speak Language (Classical)",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "STRATEGY_TACTICS"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "GENEALOGY_HERALDRY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Master Orator",
@@ -10060,14 +18014,79 @@ export const ProfDefs: ProfDefsType = {
 			"STUDENT"
 		],
 		"skills": [
-			"Blather or Command",
-			"Common Knowledge (the Empire)",
-			"Consume Alcohol or Performer (Musician)",
-			"Charm",
-			"Gamble or Gossip",
-			"Read/Write",
-			"Ride",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "BLATHER"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "COMMAND"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Performer",
+						"key": "MUSICIAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Etiquette",
@@ -10124,12 +18143,36 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Common Knowledge (Norsca)",
-			"Consume Alcohol",
-			"Intimidate",
-			"Performer (Storyteller)",
-			"Speak Language (Norse)",
-			"Swim"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "NORSCA"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "STORYTELLER"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "NORSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Frenzy",
@@ -10191,18 +18234,77 @@ export const ProfDefs: ProfDefsType = {
 			"DEMAGOGUE"
 		],
 		"skills": [
-			"Academic Knowledge (Strategy/Tactics)",
-			"Command",
-			"Common Knowledge (the Empire)",
-			"Concealment",
-			"Follow Trail",
-			"Perception",
-			"Ride",
-			"Scale Sheer Surface",
-			"Secret Language (Battle Tongue)",
-			"Secret Language (Thieves’Tongue)",
-			"Secret Signs (Scout or Thief)",
-			"Silent Move"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "THIEVES_TONGUE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "SCOUT"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "THIEF"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Lightning Parry",
@@ -10276,15 +18378,95 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Animal Care or Common Knowledge (the Empire)",
-			"Concealment",
-			"Dodge Blows",
-			"Drive or Ride",
-			"Gossip or Secret Signs (Thief)",
-			"Perception",
-			"Scale Sheer Surface",
-			"Set Traps or Swim",
-			"Silent Move"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOWS"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "THIEF"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SET_TRAP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Rover or Streetwise",
@@ -10339,14 +18521,46 @@ export const ProfDefs: ProfDefsType = {
 			"MERCENARY"
 		],
 		"skills": [
-			"Animal Care",
-			"Follow Trail",
-			"Navigation",
-			"Outdoor Survival",
-			"Perception",
-			"Ride",
-			"Search",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Coolheaded or Very Strong",
@@ -10415,17 +18629,99 @@ export const ProfDefs: ProfDefsType = {
 			"SCHOLAR"
 		],
 		"skills": [
-			"Academic Knowledge (any one)",
-			"Blather",
-			"Common Knowledge (Bretonnia,  Kislev or Tilea)",
-			"Common Knowledge (the Empire)",
-			"Concealment",
-			"Gossip",
-			"Perception",
-			"Performer (Storyteller) or Trade (Artist)",
-			"Read/Write",
-			"Speak Language (any one)",
-			"Trade (Calligrapher or Merchant)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONIA"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Performer",
+						"key": "STORYTELLER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "ARTIST"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "CALLIGRAPHER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "MERCHANT"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Artistic or Public Speaking",
@@ -10480,15 +18776,144 @@ export const ProfDefs: ProfDefsType = {
 			"ZEALOT"
 		],
 		"skills": [
-			"Animal Care or Charm",
-			"Animal Training or Swim",
-			"Charm Animal or Trade (Cook)",
-			"Concelament",
-			"Drive or Trade (Bowyer)",
-			"Gamble or Performer (Dancer or Singer)",
-			"Outdoor Survival or Trade (Farmer)",
-			"Row or Set Trap",
-			"Scale Sheer Surface or Silent Move"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_TRAINING"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM_ANIMAL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "COOK"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "BOWYER"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Performer",
+						"key": "DANCER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Performer",
+						"key": "SINGER"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "FARMER"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ROW"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SET_TRAP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SCALE_SHEER_SURFACE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SILENT_MOVE"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Hardy or Rover",
@@ -10545,12 +18970,36 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Academic Knowledge (Theology)",
-			"Blather",
-			"Gossip",
-			"Heal",
-			"Intimidate",
-			"Torture"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "TORTURE"
+			}
 		],
 		"talents": [
 			"Hardy",
@@ -10607,14 +19056,46 @@ export const ProfDefs: ProfDefsType = {
 			"SPY"
 		],
 		"skills": [
-			"Academic Knowledge (Science)",
-			"Heal",
-			"Gossip",
-			"Perception",
-			"Prepare Poison",
-			"Read/Write",
-			"Speak Language (Classical)",
-			"Trade (Apothecary)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "SCIENCE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PREPARE_POISON"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "APOTHECARY"
+			}
 		],
 		"talents": [
 			"Resistance to Disease",
@@ -10667,15 +19148,73 @@ export const ProfDefs: ProfDefsType = {
 			"ZEALOT"
 		],
 		"skills": [
-			"Academic Knowledge (Theology) or Consume Alcohol",
-			"Animal Care",
-			"Common Knowledge (any one – as dictated by the route of the pilgrimage)",
-			"Haggle",
-			"Gossip or Navigation",
-			"Outdoor Survival",
-			"Perception",
-			"Performer (Storyteller)",
-			"Speak Language (any one – as dictated by the route of the pilgrimage)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "THEOLOGY"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "NAVIGATION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "STORYTELLER"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			}
 		],
 		"talents": [
 			"Seasoned Traveller",
@@ -10728,12 +19267,47 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Animal Care",
-			"Dodge Blow",
-			"Evaluate or Gossip",
-			"Perception",
-			"Ride",
-			"Secret Signs (Scout)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "EVALUATE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "SCOUT"
+			}
 		],
 		"talents": [
 			"Master Gunner",
@@ -10795,8 +19369,16 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Dodge Blow",
-			"Intimidate"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			}
 		],
 		"talents": [
 			"Disarm or Wrestling",
@@ -10873,19 +19455,82 @@ export const ProfDefs: ProfDefsType = {
 			"STEWARD"
 		],
 		"skills": [
-			"Academic Knowledge (History or Genealogy/Heraldry)",
-			"Academic Knowledge (Law)",
-			"Blather",
-			"Charm",
-			"Command",
-			"Common Knowledge (the Empire)",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Performer (Actor)",
-			"Read/Write",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "GENEALOGY_HERALDRY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "LAW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "ACTOR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Dealmaker or Schemer",
@@ -10942,20 +19587,87 @@ export const ProfDefs: ProfDefsType = {
 			"PRIEST"
 		],
 		"skills": [
-			"Academic Knowledge (any two)",
-			"Academic Knowledge (Theology)",
-			"Blather",
-			"Charm",
-			"Common Knowledge (any two)",
-			"Gossip",
-			"Heal",
-			"Intimidate",
-			"Perception",
-			"Performer (Storyteller)",
-			"Ride or Swim",
-			"Secret Language (Guilder)",
-			"Speak Arcane Language (Magick)",
-			"Speak Language (any two)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "STORYTELLER"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "GUILD_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Master Orator",
@@ -11019,19 +19731,82 @@ export const ProfDefs: ProfDefsType = {
 			"STEWARD"
 		],
 		"skills": [
-			"Academic Knowledge (any one)",
-			"Academic Knowledge (Theology)",
-			"Channelling",
-			"Charm",
-			"Common Knowledge (any two)",
-			"Gossip",
-			"Heal",
-			"Magical Sense",
-			"Perception",
-			"Read/Write",
-			"Ride or Swim",
-			"Speak Arcane Language (Magick)",
-			"Speak Language (any two)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Armoured Caster or Master Orator",
@@ -11091,10 +19866,37 @@ export const ProfDefs: ProfDefsType = {
 			"THUG"
 		],
 		"skills": [
-			"Dodge Blow",
-			"Gossip or Haggle",
-			"Intimidate",
-			"Ride"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			}
 		],
 		"talents": [
 			"Disarm or Quick Draw",
@@ -11154,18 +19956,66 @@ export const ProfDefs: ProfDefsType = {
 			"POLITICIAN"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry)",
-			"Academic Knowledge (Religion)",
-			"Academic Knowledge (Strategy/Tactics)",
-			"Charm",
-			"Command",
-			"Common Knowledge (any two)",
-			"Dodge Blow",
-			"Outdoor Survival",
-			"Perception",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (any two)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "GENEALOGY_HERALDRY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "RELIGION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Luck,  Seasoned Traveller,  Specialist Weapon Group (Two-handed),  Strike Mighty Blow,  Strike to Injure,  Sturdy,  Very Resilient,  Very Strong,  Virtue of the Quest,  Warrior Born"
@@ -11229,15 +20079,51 @@ export const ProfDefs: ProfDefsType = {
 			"OUTLAW_CHIEF"
 		],
 		"skills": [
-			"Command",
-			"Common Knowledge (the Empire)",
-			"Dodge Blow",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Intimidate",
-			"Perception",
-			"Shadowing"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SHADOWING"
+			}
 		],
 		"talents": [
 			"Menacing",
@@ -11304,14 +20190,46 @@ export const ProfDefs: ProfDefsType = {
 			"ROGUE"
 		],
 		"skills": [
-			"Blather",
-			"Charm",
-			"Common Knowledge (any one)",
-			"Gossip",
-			"Performer (Comedian)",
-			"Performer (Storytelling)",
-			"Read/Write",
-			"Speak Language (any one)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "COMEDIAN"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "STORYTELLER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			}
 		],
 		"talents": [
 			"Etiquette or Hardy",
@@ -11368,18 +20286,66 @@ export const ProfDefs: ProfDefsType = {
 			"SPY"
 		],
 		"skills": [
-			"Charm",
-			"Common Knowledge (any two)",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Evaluate",
-			"Gamble",
-			"Gossip",
-			"Lip Reading",
-			"Perception",
-			"Search",
-			"Sleight of Hand",
-			"Swim"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GAMBLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "LIP_READING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Ambidextrous or Fleet Footed",
@@ -11441,13 +20407,41 @@ export const ProfDefs: ProfDefsType = {
 			"THIEF"
 		],
 		"skills": [
-			"Animal Care",
-			"Animal Trainier",
-			"Concealment",
-			"Perception",
-			"Search",
-			"Set Trap",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SET_TRAP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Resistance to Disease",
@@ -11511,15 +20505,103 @@ export const ProfDefs: ProfDefsType = {
 			"WARLEADER"
 		],
 		"skills": [
-			"Common Knowledge (Bretonnia,  the Empire,  Lustria,  Norsca,  Southlands,  Tilea",
-			"or the Wasteland)",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Row",
-			"Sail",
-			"Scale Sheer Surface",
-			"Speak Language (Breton,  Estalian,  Reikspiel,  or Tilean)",
-			"Swim"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "LUSTRIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "NORSCA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "SOUTHLANDS"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_WASTELAND"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ROW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ESTALIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "REIKSPIEL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Hardy or Street Fighting",
@@ -11582,14 +20664,79 @@ export const ProfDefs: ProfDefsType = {
 			"WRECKER"
 		],
 		"skills": [
-			"Common Knowledge (The Empire or Kislev)",
-			"Gossip or Speak Language (Kislevite)",
-			"Navigation",
-			"Outdoor Survival or Sail",
-			"Perception",
-			"Row",
-			"Search",
-			"Secret Signs (Scout)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVITE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SAIL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ROW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "SCOUT"
+			}
 		],
 		"talents": [
 			"Orientation or Very Strong",
@@ -11652,15 +20799,73 @@ export const ProfDefs: ProfDefsType = {
 			"TOLL_KEEPER"
 		],
 		"skills": [
-			"Animal Care",
-			"Common Knowledge (the Empire) or Gossip",
-			"Drive",
-			"Follow Trail or Secret Signs (Scout)",
-			"Navigation",
-			"Outdoor Survival",
-			"Perception",
-			"Ride",
-			"Search"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "FOLLOW_TRAIL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "SCOUT"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			}
 		],
 		"talents": [
 			"Quick Draw or Rapid Reload",
@@ -11726,15 +20931,95 @@ export const ProfDefs: ProfDefsType = {
 			"THIEF"
 		],
 		"skills": [
-			"Blather",
-			"Charm",
-			"Evaluate",
-			"Gamble or Secret Signs (Thief)",
-			"Gossip or Haggle",
-			"Perception",
-			"Performer (Actor or Storyteller)",
-			"Search or Secret Language (Thieves' Tongue)",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "THIEF"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Performer",
+						"key": "ACTOR"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Performer",
+						"key": "STORYTELLER"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"operator": "OR",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SEARCH"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretLanguage",
+						"key": "THIEVES_TONGUE"
+					}
+				]
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Flee! or Streetwise",
@@ -11790,12 +21075,36 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Dodge Blow",
-			"Navigator",
-			"Outdoor Survival",
-			"Secret Signs (Scout)",
-			"Perception",
-			"Swim"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATOR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "SCOUT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Flee!",
@@ -11850,20 +21159,76 @@ export const ProfDefs: ProfDefsType = {
 			"GUILD_MASTER"
 		],
 		"skills": [
-			"Academic Knowledge (any four)",
-			"Charm",
-			"Command",
-			"Common Knowledge (any three)",
-			"Dodge Blow",
-			"Evaluate",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Read/Write",
-			"Runecraft",
-			"Speak Arcane Language (Arcane Dwarf)",
-			"Speak Language (any three)",
-			"Trade (any two)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_FOUR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RUNECRAFT"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "ARCANE_DWARF"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Master Rune (any two)",
@@ -11932,13 +21297,52 @@ export const ProfDefs: ProfDefsType = {
 			"STEWARD"
 		],
 		"skills": [
-			"Academic Knowledge (any three)",
-			"Common Knowledge (any three)",
-			"Evaluate or Trade (Cartographer)",
-			"Perception",
-			"Read/Write",
-			"Speak Language (any three)",
-			"Speak Language (Classical)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "EVALUATE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "CARTOGRAPHER"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			}
 		],
 		"talents": [
 			"Linguistics "
@@ -11988,10 +21392,26 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (Theology)",
-			"Charm",
-			"Heal",
-			"Intimidate"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			}
 		],
 		"talents": [
 			"Luck",
@@ -12064,18 +21484,66 @@ export const ProfDefs: ProfDefsType = {
 			"GHOST_STRIDER"
 		],
 		"skills": [
-			"Animal Care",
-			"Common Knowledge (any two)",
-			"Concealment",
-			"Dodge Blow",
-			"Follow Trail",
-			"Navigation",
-			"Perception",
-			"Ride",
-			"Secret Language (Ranger Tongue)",
-			"Secret Signs (Scout)",
-			"Silent Move",
-			"Speak Language (any two)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "RANGER_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "SCOUT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_TWO"
+			}
 		],
 		"talents": [
 			"Charm Animal",
@@ -12136,15 +21604,73 @@ export const ProfDefs: ProfDefsType = {
 			"SCHOLAR"
 		],
 		"skills": [
-			"Academic Knowledge (any one)",
-			"Common Knowledge (the Empire) or Gossip",
-			"Perception",
-			"Read(Write",
-			"Secret Language (Guild Tongue)",
-			"Speak Language (Breton)",
-			"Speak Language (Classical)",
-			"Speak Language (Reikspiel or Tilean)",
-			"Trade (Calligrapher)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "GUILD_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "BRETON"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "REIKSPIEL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "CALLIGRAPHER"
+			}
 		],
 		"talents": [
 			"Linguistics"
@@ -12202,16 +21728,67 @@ export const ProfDefs: ProfDefsType = {
 			"SPY"
 		],
 		"skills": [
-			"Academic Knowledge (Strategy/Tactics)",
-			"Animal Training",
-			"Command",
-			"Common Knowledge (any three)",
-			"Dodge Blow",
-			"Perception",
-			"Sail",
-			"Speak Language (any three)",
-			"Swim",
-			"Trade (Cartographer or Shipwright)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SAIL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "CARTOGRAPHER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "SHIPWRIGHT"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Disarm",
@@ -12274,14 +21851,94 @@ export const ProfDefs: ProfDefsType = {
 			"SMUGGLER"
 		],
 		"skills": [
-			"Common Knowledge (Bretonnia,  Norsca,  Tilea or the Wasteland)",
-			"Consume Alcohol or Perception",
-			"Dodge Blow",
-			"Row",
-			"Sail",
-			"Scale Sheer Surface",
-			"Speak Language (Breton,  Norse or Tilean)",
-			"Swim"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_WASTELAND"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "NORSCA"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ROW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "NORSE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Hardy or Street Fighting",
@@ -12334,10 +21991,75 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH"
 		],
 		"skills": [
-			"Blather or Speak Arcane Language (Daemonic or Magick)",
-			"Channelling or Performer (Palm Reader)",
-			"Charm Animal or Public Speaking",
-			"Magical Sense or Perception"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "BLATHER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "DAEMONIC"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "MAGICK"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHANNELLING"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Performer",
+						"key": "PALM_READER"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM_ANIMAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PUBLIC_SPEAKING"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "MAGICAL_SENSE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Hedge Magic or Keen Senses",
@@ -12407,16 +22129,67 @@ export const ProfDefs: ProfDefsType = {
 			"KNIGHT"
 		],
 		"skills": [
-			"Academic Knowledge (Strategy/Tactics)",
-			"Command",
-			"Common Knowledge (any two)",
-			"Dodge Blow",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Ride or Swim",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (Tilean)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "TILEAN"
+			}
 		],
 		"talents": [
 			"Menacing or Seasoned Traveller",
@@ -12476,14 +22249,90 @@ export const ProfDefs: ProfDefsType = {
 			"VALET"
 		],
 		"skills": [
-			"Animal Care or Trade (Cook)",
-			"Blather",
-			"Dodge Blow",
-			"Drive or Search",
-			"Evaluate or Haggle",
-			"Gossip",
-			"Perception",
-			"Read/Write or Sleight of Hand"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "COOK"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SEARCH"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "EVALUATE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "READ_WRITE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SLEIGHT_OF_HAND"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Acute Hearing or Flee!",
@@ -12547,13 +22396,63 @@ export const ProfDefs: ProfDefsType = {
 			"WATCHMAN"
 		],
 		"skills": [
-			"Concealment",
-			"Dodge Blow",
-			"Follow Trail or Secret Signs (Scout)",
-			"Perception",
-			"Scale Sheer Surface",
-			"Search or Swim",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "FOLLOW_TRAIL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "SCOUT"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SEARCH"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Quick Draw or Resistance to Disease",
@@ -12615,11 +22514,31 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Dodge Blow",
-			"Navigation",
-			"Perception",
-			"Scale Sheer Surface",
-			"Shadowing"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SHADOWING"
+			}
 		],
 		"talents": [
 			"Acute Hearing or Coolheaded",
@@ -12683,16 +22602,67 @@ export const ProfDefs: ProfDefsType = {
 			"SEER"
 		],
 		"skills": [
-			"Academic Knowledge (History)",
-			"Blather",
-			"Charm",
-			"Common Knowledge (Norsca)",
-			"Common Knowledge (Chaos Wastes)",
-			"Gossip",
-			"Perception",
-			"Performer (any two)",
-			"Speak Language (Norse)",
-			"Speak Language (any two) or Ventriloquism"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "HISTORY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "NORSCA"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "CHAOS_WASTES"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "NORSE"
+			},
+			{
+				"type": "COMPOSITE",
+				"operator": "OR",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "VENTRILOQUISM"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ANY_TWO"
+					}
+				]
+			}
 		],
 		"talents": [
 			"Mimic",
@@ -12742,12 +22712,36 @@ export const ProfDefs: ProfDefsType = {
 		"advanceFrom": [],
 		"advanceTo": [],
 		"skills": [
-			"Blather",
-			"Common Knowledge (Skaven)",
-			"Concealment",
-			"Perception",
-			"Search",
-			"Speak Language (Queekish)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "SKAVEN"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "QUEEKISH"
+			}
 		],
 		"talents": [
 			"Acute Hearing or Excellent Vision",
@@ -12800,15 +22794,67 @@ export const ProfDefs: ProfDefsType = {
 			"SEAMAN"
 		],
 		"skills": [
-			"Common Knowledge (Bretonnia,  the Empire,  or Tilea)",
-			"Drive",
-			"Evaluate",
-			"Follow Trail",
-			"Haggle",
-			"Intimidate",
-			"Ride",
-			"Speak Language (any three)",
-			"Torture"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "TORTURE"
+			}
 		],
 		"talents": [
 			"Dealmaker",
@@ -12881,16 +22927,83 @@ export const ProfDefs: ProfDefsType = {
 			"THIEF"
 		],
 		"skills": [
-			"Drive",
-			"Evaluate",
-			"Gossip or Secret Language (Thieves' Tongue)",
-			"Haggle",
-			"Perception",
-			"Row",
-			"Search",
-			"Silent Move",
-			"Speak Language (Breton or Kislevian) or Secret Signs (Thief)",
-			"Swim"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "COMPOSITE",
+				"operator": "OR",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretLanguage",
+						"key": "THIEVES_TONGUE"
+					}
+				]
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ROW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVITE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "THIEF"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Dealmaker or Streetwise"
@@ -12948,12 +23061,80 @@ export const ProfDefs: ProfDefsType = {
 			"WATCHMAN"
 		],
 		"skills": [
-			"Animal Care or Heal",
-			"Common Knowledge (the Empire) or Perception",
-			"Dodge Blow",
-			"Drive or Ride",
-			"Gamble or Gossip",
-			"Intimidate"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HEAL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			}
 		],
 		"talents": [
 			"Disarm or Quick Draw",
@@ -13019,19 +23200,71 @@ export const ProfDefs: ProfDefsType = {
 			"RACKETEER"
 		],
 		"skills": [
-			"Charm",
-			"Common Knowledge (any two)",
-			"Concealment",
-			"Disguise",
-			"Gossip",
-			"Lip Reading",
-			"Performer (Actor)",
-			"Pick Lock",
-			"Shadowing",
-			"Sleight of Hand",
-			"Secret Language (any one)",
-			"Silent Move",
-			"Speak Language (any three)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DISGUISE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "LIP_READING"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "ACTOR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PICK_LOCK"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SHADOWING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_THREE"
+			}
 		],
 		"talents": [
 			"Flee!",
@@ -13088,13 +23321,74 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry) or Common Knowledge (Bretonnia)",
-			"Animal Care",
-			"Animal Training",
-			"Charm or Gossip",
-			"Dodge Blow",
-			"Ride",
-			"Speak Language (Breton or Reikspiel)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "GENEALOGY_HERALDRY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONNIA"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_TRAINING"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "REIKSPIEL"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Etiquette",
@@ -13149,16 +23443,122 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Animal Care",
-			"Animal Training or Trade (Cook)",
-			"Charm Animal or Consume Alcohol",
-			"Common Knowledge (Troll Country)",
-			"Concealment or Heal",
-			"Follow Trail or Trade (Bowyer)",
-			"Navigation or Secret Signs (Scout)",
-			"Outdoor Survival",
-			"Perception or Performer (Dancer)",
-			"Ride"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_TRAINING"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "COOK"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM_ANIMAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "TROLL_COUNTRY"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONCEALMENT"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HEAL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "FOLLOW_TRAIL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "BOWYER"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "NAVIGATION"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "SCOUT"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Performer",
+						"key": "DANCER"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			}
 		],
 		"talents": [
 			"Hardy or Rover"
@@ -13218,13 +23618,74 @@ export const ProfDefs: ProfDefsType = {
 			"TRADESMAN"
 		],
 		"skills": [
-			"Consume Alcohol or Gamble",
-			"Dodge Blow or Scale Sheer Surface",
-			"Gossip",
-			"Perception or Search",
-			"Performer (Singer)",
-			"Secret Language (Guild Tongue)",
-			"Swim"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DODGE_BLOW"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SCALE_SHEER_SURFACE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SEARCH"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "SINGER"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "GUILD_TONGUE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Lightning Reflexes or Sturdy",
@@ -13283,20 +23744,76 @@ export const ProfDefs: ProfDefsType = {
 			"NOBLE"
 		],
 		"skills": [
-			"Academic Knowledge (Law)",
-			"Charm",
-			"Command",
-			"Common Knowledge (the Empire)",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Intimidate",
-			"Perception",
-			"Read/Write",
-			"Ride",
-			"Search",
-			"Speak Language (Reikspiel)",
-			"Trade (Merchant)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "LAW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "MERCHANT"
+			}
 		],
 		"talents": [
 			"Public Speaking",
@@ -13351,11 +23868,53 @@ export const ProfDefs: ProfDefsType = {
 			"WINGED_LANCER"
 		],
 		"skills": [
-			"Common Knowledge (Kislev) or Perception",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Gamble or Gossip",
-			"Speak Language (Kislevarin)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "KISLEVITE"
+			}
 		],
 		"talents": [
 			"Marksman or Sharpshooter",
@@ -13414,17 +23973,94 @@ export const ProfDefs: ProfDefsType = {
 			"THIEF"
 		],
 		"skills": [
-			"Academic Knowledge (Necromancy)",
-			"Charm",
-			"Drive or Ride",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Hypnotism or Trade (Apothecary)",
-			"Performer (any)",
-			"Secret Signs (Astrologer or Ranger)",
-			"Sleight of Hand",
-			"Speak Language (Strigany)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "NECROMANCY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DRIVE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HYPNOTISM"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "APOTHECARY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "ANY"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "ASTROLOGER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "RANGER"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "STRIGANY"
+			}
 		],
 		"talents": [
 			"Sixth Sense",
@@ -13486,14 +24122,79 @@ export const ProfDefs: ProfDefsType = {
 			"SCHOLAR"
 		],
 		"skills": [
-			"Academic Knowledge (any one)",
-			"Academic Knowledge (any one) or Gossip",
-			"Charm or Consume Alcohol",
-			"Heal or Search",
-			"Perception",
-			"Read/Write",
-			"Speak Language (Classical)",
-			"Speak Language (Reikspiel)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "ANY_ONE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HEAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SEARCH"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			}
 		],
 		"talents": [
 			"Etiquette or Linguistic",
@@ -13547,14 +24248,46 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Concealment",
-			"Follow Trail",
-			"Outdoor Survival",
-			"Navigation",
-			"Perception",
-			"Search",
-			"Silent Move",
-			"Swim"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Resistance to Disease",
@@ -13615,12 +24348,36 @@ export const ProfDefs: ProfDefsType = {
 			"YEOMAN"
 		],
 		"skills": [
-			"Concealment",
-			"Outdoor Survival",
-			"Perception",
-			"Search",
-			"Set Trap",
-			"Swim"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SET_TRAP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Hardy",
@@ -13683,12 +24440,36 @@ export const ProfDefs: ProfDefsType = {
 			"SERGEANT"
 		],
 		"skills": [
-			"Common Knowledge (the Empire)",
-			"Gossip",
-			"Outdoor Survival",
-			"Perception",
-			"Search",
-			"Sleight of Hand"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			}
 		],
 		"talents": [
 			"Mighty Shot",
@@ -13749,12 +24530,36 @@ export const ProfDefs: ProfDefsType = {
 			"WATCHMAN"
 		],
 		"skills": [
-			"Common Knowledge (any one)",
-			"Dodge Blow",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Search"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			}
 		],
 		"talents": [
 			"Cool Headed or Stout Hearted",
@@ -13829,15 +24634,106 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Charm or Scale Sheer Surface",
-			"Concealment",
-			"Evaluate or Disguise",
-			"Gamble or Pick Lock",
-			"Perception",
-			"Read/Write or Sleight of Hand",
-			"Search",
-			"Secret Language (Thieves' Tongue) or Secret Signs (Thief)",
-			"Silent Move"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SCALE_SHEER_SURFACE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "EVALUATE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DISGUISE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PICK_LOCK"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "READ_WRITE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SLEIGHT_OF_HAND"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "COMPOSITE",
+				"operator": "OR",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "THIEF"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretLanguage",
+						"key": "THIEVES_TONGUE"
+					}
+				]
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Alley Cat or Streetwise",
@@ -13895,11 +24791,31 @@ export const ProfDefs: ProfDefsType = {
 			"RACKETEER"
 		],
 		"skills": [
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Gamble",
-			"Intimidate",
-			"Secret Language (Thieves' Tongue)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GAMBLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "THIEVES_TONGUE"
+			}
 		],
 		"talents": [
 			"Coolheaded or Lightning Reflexes",
@@ -13959,13 +24875,68 @@ export const ProfDefs: ProfDefsType = {
 			"THIEF"
 		],
 		"skills": [
-			"Dodge Blow",
-			"Evaluate",
-			"Gossip or Haggle",
-			"Perception",
-			"Read/Write",
-			"Search",
-			"Speak Language (Breton,  Kislevian or Tilean)"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVIAN"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TILEAN"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Lightning Reflexes or Marksman"
@@ -14022,15 +24993,100 @@ export const ProfDefs: ProfDefsType = {
 			"VAMPIRE_HUNTER"
 		],
 		"skills": [
-			"Common Knowledge (the Empire) or Secret Signs (Thief)",
-			"Concealment or Outdoor Survival",
-			"Evaluate",
-			"Perception",
-			"Pick Lock or Silent Move",
-			"Read/Write",
-			"Scale Sheer Surface",
-			"Search",
-			"Speak Language (Classical or Khazalid or Eltharin)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "THIEF"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONCEALMENT"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PICK_LOCK"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SILENT_MOVE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "CLASSICAL"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KHAZALID"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "ELTHARIN"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Luck or Sixth Sense",
@@ -14079,15 +25135,62 @@ export const ProfDefs: ProfDefsType = {
 		"advanceFrom": [],
 		"advanceTo": [],
 		"skills": [
-			"Animal Care or Gossip",
-			"Drive",
-			"Haggle",
-			"Evaluate",
-			"Perception",
-			"Read/Write",
-			"Secret Language (Guild Tongue)",
-			"Trade (any)",
-			"Trade (any)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DRIVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "GUILD_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "ANY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "ANY"
+			}
 		],
 		"talents": [
 			"Dealmaker or Savvy"
@@ -14134,9 +25237,21 @@ export const ProfDefs: ProfDefsType = {
 			"GIANT_SLAYER"
 		],
 		"skills": [
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Intimidate"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			}
 		],
 		"talents": [
 			"Disarm or Quick Draw",
@@ -14208,19 +25323,149 @@ export const ProfDefs: ProfDefsType = {
 			"WOODSMAN"
 		],
 		"skills": [
-			"Common Knowledge (Bretonnia",
-			"Estalia",
-			"Kislev",
-			"or Tilea)",
-			"Gossip or Secret Language (Ranger Tongue or Thieves’ Tongue)",
-			"Haggle or Swim",
-			"Heal or Perception",
-			"Navigation",
-			"Outdoor Survival",
-			"Performer (Dancer",
-			"Singer",
-			"or Storyteller) or Secret Signs (Ranger or Thief)",
-			"Silent Move"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "BRETONIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "ESTALIA"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "TILEA"
+					}
+				],
+				"operator": "AND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "COMPOSITE",
+						"list": [
+							{
+								"type": "VARIABLE",
+								"targetEnum": "SecretLanguage",
+								"key": "RANGER_TONGUE"
+							},
+							{
+								"type": "VARIABLE",
+								"targetEnum": "SecretLanguage",
+								"key": "THIEVES_TONGUE"
+							}
+						],
+						"operator": "OR"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HAGGLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HEAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "COMPOSITE",
+				"operator": "OR",
+				"list": [
+					{
+						"type": "COMPOSITE",
+						"operator": "OR",
+						"list": [
+							{
+								"type": "VARIABLE",
+								"targetEnum": "Performer",
+								"key": "DANCER"
+							},
+							{
+								"type": "VARIABLE",
+								"targetEnum": "Performer",
+								"key": "SINGER"
+							},
+							{
+								"type": "VARIABLE",
+								"targetEnum": "Performer",
+								"key": "STORYTELLER"
+							}
+						]
+					},
+					{
+						"type": "COMPOSITE",
+						"operator": "OR",
+						"list": [
+							{
+								"type": "VARIABLE",
+								"targetEnum": "SecretSigns",
+								"key": "RANGER"
+							},
+							{
+								"type": "VARIABLE",
+								"targetEnum": "SecretSigns",
+								"key": "THIEF"
+							}
+						]
+					}
+				]
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Fleet Footed or Rover",
@@ -14277,14 +25522,62 @@ export const ProfDefs: ProfDefsType = {
 			"STUDENT"
 		],
 		"skills": [
-			"Academic Knowledge (Genealogy/Heraldry)",
-			"Blather",
-			"Evaluate",
-			"Gossip or Speak Language (Breton or Reikspiel)",
-			"Haggle",
-			"Perception",
-			"Read/Write",
-			"Search"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "GENEALOGY_HERALDRY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "BLATHER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "BRETON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "REIKSPIEL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			}
 		],
 		"talents": [
 			"Coolheaded or Suave",
@@ -14344,17 +25637,72 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (History or Necromancy)",
-			"Common Knowledge (the Empire)",
-			"Concealment",
-			"Dodge Blow",
-			"Follow Trail",
-			"Perception",
-			"Scale Sheer Surface",
-			"Shadowing",
-			"Search",
-			"Silent Move",
-			"Speak Language (Classical)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "NECROMANCY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SHADOWING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			}
 		],
 		"talents": [
 			"Mighty Shot or Rapid Reload",
@@ -14421,26 +25769,106 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (Law)",
-			"Academic Knowledge (any two)",
-			"Command",
-			"Common Knowledge (Empire)",
-			"Common Knowledge (any one)",
-			"Concealment",
-			"Disguise",
-			"Follow Trail",
-			"Gossip",
-			"Perception",
-			"Pick Lock",
-			"Read/Write",
-			"Search",
-			"Shadowing",
-			"Silent Move",
-			"Sleight of Hand",
-			"Secret Signs (any one)",
-			"Speak Language (Classical)",
-			"Speak Language (Reikspiel)",
-			"Speak Language (any one)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "LAW"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "EMPIRE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DISGUISE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PICK_LOCK"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SHADOWING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SLEIGHT_OF_HAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "ANY_ONE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "CLASSICAL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "REIKSPIEL"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			}
 		],
 		"talents": [
 			"Alley Cat or Coolheaded",
@@ -14509,14 +25937,46 @@ export const ProfDefs: ProfDefsType = {
 			"TARGETEER"
 		],
 		"skills": [
-			"Common Knowledge (the Empire)",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Gamble",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Secret Language (Battle Tongue)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GAMBLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			}
 		],
 		"talents": [
 			"Mighty Shot or Strike Mighty Blow",
@@ -14574,14 +26034,46 @@ export const ProfDefs: ProfDefsType = {
 			"STEWARD"
 		],
 		"skills": [
-			"Charm",
-			"Common Knowledge (Bretonnia)",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Intimidate",
-			"Perception",
-			"Torture"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BRETONNIA"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "TORTURE"
+			}
 		],
 		"talents": [
 			"Master Orator",
@@ -14635,15 +26127,51 @@ export const ProfDefs: ProfDefsType = {
 			"YEOMAN"
 		],
 		"skills": [
-			"Academic Knowledge (Engineering)",
-			"Academic Knowledge (Strategy/Tactics)",
-			"Common Knowledge (Bretonnia)",
-			"Evaluate",
-			"Gossip",
-			"Haggle",
-			"Perception",
-			"Trade (Carpenter)",
-			"Trade (Stoneworker)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ENGINEERING"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BRETONNIA"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "EVALUATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "CARPENTER"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Trade",
+				"key": "STONEWORKER"
+			}
 		],
 		"talents": [
 			"Lightning Reflexes",
@@ -14696,11 +26224,31 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Command",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Intimidate",
-			"Perception"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			}
 		],
 		"talents": [
 			"Fearless",
@@ -14712,9 +26260,7 @@ export const ProfDefs: ProfDefsType = {
 		],
 		"trappings": [
 			"Hand Weapon and Shield or Great Weapon",
-			"Medium Armour (Sleeved Mail Shirt",
-			"Mail Coif",
-			"and Full Leather Armour)",
+			"Medium Armour (Sleeved Mail Shirt, Mail Coif and Full Leather Armour)",
 			"Warband of 2d10 Marauders"
 		],
 		"notes": "Chaos Warrior is described in Chapter XIII: Slaves to Darkness of Tome of Corruption. ",
@@ -14760,21 +26306,125 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"cademic Knowledge (Daemonology or Necromancy)",
-			"Channelling",
-			"Charm",
-			"Common Knowledge (any three)",
-			"Concealment",
-			"Disguise",
-			"Gossip",
-			"Haggle",
-			"Heal",
-			"Hypnotism or Read/Write",
-			"Magical Sense",
-			"Perception",
-			"Ride or Swim",
-			"Search",
-			"Trade (Apothecary or Herbalist)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "DAEMONOLOGY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "NECROMANCY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DISGUISE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "HYPNOTISM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "READ_WRITE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "APOTHECARY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "HERBALIST"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Dark Lore (any one)",
@@ -14828,17 +26478,61 @@ export const ProfDefs: ProfDefsType = {
 			"WITCH_HUNTER"
 		],
 		"skills": [
-			"Academic Knowledge (Strategy/Tactics)",
-			"Academic Knowledge (Teology)",
-			"Channelling",
-			"Common Knowledge (any two)",
-			"Dodge Blow",
-			"Heal",
-			"Magical Sense",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Speak Arcane Language (Magick)",
-			"Speak Language (any one)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			}
 		],
 		"talents": [
 			"Armoured Casting",
@@ -14898,13 +26592,41 @@ export const ProfDefs: ProfDefsType = {
 			"TRADESMAN"
 		],
 		"skills": [
-			"Academic Knowledge (Law)",
-			"Dodge Blow",
-			"Follow Trail",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Search"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "LAW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "FOLLOW_TRAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			}
 		],
 		"talents": [
 			"Coolheaded or Savvy",
@@ -14963,12 +26685,36 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Consume Alcohol",
-			"Navigation",
-			"Perception",
-			"Row",
-			"Sail",
-			"Swim"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "NAVIGATION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ROW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SAIL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Coolheaded",
@@ -14984,8 +26730,7 @@ export const ProfDefs: ProfDefsType = {
 			"Pipe",
 			"Spear",
 			"Bottle of Good Spirits",
-			"Lucky Charm (Scrimshaw Talisman or Tattoos",
-			"see WFRP page 123)"
+			"Lucky Charm (Scrimshaw Talisman or Tattoos, see WFRP page 123)"
 		],
 		"notes": "",
 		"source": "ToC",
@@ -15022,16 +26767,89 @@ export const ProfDefs: ProfDefsType = {
 		"advanceFrom": [],
 		"advanceTo": [],
 		"skills": [
-			"Academic Knowledge (Strategy/Tactics)",
-			"Animal Care or Dodge Blow",
-			"Command or Navigation",
-			"Common Knowledge (Kislev or Troll Country)",
-			"Consume Alcohol",
-			"Outdoor Survival",
-			"Perception",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Speak Language (Kislevarin)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "STRATEGY_TACTICS"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DODGE_BLOW"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "COMMAND"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "NAVIGATION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TROLL_COUNTRY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "KISLEVITE"
+			}
 		],
 		"talents": [
 			"Hardy or Very Resilient",
@@ -15088,17 +26906,121 @@ export const ProfDefs: ProfDefsType = {
 			"STEPPES_NOMAD"
 		],
 		"skills": [
-			"Academic Knowledge (History or Spirits)",
-			"Charm or Intimidate",
-			"Command",
-			"Common Knowledge (Kislev or Troll Country)",
-			"Consume Alcohol or Gossip",
-			"Heal",
-			"Magical Sense",
-			"Perception",
-			"Performer (Storyteller)",
-			"Prepare Poison or Trade (Apothecary or Herbalist)",
-			"Speak Language (Ungol)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "HISTORY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "AcademicKnowledge",
+						"key": "SPIRITS"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "TROLL_COUNTRY"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GOSSIP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Performer",
+				"key": "STORYTELLER"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PREPARE_POISON"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "APOTHECARY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "HERBALIST"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "UNGOL"
+			}
 		],
 		"talents": [
 			"Coolheaded or Savvy"
@@ -15159,19 +27081,71 @@ export const ProfDefs: ProfDefsType = {
 			"KNIGHT_OF_THE_INNER_CIRCLE"
 		],
 		"skills": [
-			"Academic Knowledge (Magic)",
-			"Academic Knowledge (Necromancy)",
-			"Academic Knowledge (Teology)",
-			"Charm",
-			"Command",
-			"Common Knowledge (the Empire)",
-			"Gossip",
-			"Intimidate",
-			"Perception",
-			"Ride",
-			"Search",
-			"Silent Move",
-			"Speak Language (any one)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "MAGIC"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "NECROMANCY"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "COMMAND"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_ONE"
+			}
 		],
 		"talents": [
 			"Lightning Parry",
@@ -15235,18 +27209,99 @@ export const ProfDefs: ProfDefsType = {
 			"WARLOCK"
 		],
 		"skills": [
-			"Animal Care or Intimidate",
-			"Channelling",
-			"Charm",
-			"Common Knowledge (any two)",
-			"Gossip",
-			"Haggle",
-			"Heal",
-			"Magical Sense",
-			"Perception",
-			"Ride or Swim",
-			"Search",
-			"Trade (Apothecary or Herbalist)"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "ANIMAL_CARE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_TWO"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HAGGLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "HEAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "RIDE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SWIM"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SEARCH"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "APOTHECARY"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Trade",
+						"key": "HERBALIST"
+					}
+				],
+				"operator": "OR"
+			}
 		],
 		"talents": [
 			"Dark Magic or Mighty Missile",
@@ -15297,16 +27352,78 @@ export const ProfDefs: ProfDefsType = {
 			"GUILD_MASTER"
 		],
 		"skills": [
-			"Academic Knowledge (Magic)",
-			"Academic Knowledge (any three)",
-			"Channelling",
-			"Charm or Intimidate",
-			"Common Knowledge (any three)",
-			"Magical Sense",
-			"Read/Write",
-			"Speak Arcane Language (Magick)",
-			"Speak Arcane Language (Daemonic or Arcane Elf)",
-			"Speak Language (any four)"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "MAGIC"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHANNELLING"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CHARM"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "INTIMIDATE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "ANY_THREE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "MAGICAL_SENSE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "ArcaneLanguage",
+				"key": "MAGICK"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "DAEMONIC"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "ArcaneLanguage",
+						"key": "ARCANE_ELF"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "Language",
+				"key": "ANY_FOUR"
+			}
 		],
 		"talents": [
 			"Aethyric Attunement or Mighty Missile",
@@ -15362,13 +27479,52 @@ export const ProfDefs: ProfDefsType = {
 			"VAGABOND"
 		],
 		"skills": [
-			"Concealment",
-			"Follow Trail or Set Trap",
-			"Perception",
-			"Scale Sheer Surface",
-			"Secret Language (Ranger Tongue)",
-			"Secret Signs (Ranger)",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "FOLLOW_TRAIL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SET_TRAP"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SCALE_SHEER_SURFACE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "RANGER_TONGUE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretSigns",
+				"key": "RANGER"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Fleet Footed or Very Resilient",
@@ -15429,14 +27585,112 @@ export const ProfDefs: ProfDefsType = {
 			"VETERAN"
 		],
 		"skills": [
-			"Common Knowledge (The Empire or Kislev)",
-			"Consume Alcohol or Dodge Blow",
-			"Gamble or Navigation",
-			"Outdoor Survival or Sail",
-			"Perception or Search",
-			"Row",
-			"Secret Signs (Ranger) or Speak Language (Kislevite)",
-			"Swim"
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "THE_EMPIRE"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "CommonKnowledge",
+						"key": "KISLEV"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "CONSUME_ALCOHOL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "DODGE_BLOW"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "GAMBLE"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "NAVIGATION"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "OUTDOOR_SURVIVAL"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SAIL"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "PERCEPTION"
+					},
+					{
+						"type": "BASIC",
+						"targetEnum": "Basic",
+						"key": "SEARCH"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ROW"
+			},
+			{
+				"type": "COMPOSITE",
+				"list": [
+					{
+						"type": "VARIABLE",
+						"targetEnum": "SecretSigns",
+						"key": "RANGER"
+					},
+					{
+						"type": "VARIABLE",
+						"targetEnum": "Language",
+						"key": "KISLEVITE"
+					}
+				],
+				"operator": "OR"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SWIM"
+			}
 		],
 		"talents": [
 			"Orientation or Rover",
@@ -15492,19 +27746,71 @@ export const ProfDefs: ProfDefsType = {
 			"SERGEANT"
 		],
 		"skills": [
-			"Animal Care",
-			"Common Knowledge (Bretonnia)",
-			"Concealment",
-			"Consume Alcohol",
-			"Dodge Blow",
-			"Gamble",
-			"Gossip",
-			"Intimidate",
-			"Outdoor Survival",
-			"Perception",
-			"Ride",
-			"Secret Language (Battle Tongue)",
-			"Silent Move"
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "ANIMAL_CARE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "BRETONNIA"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONCEALMENT"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CONSUME_ALCOHOL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "DODGE_BLOW"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GAMBLE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "GOSSIP"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "OUTDOOR_SURVIVAL"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "PERCEPTION"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "RIDE"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "SecretLanguage",
+				"key": "BATTLE_TONGUE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "SILENT_MOVE"
+			}
 		],
 		"talents": [
 			"Rover",
@@ -15565,11 +27871,31 @@ export const ProfDefs: ProfDefsType = {
 			"OUTLAW"
 		],
 		"skills": [
-			"Academic Knowledge (Theology)",
-			"Charm",
-			"Common Knowledge (the Empire)",
-			"Intimidate",
-			"Read/Write"
+			{
+				"type": "VARIABLE",
+				"targetEnum": "AcademicKnowledge",
+				"key": "THEOLOGY"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "CHARM"
+			},
+			{
+				"type": "VARIABLE",
+				"targetEnum": "CommonKnowledge",
+				"key": "THE_EMPIRE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "INTIMIDATE"
+			},
+			{
+				"type": "BASIC",
+				"targetEnum": "Basic",
+				"key": "READ_WRITE"
+			}
 		],
 		"talents": [
 			"Coolheaded or Very Strong",
