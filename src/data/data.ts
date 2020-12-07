@@ -1906,7 +1906,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -3577,7 +3577,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -3906,7 +3906,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -5462,7 +5462,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -9212,7 +9212,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -9991,7 +9991,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -10321,7 +10321,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -11635,7 +11635,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -13150,7 +13150,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -14370,7 +14370,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -16400,7 +16400,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -16816,7 +16816,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
@@ -24927,7 +24927,7 @@ export const ProfDefs: ProfDefsType = {
 					{
 						"type": "VARIABLE",
 						"targetEnum": "Language",
-						"key": "KISLEVIAN"
+						"key": "KISLEVITE"
 					},
 					{
 						"type": "VARIABLE",
