@@ -13,8 +13,14 @@ import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import { Routes, Route as RouteType } from "../Routes";
 import { Link } from "react-router-dom";
+import Home from "@material-ui/icons/Home";
+import Nav from "@material-ui/icons/Navigation";
+import BubbleChartIcon from "@material-ui/icons/BubbleChart";
+const routes = [
+  { url: "/warhammer", label: "Home", icon: <Home /> },
+  { url: "/warhammer/map", label: "Class map", icon: <BubbleChartIcon /> },
+];
 export const TopBar = () => {
   const [open, setOpen] = useState(false);
   return (
@@ -31,7 +37,7 @@ export const TopBar = () => {
         </IconButton>
         <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
           <List>
-            {Routes.map((el: RouteType) => (
+            {routes.map((el) => (
               <Link key={el.url + "link"} to={el.url}>
                 <ListItem key={el.url + "item"} button>
                   <ListItemIcon key={el.url + "icon"}>{el.icon}</ListItemIcon>

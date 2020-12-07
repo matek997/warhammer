@@ -1,18 +1,31 @@
 import { IProfession } from "../models/IProfession";
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { CaptionedText } from "./CaptionedText";
 import { ProfileTable } from "./ProfileTable";
 import { Typography } from "@material-ui/core";
-import { Paper } from "@material-ui/core";
+import { SkillChip } from "./SkillChip";
 const useStyles = makeStyles({
   root: {
     width: "100%",
   },
 });
+const chipStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      display: "flex",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      "& > *": {
+        margin: theme.spacing(0.5),
+      },
+    },
+  })
+);
 
 export const CharacterCard = (props: { profession: IProfession }) => {
   const classes = useStyles();
+  const chipClasses = chipStyles();
   const { profession } = props;
   return (
     <div className={classes.root}>
@@ -39,7 +52,22 @@ export const CharacterCard = (props: { profession: IProfession }) => {
         <CaptionedText caption="Talents" text={profession.talents.join(", ")} />
       </div>
       <div>
-        <CaptionedText caption="Skills" text={profession.skills.join(", ")} />
+        <CaptionedText caption="Skills">
+          <div className={chipClasses.root}>
+            {profession.skills
+              .sort((a, b) => {
+                const lookup = {
+                  BASIC: 0,
+                  VARIABLE: 1,
+                  COMPOSITE: 2,
+                };
+                return lookup[a.type] - lookup[b.type];
+              })
+              .map((skill, index) => (
+                <SkillChip key={`${skill.type}.${index}`} skill={skill} />
+              ))}
+          </div>
+        </CaptionedText>
       </div>
     </div>
   );

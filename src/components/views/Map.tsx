@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import { Network } from "../graph/Network";
 import Select from "@material-ui/core/Select";
 import { useState } from "react";
-import { NetworkBuilder } from "../../models/NetworkBuilder";
+import { NetworkBuilder } from "../graph/NetworkBuilder";
 import { Professions } from "../../data/Professions";
 import { CharacterCard } from "../CharacterCard";
 const useStyles = makeStyles((theme) => ({

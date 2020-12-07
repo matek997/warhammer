@@ -1,5 +1,6 @@
 import { IMainProfile } from "./IMainProfile";
 import { ISecondaryProfile } from "./ISecondaryProfile";
+import { SkillDef } from "./SkillDef";
 
 
 export interface IProfession {
@@ -12,7 +13,7 @@ export interface IProfession {
 	secondaryProfile: ISecondaryProfile;
 	advanceFrom: string[];
 	advanceTo: string[];
-	skills: string[];
+	skills: SkillDef[];
 	talents: string[];
 	trappings: string[];
 	notes: string;
