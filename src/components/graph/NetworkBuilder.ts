@@ -1,8 +1,8 @@
 import { Edge } from "vis-network/dist/types/network/Network";
-import INetworkData from "../components/graph/INetworkData";
-import { IProfession } from "./IProfession";
+import INetworkData from "./INetworkData";
+import { IProfession } from "../../models/IProfession";
 import { DataSet } from "vis-network/standalone";
-import { ProfessionProvider } from "../data/Provider";
+import { ProfessionProvider } from "../../data/Provider";
 
 export class NetworkBuilder {
   constructor(protected prof: IProfession) { }

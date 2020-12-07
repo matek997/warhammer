@@ -183,14 +183,14 @@ export enum SecretSigns {
 }
 
 export enum VariableSkills {
-	PERFORMER = 'Performer',
-	TRADE = 'Trade',
-	SECRET_LANGUAGE = 'Secret Language',
-	SPEAK_ARCANE_LANGUAGE = 'Speak Arcane Language',
-	SPEAK_LANGUAGE = 'Speak Language',
-	COMMON_KNOWLEDGE = 'Common Knowledge',
-	ACADEMIC_KNOWLEDGE = 'Academic Knowledge',
-	SECRET_SIGNS = 'Secret Signs'
+	Performer = 'Performer',
+	Trade = 'Trade',
+	SecretLanguage = 'Secret Language',
+	ArcaneLanguage = 'Speak Arcane Language',
+	Language = 'Speak Language',
+	CommonKnowledge = 'Common Knowledge',
+	AcademicKnowledge = 'Academic Knowledge',
+	SecretSigns = 'Secret Signs'
 }
 
 export const Enums = {
