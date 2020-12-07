@@ -54,9 +54,18 @@ export const CharacterCard = (props: { profession: IProfession }) => {
       <div>
         <CaptionedText caption="Skills">
           <div className={chipClasses.root}>
-            {profession.skills.map((skill, index) => (
-              <SkillChip key={`${skill.type}.${index}`} skill={skill} />
-            ))}
+            {profession.skills
+              .sort((a, b) => {
+                const lookup = {
+                  BASIC: 0,
+                  VARIABLE: 1,
+                  COMPOSITE: 2,
+                };
+                return lookup[a.type] - lookup[b.type];
+              })
+              .map((skill, index) => (
+                <SkillChip key={`${skill.type}.${index}`} skill={skill} />
+              ))}
           </div>
         </CaptionedText>
       </div>

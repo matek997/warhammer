@@ -1,8 +1,9 @@
 import Chip from "@material-ui/core/Chip";
 import React from "react";
 import { SkillDef } from "../models/SkillDef";
-import Avatar from "@material-ui/core/Avatar";
 import { Enums, VariableSkills } from "../models/Skills";
+import { CaptionedText } from "./CaptionedText";
+import { Paper } from "@material-ui/core";
 
 // const getSkillAsArray = (skill: CompositeSkillDef) => {};
 const getColor = (skillType: string): "primary" | "secondary" | "default" => {
@@ -28,7 +29,17 @@ const getLabel = (skill: SkillDef) => {
 };
 export const SkillChip = (props: { skill: SkillDef }) => {
   const { skill } = props;
-  if (skill.type === "COMPOSITE") return <span>Comp</span>;
+  const label = getLabel(skill);
+  if (skill.type !== "COMPOSITE")
+    return <Chip label={label} color={getColor(skill.type)} />;
 
-  return <Chip label={getLabel(skill)} color={getColor(skill.type)} />;
+  return (
+    <Paper elevation={3}>
+      <CaptionedText caption={label}>
+        {skill.list.map((el, index) => (
+          <SkillChip key={index} skill={el} />
+        ))}
+      </CaptionedText>
+    </Paper>
+  );
 };
