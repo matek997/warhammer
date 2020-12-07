@@ -26,14 +26,14 @@ export const ProfileTable = (props: {
       <Table size="small" aria-label="simple table">
         <TableHead>
           <TableRow>
-            {heads.map((el) => (
-              <TableCell>{el}</TableCell>
+            {heads.map((el, index) => (
+              <TableCell key={`header-${index}`}>{el}</TableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {profiles.map((row, index) => (
-            <TableRow key={"profile" + index}>
+            <TableRow key={`profile-${index}`}>
               {heads.map((key, cellIndex) => (
                 <TableCell key={`row-${index}cell${cellIndex}`}>
                   {row[key]}
