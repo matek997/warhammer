@@ -15,11 +15,12 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { Link } from "react-router-dom";
 import Home from "@material-ui/icons/Home";
-import Nav from "@material-ui/icons/Navigation";
+import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import BubbleChartIcon from "@material-ui/icons/BubbleChart";
 const routes = [
   { url: "/warhammer", label: "Home", icon: <Home /> },
   { url: "/warhammer/map", label: "Class map", icon: <BubbleChartIcon /> },
+  { url: "/warhammer/combine", label: "Combine", icon: <AccountTreeIcon /> },
 ];
 export const TopBar = () => {
   const [open, setOpen] = useState(false);

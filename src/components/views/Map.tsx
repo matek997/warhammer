@@ -5,12 +5,14 @@ import { ProfessionProvider } from "../../data/Provider";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import { Network } from "../graph/Network";
 import Select from "@material-ui/core/Select";
+import { Network } from "../graph/Network";
 import { useState } from "react";
 import { NetworkBuilder } from "../graph/NetworkBuilder";
 import { Professions } from "../../data/Professions";
 import { CharacterCard } from "../CharacterCard";
+import { ProfessionSelect } from "../ProfessionSelect";
+import { IProfession } from "../../models/IProfession";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -59,13 +61,8 @@ export const Map = () => {
     },
   };
 
-  const handleChange = (
-    event: React.ChangeEvent<{
-      name?: string | undefined;
-      value: unknown;
-    }>
-  ) => {
-    setFocus(iprofs[event.target.value as Professions]);
+  const handleChange = (val: IProfession) => {
+    setFocus(val);
   };
   return (
     <Container>
@@ -85,13 +82,11 @@ export const Map = () => {
               >
                 <div>
                   <InputLabel>Class</InputLabel>
-                  <Select value={focus.id} onChange={handleChange}>
-                    {Object.keys(iprofs).map((id, index) => (
-                      <MenuItem key={focus.id + "select" + index} value={id}>
-                        {iprofs[id as Professions].label}
-                      </MenuItem>
-                    ))}
-                  </Select>
+                  <ProfessionSelect
+                    onChange={handleChange}
+                    options={iprofs}
+                    value={iprofs["ABBOT"]}
+                  />
                 </div>
                 <div>
                   <InputLabel>Follow related classes</InputLabel>
