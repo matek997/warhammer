@@ -15,7 +15,9 @@ import { InputLabel } from "@material-ui/core";
 import { ProfessionProvider } from "../../data/Provider";
 import { ProfessionSelect } from "../ProfessionSelect";
 import { Professions } from "../../data/Professions";
-
+import { ProfessionAccordion } from "../ProfessionAccordion";
+import { CharacterCard } from "../CharacterCard";
+import { ProfessionBuilder } from "../../misc/ProfessionBuilder";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -36,7 +38,33 @@ type ViewState = {
   allowUnsafe: boolean;
   toCombine: IProfession[];
 };
+const sumProfs = (profs: IProfession[]) => {
+  const builder = new ProfessionBuilder();
+  builder.srcList = profs;
+  builder.build();
+  return builder.profession;
+};
+const getValidOptions = (viewState: ViewState) => {
+  const profsAll = ProfessionProvider.getAll();
+  if (viewState.allowUnsafe) return profsAll;
+  const advanceTo: string[] = [];
+  const current: string[] = [];
+  viewState.toCombine.forEach((el) => {
+    current.push(el.id);
+    el.advanceTo.forEach((id) => {
+      advanceTo.push(id);
+    });
+  });
+  console.log("all");
+  const allowed: { [index: string]: IProfession } = {};
+  Object.keys(profsAll).forEach((id) => {
+    const prof = profsAll[id as Professions];
+    if ((advanceTo.includes(id) || !prof.isAdvanced) && !current.includes(id))
+      allowed[id] = prof;
+  });
 
+  return allowed;
+};
 export const Combine = (props: { fromState?: ViewState }) => {
   let [viewState, setViewState] = useState(
     props.fromState ??
@@ -46,7 +74,8 @@ export const Combine = (props: { fromState?: ViewState }) => {
         toCombine: [],
       } as ViewState)
   );
-  const profsAll = ProfessionProvider.getAll();
+  const [opts, setOpts] = useState(getValidOptions(viewState));
+  let [selectedOpt, setSelectedOpt] = useState(opts[Object.keys(opts)[0]]);
   const refreshState = () => setViewState(Object.assign({}, viewState));
   const handleButtonClick = () => {
     console.log(viewState);
@@ -54,28 +83,7 @@ export const Combine = (props: { fromState?: ViewState }) => {
     refreshState();
   };
   const classes = useStyles();
-  const getValidOptions = () => {
-    if (viewState.allowUnsafe) return profsAll;
 
-    const advanceTo: string[] = [];
-    const current: string[] = [];
-    viewState.toCombine.forEach((el) => {
-      current.push(el.id);
-      el.advanceTo.forEach((id) => {
-        advanceTo.push(id);
-      });
-    });
-    console.log("all");
-    const allowed: { [index: string]: IProfession } = {};
-    Object.keys(profsAll).forEach((id) => {
-      const prof = profsAll[id as Professions];
-      if ((advanceTo.includes(id) || !prof.isAdvanced) && !current.includes(id))
-        allowed[id] = prof;
-    });
-
-    return allowed;
-  };
-  const opts = getValidOptions();
   return (
     <Container>
       <Typography variant="h3" gutterBottom>
@@ -112,6 +120,7 @@ export const Combine = (props: { fromState?: ViewState }) => {
                       disabled={viewState.step !== 0}
                       onChange={() => {
                         viewState.allowUnsafe = !viewState.allowUnsafe;
+                        setOpts(getValidOptions(viewState));
                         refreshState();
                       }}
                       name="unsafe"
@@ -139,10 +148,61 @@ export const Combine = (props: { fromState?: ViewState }) => {
                     <InputLabel>Choose starting class</InputLabel>
                     <ProfessionSelect
                       options={opts}
-                      value={Object.keys(opts)[0]}
+                      value={selectedOpt}
+                      onChange={(val) => {
+                        setSelectedOpt(val);
+                      }}
                     />
+                    <Button
+                      onClick={() => {
+                        viewState.toCombine = [selectedOpt];
+                        setOpts(getValidOptions(viewState));
+                        refreshState();
+                      }}
+                      variant="contained"
+                      color="primary"
+                    >
+                      Start
+                    </Button>
                   </div>
                 )}
+                {viewState.toCombine.length > 0 && (
+                  <div>
+                    <div>
+                      {viewState.toCombine.map((prof) => {
+                        return <ProfessionAccordion profession={prof} />;
+                      })}
+                    </div>
+                    <div>
+                      <InputLabel>Choose next class</InputLabel>
+                      <ProfessionSelect
+                        options={opts}
+                        value={selectedOpt}
+                        onChange={(val) => {
+                          setSelectedOpt(val);
+                        }}
+                      />
+                      <Button
+                        onClick={() => {
+                          viewState.toCombine.push(selectedOpt);
+                          setOpts(getValidOptions(viewState));
+                          refreshState();
+                        }}
+                        variant="contained"
+                        color="primary"
+                      >
+                        Add
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </Paper>
+            </Grid>
+          )}
+          {viewState.step === 1 && (
+            <Grid item xs={12} sm={6}>
+              <Paper>
+                <CharacterCard profession={sumProfs(viewState.toCombine)} />
               </Paper>
             </Grid>
           )}
