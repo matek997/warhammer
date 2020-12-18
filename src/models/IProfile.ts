@@ -1,3 +1,3 @@
 export interface IProfile {
-	[index: string]: Number;
+	[index: string]: number;
 }
