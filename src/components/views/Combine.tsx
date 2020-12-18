@@ -16,8 +16,9 @@ import { ProfessionProvider } from "../../data/Provider";
 import { ProfessionSelect } from "../ProfessionSelect";
 import { Professions } from "../../data/Professions";
 import { ProfessionAccordion } from "../ProfessionAccordion";
-import { CharacterCard } from "../CharacterCard";
+import { ProfessionCard } from "../ProfessionCard";
 import { ProfessionBuilder } from "../../misc/ProfessionBuilder";
+import { CaptionedText } from "../CaptionedText";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -55,7 +56,6 @@ const getValidOptions = (viewState: ViewState) => {
       advanceTo.push(id);
     });
   });
-  console.log("all");
   const allowed: { [index: string]: IProfession } = {};
   Object.keys(profsAll).forEach((id) => {
     const prof = profsAll[id as Professions];
@@ -70,7 +70,7 @@ export const Combine = (props: { fromState?: ViewState }) => {
     props.fromState ??
       ({
         allowUnsafe: false,
-        step: 0,
+        step: 1,
         toCombine: [],
       } as ViewState)
   );
@@ -91,7 +91,7 @@ export const Combine = (props: { fromState?: ViewState }) => {
       </Typography>
       <div className={classes.root}>
         <Grid container spacing={3}>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <Paper className={classes.paper}>
               <Stepper activeStep={viewState.step}>
                 <Step>
@@ -100,17 +100,17 @@ export const Combine = (props: { fromState?: ViewState }) => {
                 <Step>
                   <StepLabel>Add classes</StepLabel>
                 </Step>
-                <Step>
-                  <StepLabel>Optimize</StepLabel>
-                </Step>
+                 <Step>
+                  <StepLabel>Configure</StepLabel>
+                </Step> 
                 <Step>
                   <StepLabel>Finish</StepLabel>
                 </Step>
               </Stepper>
             </Paper>
-          </Grid>
+          </Grid>  */}
 
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <Paper className={classes.paperFlex}>
               <div>
                 <FormControlLabel
@@ -139,7 +139,7 @@ export const Combine = (props: { fromState?: ViewState }) => {
                 </Button>
               </div>
             </Paper>
-          </Grid>
+          </Grid> */}
           {viewState.step === 1 && (
             <Grid item xs={12} sm={6}>
               <Paper className={classes.paperFlex}>
@@ -199,21 +199,43 @@ export const Combine = (props: { fromState?: ViewState }) => {
               </Paper>
             </Grid>
           )}
-          {viewState.step === 1 && (
+          {viewState.step === 2 && (
             <Grid item xs={12} sm={6}>
-              <Paper>
-                <CharacterCard profession={sumProfs(viewState.toCombine)} />
+              <Paper className={classes.paperFlex}>
+                <div className={classes.root}>
+                  <div
+                    style={{ display: "flex", justifyContent: "space-around" }}
+                  >
+                    <CaptionedText
+                      caption="Name"
+                      // text={profession.label}
+                    >
+                      a
+                    </CaptionedText>
+                    <CaptionedText
+                      caption="Role"
+                      // text={profession.role}
+                    ></CaptionedText>
+                  </div>
+                  <div>
+                    <CaptionedText
+                      caption="Description"
+                      // text={profession.description}
+                    ></CaptionedText>
+                  </div>
+                </div>
               </Paper>
             </Grid>
           )}
-          {viewState.step === 2 && (
+          {viewState.step === 3 && <Grid item xs={12} sm={6}></Grid>}
+          {(viewState.step === 1 || viewState.step === 2) && (
             <Grid item xs={12} sm={6}>
-              <Paper className={classes.paperFlex}></Paper>
-            </Grid>
-          )}
-          {viewState.step === 3 && (
-            <Grid item xs={12} sm={6}>
-              <Paper className={classes.paperFlex}></Paper>
+              <Paper>
+                <Typography variant="h3" display="block" gutterBottom>
+                  Result:
+                </Typography>
+                <ProfessionCard profession={sumProfs(viewState.toCombine)} />
+              </Paper>
             </Grid>
           )}
         </Grid>

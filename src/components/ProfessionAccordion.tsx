@@ -6,7 +6,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { IProfession } from "../models/IProfession";
-import { CharacterCard } from "./CharacterCard";
+import { ProfessionCard } from "./ProfessionCard";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -35,7 +35,7 @@ export const ProfessionAccordion = (props: { profession: IProfession }) => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <CharacterCard profession={props.profession} />
+          <ProfessionCard profession={props.profession} />
         </AccordionDetails>
       </Accordion>
     </div>

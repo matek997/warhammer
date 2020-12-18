@@ -23,7 +23,7 @@ const chipStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const CharacterCard = (props: { profession: IProfession }) => {
+export const ProfessionCard = (props: { profession: IProfession }) => {
   const classes = useStyles();
   const chipClasses = chipStyles();
   const { profession } = props;
