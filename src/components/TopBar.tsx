@@ -15,15 +15,42 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { Link } from "react-router-dom";
 import Home from "@material-ui/icons/Home";
+import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
+import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import BubbleChartIcon from "@material-ui/icons/BubbleChart";
-const routes = [
+import { CurrentUser } from "../api/User";
+
+type RouteDef = {
+  url: string;
+  label: string;
+  icon: React.ReactNode;
+};
+const routes: RouteDef[] = [
   { url: "/warhammer", label: "Home", icon: <Home /> },
   { url: "/warhammer/map", label: "Class map", icon: <BubbleChartIcon /> },
   { url: "/warhammer/combine", label: "Combine", icon: <AccountTreeIcon /> },
 ];
-export const TopBar = () => {
+
+const anonymousRoutes: RouteDef[] = [
+  { url: "/warhammer/signup", label: "Sign up", icon: <AssignmentIndIcon /> },
+  { url: "/warhammer/signin", label: "Sign in", icon: <MeetingRoomIcon /> },
+];
+const signedinRoutes: RouteDef[] = [
+  { url: "/warhammer/signout", label: "Combine", icon: <MeetingRoomIcon /> },
+];
+
+const MenuLink = (props: RouteDef) => (
+  <Link to={props.url}>
+    <ListItem key={props.url + "item"} button>
+      <ListItemIcon key={props.url + "icon"}>{props.icon}</ListItemIcon>
+      <ListItemText key={props.url + "text"} primary={props.label} />
+    </ListItem>
+  </Link>
+);
+export const TopBar = (props: { user?: CurrentUser }) => {
   const [open, setOpen] = useState(false);
+  const userroutes = props.user ? signedinRoutes : anonymousRoutes;
   return (
     <AppBar position="sticky">
       <Toolbar>
@@ -38,13 +65,11 @@ export const TopBar = () => {
         </IconButton>
         <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
           <List>
+            {userroutes.map((el) => (
+              <MenuLink url={el.url} icon={el.icon} label={el.label} />
+            ))}
             {routes.map((el) => (
-              <Link key={el.url + "link"} to={el.url}>
-                <ListItem key={el.url + "item"} button>
-                  <ListItemIcon key={el.url + "icon"}>{el.icon}</ListItemIcon>
-                  <ListItemText key={el.url + "text"} primary={el.label} />
-                </ListItem>
-              </Link>
+              <MenuLink url={el.url} icon={el.icon} label={el.label} />
             ))}
           </List>
         </Drawer>
