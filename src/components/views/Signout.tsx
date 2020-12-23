@@ -18,15 +18,15 @@ const useStyles = makeStyles((theme) => ({
 export const Signout = () => {
   const classes = useStyles();
   const [signedin, setSignedin] = useState(true);
-  const { api, updateUser } = useContext(ApiContext);
+  const { api, refresh } = useContext(ApiContext);
   useEffect(() => {
-    api.signout().then((res) => {
+    api.api.signout().then((res) => {
       if (res) {
-        updateUser(undefined);
         setSignedin(false);
+        refresh();
       }
     });
-  }, [api, setSignedin, updateUser]);
+  }, [api, setSignedin, refresh]);
 
   return (
     <Container className={classes.container} maxWidth="xs">

@@ -37,20 +37,22 @@ const anonymousRoutes: RouteDef[] = [
   { url: "/warhammer/signin", label: "Sign in", icon: <MeetingRoomIcon /> },
 ];
 const signedinRoutes: RouteDef[] = [
-  { url: "/warhammer/signout", label: "Combine", icon: <MeetingRoomIcon /> },
+  { url: "/warhammer/signout", label: "Signout", icon: <MeetingRoomIcon /> },
 ];
 
-const MenuLink = (props: RouteDef) => (
-  <Link to={props.url}>
+type CloseDrawerCallback = { onClick: () => void };
+const MenuLink = (props: RouteDef & CloseDrawerCallback) => (
+  <Link onClick={props.onClick} to={props.url}>
     <ListItem key={props.url + "item"} button>
       <ListItemIcon key={props.url + "icon"}>{props.icon}</ListItemIcon>
       <ListItemText key={props.url + "text"} primary={props.label} />
     </ListItem>
   </Link>
 );
+
 export const TopBar = (props: { user?: CurrentUser }) => {
   const [open, setOpen] = useState(false);
-  const userroutes = props.user ? signedinRoutes : anonymousRoutes;
+
   return (
     <AppBar position="sticky">
       <Toolbar>
@@ -65,11 +67,21 @@ export const TopBar = (props: { user?: CurrentUser }) => {
         </IconButton>
         <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
           <List>
-            {userroutes.map((el) => (
-              <MenuLink url={el.url} icon={el.icon} label={el.label} />
+            {(props.user ? signedinRoutes : anonymousRoutes).map((el) => (
+              <MenuLink
+                url={el.url}
+                icon={el.icon}
+                onClick={() => setOpen(false)}
+                label={el.label}
+              />
             ))}
             {routes.map((el) => (
-              <MenuLink url={el.url} icon={el.icon} label={el.label} />
+              <MenuLink
+                url={el.url}
+                icon={el.icon}
+                onClick={() => setOpen(false)}
+                label={el.label}
+              />
             ))}
           </List>
         </Drawer>

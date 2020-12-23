@@ -19,11 +19,11 @@ export class StaticApi extends Api {
 		this.signedinstate = false
 		return true;
 	}
-	async signup(email: string, password: string): Promise<boolean | CurrentUser> {
+	async signup(email: string, password: string): Promise<boolean> {
 		await this.addFakeLag();
 		this._user = new CurrentUser(email + '@example.net', 'token');
 		this.signedinstate = true;
-		return this._user;
+		return true;//return this._user;
 	}
 
 

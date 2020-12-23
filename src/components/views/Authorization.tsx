@@ -7,6 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { ApiContext, getApi } from "../../api/ApiContext";
 import Typography from "@material-ui/core/Typography";
+import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -17,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
 export const Authorization = () => {
   const classes = useStyles();
   const [signedin, setSignedin] = useState(false);
-  const { api, updateUser } = useContext(ApiContext);
+  const { api, refresh } = useContext(ApiContext);
   useEffect(() => {
-    api.isSignedin().then(setSignedin);
+    api.api.isSignedin().then(setSignedin);
   }, [api, setSignedin]);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -27,9 +28,9 @@ export const Authorization = () => {
     const email = fd.get("email") as string;
     const password = fd.get("password") as string;
 
-    api.signin(email, password).then((res) => {
+    api.api.signin(email, password).then((res) => {
       setSignedin(res);
-      updateUser(api.user);
+      refresh();
     });
   };
 
@@ -69,7 +70,8 @@ export const Authorization = () => {
   );
   const signedinMsg = (
     <Typography variant="h3" display="block" gutterBottom>
-      Signed in as {api.user?.profile.name}
+      Signed in as {api.api.user?.profile.name}
+      <Redirect to="/warhammer" />
     </Typography>
   );
 

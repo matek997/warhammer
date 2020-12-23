@@ -9,18 +9,27 @@ import { Authorization } from "./components/views/Authorization";
 import { ApiContext, getApi } from "./api/ApiContext";
 import { useState } from "react";
 import { CurrentUser } from "./api/User";
+import { Signout } from "./components/views/Signout";
 function App() {
-  const [user, setUser] = useState(
-    CurrentUser.getDefault() as CurrentUser | undefined
-  );
-  const [activeApi] = useState(getApi(user));
+  const [activeApi, setActiveApi] = useState({ api: getApi() });
+
+  const ctx = {
+    api: activeApi,
+    refresh: () => {
+      const a = { api: activeApi.api };
+      setActiveApi(a);
+    },
+  };
   return (
-    <ApiContext.Provider value={{ api: activeApi, updateUser: setUser }}>
+    <ApiContext.Provider value={ctx}>
       <Router>
         <Switch>
           <MainLayout>
             <Route path="/warhammer" exact>
               <Home />
+            </Route>
+            <Route path="/warhammer/signout" exact>
+              <Signout />
             </Route>
             <Route path="/warhammer/signin" exact>
               <Authorization />

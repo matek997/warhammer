@@ -3,8 +3,7 @@ import React, { useContext } from "react";
 import { ApiContext, getApi } from "../../api/ApiContext";
 
 export const Home = () => {
-  const { api, updateUser } = useContext(ApiContext);
-  console.log(api);
+  //const { api, updateUser } = useContext(ApiContext);
   return (
     <Container>
       <Typography variant="h1" component="h2" gutterBottom>

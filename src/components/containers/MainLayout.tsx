@@ -9,13 +9,11 @@ export const MainLayout = (props: {
 }) => {
   const { api } = useContext(ApiContext);
   const [signedin, setSignedin] = useState(false);
-  useEffect(() => {
-    api.isSignedin().then(setSignedin);
-  }, [api, setSignedin]);
-
+  api.api.isSignedin().then(setSignedin);
+  console.log("re", signedin);
   return (
     <Box>
-      <TopBar user={signedin ? api.user : undefined} />
+      <TopBar user={signedin ? api.api.user : undefined} />
       {props.children}
     </Box>
   );
