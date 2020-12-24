@@ -3,12 +3,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
 import { useState } from "react";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
 import { IProfession } from "../../models/IProfession";
 import { InputLabel } from "@material-ui/core";
@@ -19,6 +14,7 @@ import { ProfessionAccordion } from "../ProfessionAccordion";
 import { ProfessionCard } from "../ProfessionCard";
 import { ProfessionBuilder } from "../../misc/ProfessionBuilder";
 import { CaptionedText } from "../CaptionedText";
+import { IViewProps } from "./IViewProps";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -65,7 +61,7 @@ const getValidOptions = (viewState: ViewState) => {
 
   return allowed;
 };
-export const Combine = (props: { fromState?: ViewState }) => {
+export const Combine = (props: IViewProps & { fromState?: ViewState }) => {
   let [viewState, setViewState] = useState(
     props.fromState ??
       ({
@@ -77,11 +73,11 @@ export const Combine = (props: { fromState?: ViewState }) => {
   const [opts, setOpts] = useState(getValidOptions(viewState));
   let [selectedOpt, setSelectedOpt] = useState(opts[Object.keys(opts)[0]]);
   const refreshState = () => setViewState(Object.assign({}, viewState));
-  const handleButtonClick = () => {
-    console.log(viewState);
-    viewState.step++;
-    refreshState();
-  };
+  // const handleButtonClick = () => {
+  //   console.log(viewState);
+  //   viewState.step++;
+  //   refreshState();
+  // };
   const classes = useStyles();
 
   return (

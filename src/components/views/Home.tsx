@@ -1,15 +1,17 @@
 import { Container, Typography } from "@material-ui/core";
 import React from "react";
+import {IViewProps} from './IViewProps'
+export const Home = (props: IViewProps) => {
+  //const { api, updateUser } = useContext(ApiContext);
 
-export const Home = ()=> {
-
-	return <Container>
-
-		 <Typography variant="h1" component="h2" gutterBottom>
+  return (
+    <Container>
+      <Typography variant="h1" component="h2" gutterBottom>
         Warhammer
       </Typography>
-			      <Typography variant="subtitle1" gutterBottom>
+      <Typography variant="subtitle1" gutterBottom>
         Character designer for your RPG needs!
       </Typography>
-	</Container>
-}
+    </Container>
+  );
+};
