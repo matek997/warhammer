@@ -1,9 +1,9 @@
 import { Container, Typography } from "@material-ui/core";
-import React, { useContext } from "react";
-import { ApiContext, getApi } from "../../api/ApiContext";
-
-export const Home = () => {
+import React from "react";
+import {IViewProps} from './IViewProps'
+export const Home = (props: IViewProps) => {
   //const { api, updateUser } = useContext(ApiContext);
+
   return (
     <Container>
       <Typography variant="h1" component="h2" gutterBottom>

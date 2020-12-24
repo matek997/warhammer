@@ -13,6 +13,8 @@ import { Professions } from "../../data/Professions";
 import { ProfessionCard } from "../ProfessionCard";
 import { ProfessionSelect } from "../ProfessionSelect";
 import { IProfession } from "../../models/IProfession";
+import { IViewProps } from "./IViewProps";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -24,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Map = () => {
+export const Map = (props: IViewProps) => {
   // const proflist = ;
   const iprofs = ProfessionProvider.getAll();
   const [depth, setDepth] = useState(1);

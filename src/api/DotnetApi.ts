@@ -2,7 +2,6 @@
 
 
 import { Api } from './Api';
-import { CurrentUser } from './User';
 
 
 

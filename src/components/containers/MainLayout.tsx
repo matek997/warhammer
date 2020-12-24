@@ -1,6 +1,5 @@
 import { Box } from "@material-ui/core";
-import React, { useContext, useEffect, useState } from "react";
-import { Api } from "../../api/Api";
+import React, { useContext,  useState } from "react";
 import { ApiContext } from "../../api/ApiContext";
 import { TopBar } from "../TopBar";
 

@@ -1,13 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 // MUI Core
-import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-import { ApiContext, getApi } from "../../api/ApiContext";
-import Typography from "@material-ui/core/Typography";
 import { Redirect } from "react-router-dom";
+import { IViewProps } from "./IViewProps";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -15,12 +11,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Signout = () => {
+export const Signout = (props: IViewProps) => {
   const classes = useStyles();
   const [signedin, setSignedin] = useState(true);
-  const { api, refresh } = useContext(ApiContext);
+  const { api, refresh } = props;
   useEffect(() => {
-    api.api.signout().then((res) => {
+    api.signout().then((res) => {
       if (res) {
         setSignedin(false);
         refresh();
