@@ -13,7 +13,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Authorization = (props: IViewProps) => {
+export const Authorization = (
+  props: IViewProps & { action: "SIGNUP" | "SIGNIN" }
+) => {
   const classes = useStyles();
   const [signedin, setSignedin] = useState(false);
   const { api, refresh } = props;
@@ -28,11 +30,16 @@ export const Authorization = (props: IViewProps) => {
     const password = fd.get("password") as string;
 
     setLoading(true);
-    api.signin(email, password).then((res) => {
+    const handlePromise = (res: boolean) => {
       setLoading(false);
       setSignedin(res);
       refresh();
-    });
+    };
+    if (props.action === "SIGNIN") {
+      api.signin(email, password).then(handlePromise);
+    } else {
+      api.signup(email, password).then(handlePromise);
+    }
   };
 
   return (

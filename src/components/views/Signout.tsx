@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// MUI Core
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import { Redirect } from "react-router-dom";
@@ -26,7 +26,7 @@ export const Signout = (props: IViewProps) => {
 
   return (
     <Container className={classes.container} maxWidth="xs">
-      {signedin ? "Signing out" : <Redirect to="/warhammer" />}
+      {signedin ? <CircularProgress /> : <Redirect to="/warhammer" />}
     </Container>
   );
 };

@@ -31,10 +31,18 @@ function App() {
             <Signout api={ctx.api} refresh={ctx.refresh} />
           </Route>
           <Route path="/warhammer/signin" exact>
-            <Authorization api={ctx.api} refresh={ctx.refresh} />
+            <Authorization
+              api={ctx.api}
+              refresh={ctx.refresh}
+              action="SIGNIN"
+            />
           </Route>
           <Route path="/warhammer/signup" exact>
-            <Authorization api={ctx.api} refresh={ctx.refresh} />
+            <Authorization
+              api={ctx.api}
+              action="SIGNUP"
+              refresh={ctx.refresh}
+            />
           </Route>
           <Route path="/warhammer/map" exact>
             <Map api={ctx.api} refresh={ctx.refresh} />
