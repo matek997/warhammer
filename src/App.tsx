@@ -23,7 +23,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <MainLayout>
+        <MainLayout api={ctx.api} refresh={ctx.refresh}>
           <Route path="/warhammer" exact>
             <Home api={ctx.api} refresh={ctx.refresh} />
           </Route>

@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LoginForm } from "../authorization/LoginFrom";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
@@ -29,8 +29,8 @@ export const Authorization = (props: IViewProps) => {
 
     setLoading(true);
     api.signin(email, password).then((res) => {
-      setSignedin(res);
       setLoading(false);
+      setSignedin(res);
       refresh();
     });
   };
