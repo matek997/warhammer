@@ -1,6 +1,7 @@
 
 
 
+import { ProfessionBuilder } from '../misc/ProfessionBuilder';
 import { Api } from './Api';
 
 
@@ -27,6 +28,14 @@ export class DotnetApi extends Api {
 
 	async isSignedin() {
 		return true;
+	}
+
+	async getProfession(id: string | string[]) {
+		return (new ProfessionBuilder()).getEmpty();
+	}
+
+	async getProfessionList() {
+		return [];
 	}
 
 	private getEndpointUrl(endpoint: string) {

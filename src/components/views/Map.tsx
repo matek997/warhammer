@@ -1,7 +1,6 @@
 import { Container, InputLabel, MenuItem, Typography } from "@material-ui/core";
 import React from "react";
 import { Options } from "vis-network/dist/types/network/Network";
-import { ProfessionProvider } from "../../data/Provider";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -9,11 +8,12 @@ import Select from "@material-ui/core/Select";
 import { Network } from "../graph/Network";
 import { useState } from "react";
 import { NetworkBuilder } from "../graph/NetworkBuilder";
-import { Professions } from "../../data/Professions";
 import { ProfessionCard } from "../ProfessionCard";
 import { ProfessionSelect } from "../ProfessionSelect";
-import { IProfession } from "../../models/IProfession";
 import { IViewProps } from "./IViewProps";
+import { useEffect } from "react";
+import { IdList } from "../../api/Api";
+import { ProfessionBuilder } from "../../misc/ProfessionBuilder";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,15 +27,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Map = (props: IViewProps) => {
-  // const proflist = ;
-  const iprofs = ProfessionProvider.getAll();
+  const builder = new ProfessionBuilder();
+
+  const [iprofs, setIprofs] = useState([] as IdList); // ProfessionProvider.getAll();
   const [depth, setDepth] = useState(1);
+  const [loading, setLoading] = useState(true);
   const [direction, setDirection] = useState(
     "FORWARD" as "FORWARD" | "BACK" | "BOTH"
   );
-  const [focus, setFocus] = useState(
-    iprofs[Object.keys(iprofs)[0] as Professions]
-  );
+  const [focus, setFocus] = useState(builder.getEmpty());
+  useEffect(() => {
+    props.api.getProfessionList().then((res) => setIprofs);
+    setLoading(false);
+  }, [props.api, setIprofs, setLoading]);
   const classes = useStyles();
 
   const opts: Options = {
@@ -63,8 +67,12 @@ export const Map = (props: IViewProps) => {
     },
   };
 
-  const handleChange = (val: IProfession) => {
-    setFocus(val);
+  const handleChange = (val: string) => {
+    setLoading(true);
+    props.api.getProfession(val).then((res) => {
+      setLoading(false);
+      setFocus(res);
+    });
   };
   return (
     <Container>
@@ -87,7 +95,7 @@ export const Map = (props: IViewProps) => {
                   <ProfessionSelect
                     onChange={handleChange}
                     options={iprofs}
-                    value={iprofs["ABBOT"]}
+                    value={iprofs[0].id}
                   />
                 </div>
                 <div>
@@ -133,10 +141,7 @@ export const Map = (props: IViewProps) => {
                 network={opts}
                 events={{
                   selectNode: (params) => {
-                    const profId = params.nodes[0] as Professions;
-                    const prof = iprofs[profId];
-                    if (prof === undefined) return;
-                    setFocus(prof);
+                    handleChange(params.nodes[0] as string);
                   },
                 }}
                 data={new NetworkBuilder(focus).buildNetwork(direction, depth)}

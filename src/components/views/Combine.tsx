@@ -15,6 +15,8 @@ import { ProfessionCard } from "../ProfessionCard";
 import { ProfessionBuilder } from "../../misc/ProfessionBuilder";
 import { CaptionedText } from "../CaptionedText";
 import { IViewProps } from "./IViewProps";
+import { Api, IdList } from "../../api/Api";
+import { useEffect } from "react";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -41,8 +43,7 @@ const sumProfs = (profs: IProfession[]) => {
   builder.build();
   return builder.profession;
 };
-const getValidOptions = (viewState: ViewState) => {
-  const profsAll = ProfessionProvider.getAll();
+const getValidOptions = (viewState: ViewState, profsAll: IdList): IdList => {
   if (viewState.allowUnsafe) return profsAll;
   const advanceTo: string[] = [];
   const current: string[] = [];
@@ -52,7 +53,7 @@ const getValidOptions = (viewState: ViewState) => {
       advanceTo.push(id);
     });
   });
-  const allowed: { [index: string]: IProfession } = {};
+  const allowed: IdList = [];
   Object.keys(profsAll).forEach((id) => {
     const prof = profsAll[id as Professions];
     if ((advanceTo.includes(id) || !prof.isAdvanced) && !current.includes(id))
@@ -70,9 +71,17 @@ export const Combine = (props: IViewProps & { fromState?: ViewState }) => {
         toCombine: [],
       } as ViewState)
   );
-  const [opts, setOpts] = useState(getValidOptions(viewState));
+  const [loading, setLoading] = useState(true);
+  const [iprofs, setIprofs] = useState([] as IdList); // ProfessionProvider.getAll();
+  const [opts, setOpts] = useState(getValidOptions(viewState, iprofs));
   let [selectedOpt, setSelectedOpt] = useState(opts[Object.keys(opts)[0]]);
   const refreshState = () => setViewState(Object.assign({}, viewState));
+
+  useEffect(() => {
+    props.api.getProfessionList().then((res) => setIprofs);
+    setLoading(false);
+  }, [props.api, setIprofs, setLoading]);
+
   // const handleButtonClick = () => {
   //   console.log(viewState);
   //   viewState.step++;
@@ -116,7 +125,7 @@ export const Combine = (props: IViewProps & { fromState?: ViewState }) => {
                       disabled={viewState.step !== 0}
                       onChange={() => {
                         viewState.allowUnsafe = !viewState.allowUnsafe;
-                        setOpts(getValidOptions(viewState));
+                        setOpts(getValidOptions(viewState,props.api));
                         refreshState();
                       }}
                       name="unsafe"
@@ -152,7 +161,7 @@ export const Combine = (props: IViewProps & { fromState?: ViewState }) => {
                     <Button
                       onClick={() => {
                         viewState.toCombine = [selectedOpt];
-                        setOpts(getValidOptions(viewState));
+                        setOpts(getValidOptions(viewState, iprofs));
                         refreshState();
                       }}
                       variant="contained"
@@ -181,7 +190,7 @@ export const Combine = (props: IViewProps & { fromState?: ViewState }) => {
                       <Button
                         onClick={() => {
                           viewState.toCombine.push(selectedOpt);
-                          setOpts(getValidOptions(viewState));
+                          setOpts(getValidOptions(viewState, iprofs));
                           refreshState();
                         }}
                         variant="contained"
