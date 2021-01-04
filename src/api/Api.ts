@@ -1,8 +1,11 @@
 
 
 
-import { CurrentUser, User } from './User';
+import { IProfession } from '../models/IProfession';
+import { CurrentUser } from './User';
 
+export type IdData = { id: string, label: string }
+export type IdList = IdData[];
 export abstract class Api {
 
 	get user() { return this._user };
@@ -17,6 +20,10 @@ export abstract class Api {
 	abstract signup(email: string, password: string): Promise<boolean>
 
 	abstract isSignedin(): Promise<boolean>;
+
+	abstract getProfessionList(): Promise<IdList>
+
+	abstract getProfession(id: string | string[]): Promise<IProfession | IProfession[]>
 }
 
 
