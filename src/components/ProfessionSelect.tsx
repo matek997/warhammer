@@ -13,7 +13,7 @@ export const ProfessionSelect = (props: {
     <Select
       value={
         props.value === undefined
-          ? undefined
+          ? ""
           : typeof props.value === "string"
           ? props.value
           : props.value.id

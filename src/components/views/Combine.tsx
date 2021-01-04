@@ -1,3 +1,10 @@
+import React from "react";
+import { IViewProps } from "./IViewProps";
+
+export const Combine = (props: IViewProps) => {
+  return <div>Temporary unavailable</div>;
+};
+/*
 import { Container, Typography } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
@@ -113,9 +120,9 @@ export const Combine = (props: IViewProps & { fromState?: ViewState }) => {
                 </Step>
               </Stepper>
             </Paper>
-          </Grid>  */}
+          </Grid>  }
 
-          {/* <Grid item xs={12}>
+          { <Grid item xs={12}>
             <Paper className={classes.paperFlex}>
               <div>
                 <FormControlLabel
@@ -144,7 +151,7 @@ export const Combine = (props: IViewProps & { fromState?: ViewState }) => {
                 </Button>
               </div>
             </Paper>
-          </Grid> */}
+          </Grid> }
           {viewState.step === 1 && (
             <Grid item xs={12} sm={6}>
               <Paper className={classes.paperFlex}>
@@ -247,4 +254,4 @@ export const Combine = (props: IViewProps & { fromState?: ViewState }) => {
       </div>
     </Container>
   );
-};
+};*/
