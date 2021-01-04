@@ -32,6 +32,11 @@ export const ProfessionCard = (props: { profession: IProfession }) => {
       <div style={{ display: "flex", justifyContent: "space-around" }}>
         <CaptionedText caption="Name" text={profession.label} />
         <CaptionedText caption="Role" text={profession.role} />
+        {profession.isAdvanced && (
+          <Typography variant="subtitle2" display="block" gutterBottom>
+            {"Advanced Profession"}
+          </Typography>
+        )}
       </div>
       <div>
         <CaptionedText caption="Description" text={profession.description} />
