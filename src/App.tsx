@@ -10,6 +10,7 @@ import { getApi } from "./api/ApiContext";
 import { useState } from "react";
 import { Signout } from "./components/views/Signout";
 import { IViewProps } from "./components/views/IViewProps";
+import { CreateProfession } from "./components/views/CreateProfession";
 function App() {
   const [activeApi, setActiveApi] = useState({ api: getApi() });
 
@@ -49,6 +50,9 @@ function App() {
           </Route>
           <Route path="/warhammer/combine" exact>
             <Combine api={ctx.api} refresh={ctx.refresh} />
+          </Route>
+          <Route path="/warhammer/createprofession" exact>
+            <CreateProfession api={ctx.api} refresh={ctx.refresh} />
           </Route>
           <Route path="/" exact>
             <Home api={ctx.api} refresh={ctx.refresh} />
