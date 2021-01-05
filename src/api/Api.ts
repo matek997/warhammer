@@ -2,8 +2,13 @@
 
 
 import { IProfession } from '../models/IProfession';
+import { SkillDef } from '../models/SkillDef';
 import { CurrentUser } from './User';
 
+
+export enum QueryTargets {
+	TALENTS, SKILLS, TRAPPINGS
+}
 export type IdData = { id: string, label: string }
 export type IdList = IdData[];
 export abstract class Api {
@@ -24,6 +29,8 @@ export abstract class Api {
 	abstract getProfessionList(): Promise<IdList>
 
 	abstract getProfession(id: string | string[]): Promise<IProfession | IProfession[]>
+
+	abstract query(query: string, target: QueryTargets): Promise<Array<SkillDef | string>>
 }
 
 

@@ -1,7 +1,7 @@
 import { Basic, Enums } from "./Skills";
 
 
-type Enums = 'Basic' |
+export type TargetEnums = 'Basic' |
 	'Performer' |
 	'Trade' |
 	'SecretLanguage' |
@@ -13,17 +13,15 @@ type Enums = 'Basic' |
 	'VariableSkills';
 
 
-type DefBase = {
+export interface BasicDef {
+	type: 'BASIC' | 'VARIABLE' | 'COMPOSITE';
 	key: string;
-	targetEnum: Enums;
+	targetEnum: TargetEnums;
 }
-export type BasicDef = { type: 'BASIC' } & DefBase;
-export type VariableDef = { type: 'VARIABLE' } & DefBase;
-export type NonCompositeSkillDef = BasicDef | VariableDef;
 
-export type CompositeSkillDef = {
-	type: 'COMPOSITE',
-	list: Array<SkillDef>;
+export interface CompositeSkillDef extends BasicDef {
+
+	list: Array<BasicDef | CompositeSkillDef>;
 	operator: 'OR' | 'AND',
 };
-export type SkillDef = CompositeSkillDef | NonCompositeSkillDef;
+export type SkillDef = CompositeSkillDef | BasicDef;

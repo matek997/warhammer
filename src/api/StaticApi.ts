@@ -3,7 +3,8 @@
 
 import { ProfessionProvider } from '../data/Provider';
 import { IProfession } from '../models/IProfession';
-import { Api } from './Api';
+import { BasicDef, CompositeSkillDef, SkillDef, VariableDef } from '../models/SkillDef';
+import { Api, QueryTargets } from './Api';
 import { CurrentUser } from './User';
 export class StaticApi extends Api {
 	private signedinstate = false;
@@ -63,4 +64,20 @@ export class StaticApi extends Api {
 		}
 	}
 
+	query(query: string, target: QueryTargets): Promise<Array<SkillDef | string>> {
+		const profs = ProfessionProvider.getAll();
+
+		let result: Array<SkillDef | string> = [];
+		Object.keys(profs)
+			.map(el => target !== QueryTargets.TALENTS ?
+				target !== QueryTargets.TRAPPINGS ? profs[el].skills : profs[el].trappings
+				: profs[el].talents)
+			.forEach(el => {
+				const unique = (el as any).filter((dup: SkillDef | string) => { return !result.includes(dup); });
+				result = result.concat(unique)
+			}
+			)
+		return result;
+
+	}
 }

@@ -16,7 +16,6 @@ import { Link } from "react-router-dom";
 import Home from "@material-ui/icons/Home";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import BubbleChartIcon from "@material-ui/icons/BubbleChart";
 import { CurrentUser } from "../api/User";
 import AddBoxIcon from "@material-ui/icons/AddBox";

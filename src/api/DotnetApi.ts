@@ -2,7 +2,8 @@
 
 
 import { ProfessionBuilder } from '../misc/ProfessionBuilder';
-import { Api } from './Api';
+import { SkillDef } from '../models/SkillDef';
+import { Api, QueryTargets } from './Api';
 
 
 
@@ -40,5 +41,9 @@ export class DotnetApi extends Api {
 
 	private getEndpointUrl(endpoint: string) {
 		return `${this.config}/User/${endpoint}`;
+	}
+
+	async query(query: string, target: QueryTargets): Promise<Array<SkillDef | string>> {
+		return [] as string[];
 	}
 }
