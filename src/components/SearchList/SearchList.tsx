@@ -1,23 +1,27 @@
 import TextField from "@material-ui/core/TextField";
-import { List, ListItem } from "material-ui";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 import { useEffect, useState } from "react";
 import { ISearch } from "../../api/Search/ISearch";
+import React from "react";
 
 const SEARCH_DELAY = 300;
 export const SearchList = function <T>(props: {
   search: ISearch<T>;
   onItemClick?: (item: T) => void;
+  resultComponent: (props: { item: T }) => JSX.Element;
+  maxResults?: number;
 }) {
   const [searchText, setSearchText] = useState("");
   const [results, setResults] = useState([] as T[]);
   let lastTimeout: number = 0;
-  const searchFunc = () => {
-    props.search
-      .search(searchText)
-      .then(setResults)
-      .catch(() => setResults([]));
+  const searchFunc = async (text: string) => {
+    try {
+      setResults(await props.search.search(text));
+    } catch (e) {
+      setResults([]);
+    }
   };
-  useEffect(searchFunc);
 
   return (
     <div>
@@ -25,19 +29,30 @@ export const SearchList = function <T>(props: {
         fullWidth
         label="Search"
         size="small"
-        onChange={(ev) => {
-          setSearchText(ev.target.value);
-          clearTimeout(lastTimeout);
-          lastTimeout = window.setTimeout(searchFunc, SEARCH_DELAY);
+        inputProps={{
+          onInput: (ev) => {
+            const newText = (ev.target as HTMLInputElement).value;
+            searchFunc(newText);
+            setSearchText(newText);
+            // clearTimeout(lastTimeout);
+            // lastTimeout = window.setTimeout(searchFunc, SEARCH_DELAY);
+          },
         }}
         variant="outlined"
       />
       <List>
-        {results.length === 0 ? (
+        {results.length === 0 || searchText === "" ? (
           <ListItem>Start typing to search</ListItem>
         ) : (
           results.map((el, index) => (
-            <ListItem key={index}>{props.search.getElement(el)}</ListItem>
+            <ListItem
+              onClick={() => {
+                if (props.onItemClick) props.onItemClick(el);
+              }}
+              key={index}
+            >
+              <props.resultComponent item={el} />
+            </ListItem>
           ))
         )}
       </List>

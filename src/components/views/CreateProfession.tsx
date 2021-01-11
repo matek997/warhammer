@@ -5,6 +5,8 @@ import Paper from "@material-ui/core/Paper";
 import { useState } from "react";
 import { ProfessionCard } from "../ProfessionCard";
 import { ProfessionBuilder } from "../../misc/ProfessionBuilder";
+import { IViewProps } from "./IViewProps";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -21,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const CreateProfession = () => {
+export const CreateProfession = (props: IViewProps) => {
   const [profession, setProfession] = useState(
     new ProfessionBuilder().getEmpty()
   );
@@ -35,6 +37,7 @@ export const CreateProfession = () => {
       <div className={classes.root}>
         <Paper>
           <ProfessionCard
+          api={props.api}
             onChange={setProfession}
             profession={profession}
             editable

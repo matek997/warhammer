@@ -1,6 +1,6 @@
 import Chip from "@material-ui/core/Chip";
 import React from "react";
-import { CompositeSkillDef, SkillDef } from "../models/SkillDef";
+import { SkillDef } from "../models/SkillDef";
 import { CaptionedText } from "./CaptionedText";
 import { Paper } from "@material-ui/core";
 import { Definition } from "../misc/Definition";
@@ -21,11 +21,11 @@ export const SkillChip = (props: { skill: SkillDef }) => {
   const label = Definition.getLabel(skill);
   if (skill.type !== "COMPOSITE")
     return <Chip label={label} color={getColor(skill.type)} />;
-
+  const list = skill.list ?? [];
   return (
     <Paper elevation={3}>
       <CaptionedText caption={label}>
-        {(skill as CompositeSkillDef).list.map((el, index) => (
+        {list.map((el, index) => (
           <SkillChip key={index} skill={el} />
         ))}
       </CaptionedText>

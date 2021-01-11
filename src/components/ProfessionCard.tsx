@@ -6,6 +6,11 @@ import { ProfileTable } from "./ProfileTable";
 import { Typography } from "@material-ui/core";
 import { SkillChip } from "./SkillChip";
 import { useState } from "react";
+import { SearchList } from "./SearchList/SearchList";
+import { SkillResult } from "./SearchList/SkillResult";
+import { QueryTargets, Api } from "../api/Api";
+import { TextSearch } from "../api/Search/TextSearch";
+import { SkillDef } from "../models/SkillDef";
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -27,6 +32,7 @@ const chipStyles = makeStyles((theme: Theme) =>
 export const ProfessionCard = (props: {
   profession: IProfession;
   editable?: boolean;
+  api: Api;
   onChange?: (val: IProfession) => void;
 }) => {
   const classes = useStyles();
@@ -97,24 +103,39 @@ export const ProfessionCard = (props: {
       <div>
         <CaptionedText caption="Talents" text={profession.talents.join(", ")} />
       </div>
-      <div>
-        <CaptionedText caption="Skills">
-          <div className={chipClasses.root}>
-            {profession.skills
-              .sort((a, b) => {
-                const lookup = {
-                  BASIC: 0,
-                  VARIABLE: 1,
-                  COMPOSITE: 2,
-                };
-                return lookup[a.type] - lookup[b.type];
-              })
-              .map((skill, index) => (
-                <SkillChip key={`${skill.type}.${index}`} skill={skill} />
-              ))}
-          </div>
-        </CaptionedText>
-      </div>
+      {!editable && (
+        <div>
+          <CaptionedText caption="Skills">
+            <div className={chipClasses.root}>
+              {profession.skills
+                .sort((a, b) => {
+                  const lookup = {
+                    BASIC: 0,
+                    VARIABLE: 1,
+                    COMPOSITE: 2,
+                  };
+                  return lookup[a.type] - lookup[b.type];
+                })
+                .map((skill, index) => (
+                  <SkillChip key={`${skill.type}.${index}`} skill={skill} />
+                ))}
+            </div>
+          </CaptionedText>
+        </div>
+      )}
+      {editable && (
+        <div>
+          <CaptionedText caption="Skills">
+            <SearchList
+              search={new TextSearch(props.api, QueryTargets.SKILLS)}
+              onItemClick={(item: any) => {
+                console.log(item);
+              }}
+              resultComponent={SkillResult}
+            />
+          </CaptionedText>
+        </div>
+      )}
     </div>
   );
 };

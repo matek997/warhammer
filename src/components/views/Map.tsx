@@ -160,7 +160,7 @@ export const Map = (props: IViewProps) => {
                 {loading ? (
                   <CircularProgress />
                 ) : (
-                  <ProfessionCard profession={focus} />
+                  <ProfessionCard api={props.api} profession={focus} />
                 )}
               </Paper>
             </Grid>

@@ -2,8 +2,9 @@
 
 
 import { ProfessionProvider } from '../data/Provider';
+import { Definition } from '../misc/Definition';
 import { IProfession } from '../models/IProfession';
-import { BasicDef, CompositeSkillDef, SkillDef, VariableDef } from '../models/SkillDef';
+import { SkillDef } from '../models/SkillDef';
 import { Api, QueryTargets } from './Api';
 import { CurrentUser } from './User';
 export class StaticApi extends Api {
@@ -64,20 +65,40 @@ export class StaticApi extends Api {
 		}
 	}
 
-	query(query: string, target: QueryTargets): Promise<Array<SkillDef | string>> {
+	async query(query: string, target: QueryTargets): Promise<Array<SkillDef | string>> {
 		const profs = ProfessionProvider.getAll();
 
 		let result: Array<SkillDef | string> = [];
-		Object.keys(profs)
-			.map(el => target !== QueryTargets.TALENTS ?
+		let resStr: string[] = []
+		const lcQuery = query.toLowerCase();
+		for (const el of Object.keys(profs)) {
+			const src = target !== QueryTargets.TALENTS ?
 				target !== QueryTargets.TRAPPINGS ? profs[el].skills : profs[el].trappings
-				: profs[el].talents)
-			.forEach(el => {
-				const unique = (el as any).filter((dup: SkillDef | string) => { return !result.includes(dup); });
-				result = result.concat(unique)
+				: profs[el].talents;
+
+			for (const i of src) {
+				const str = (typeof i === 'string' ? i : Definition.from(i).toString())
+				const lcStr = str.toLowerCase();
+				if (lcStr.includes(lcQuery) && resStr.indexOf(str) === -1) {
+					resStr.push(str);
+					result.push(i);
+				}
 			}
-			)
-		return result;
+		}
+
+		// const res = Object.keys(profs)
+		// 	.map(el => target !== QueryTargets.TALENTS ?
+		// 		target !== QueryTargets.TRAPPINGS ? profs[el].skills : profs[el].trappings
+		// 		: profs[el].talents);
+		// .forEach(el => {
+		// 	const unique = (el as any).filter((dup: SkillDef | string) => { return !result.includes(dup); });
+		// 	result = result.concat(unique)
+		// }
+		// );
+		if (target === QueryTargets.TALENTS || target === QueryTargets.TRAPPINGS)
+			return result as any as string[];
+
+		return result as any as SkillDef[];
 
 	}
 }
