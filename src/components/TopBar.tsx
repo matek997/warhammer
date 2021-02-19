@@ -16,10 +16,9 @@ import { Link } from "react-router-dom";
 import Home from "@material-ui/icons/Home";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import BubbleChartIcon from "@material-ui/icons/BubbleChart";
 import { CurrentUser } from "../api/User";
-
+import AddBoxIcon from "@material-ui/icons/AddBox";
 type RouteDef = {
   url: string;
   label: string;
@@ -28,7 +27,7 @@ type RouteDef = {
 const routes: RouteDef[] = [
   { url: "/warhammer", label: "Home", icon: <Home /> },
   { url: "/warhammer/map", label: "Class map", icon: <BubbleChartIcon /> },
-  { url: "/warhammer/combine", label: "Combine", icon: <AccountTreeIcon /> },
+  //  { url: "/warhammer/combine", label: "Combine", icon: <AccountTreeIcon /> },
 ];
 
 const anonymousRoutes: RouteDef[] = [
@@ -36,6 +35,11 @@ const anonymousRoutes: RouteDef[] = [
   { url: "/warhammer/signin", label: "Sign in", icon: <MeetingRoomIcon /> },
 ];
 const signedinRoutes: RouteDef[] = [
+  {
+    url: "/warhammer/createprofession",
+    label: "Create profession",
+    icon: <AddBoxIcon />,
+  },
   { url: "/warhammer/signout", label: "Signout", icon: <MeetingRoomIcon /> },
 ];
 
@@ -66,7 +70,7 @@ export const TopBar = (props: { user?: CurrentUser }) => {
         </IconButton>
         <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
           <List>
-            {(props.user ? signedinRoutes : anonymousRoutes).map((el) => (
+            {routes.map((el) => (
               <MenuLink
                 url={el.url}
                 icon={el.icon}
@@ -74,7 +78,7 @@ export const TopBar = (props: { user?: CurrentUser }) => {
                 label={el.label}
               />
             ))}
-            {routes.map((el) => (
+            {(props.user ? signedinRoutes : anonymousRoutes).map((el) => (
               <MenuLink
                 url={el.url}
                 icon={el.icon}

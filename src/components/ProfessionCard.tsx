@@ -5,6 +5,11 @@ import { CaptionedText } from "./CaptionedText";
 import { ProfileTable } from "./ProfileTable";
 import { Typography } from "@material-ui/core";
 import { SkillChip } from "./SkillChip";
+import { useState } from "react";
+import { SkillResult } from "./SearchList/SkillResult";
+import { QueryTargets, Api } from "../api/Api";
+import Grid from "@material-ui/core/Grid";
+
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -23,55 +28,85 @@ const chipStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const ProfessionCard = (props: { profession: IProfession }) => {
+export const ProfessionCard = (props: {
+  profession: IProfession;
+  editable?: boolean;
+  api: Api;
+  onChange?: (val: IProfession) => void;
+}) => {
   const classes = useStyles();
   const chipClasses = chipStyles();
-  const { profession } = props;
+  const { editable } = props;
+  const [profession, setProfession] = useState(props.profession);
+  console.log(profession.id);
   return (
     <div className={classes.root}>
       <div style={{ display: "flex", justifyContent: "space-around" }}>
-        <CaptionedText caption="Name" text={profession.label} />
-        <CaptionedText caption="Role" text={profession.role} />
+        <CaptionedText
+          editable={editable}
+          onChange={(label: string) => {
+            setProfession(
+              Object.assign({}, profession, { label }) as IProfession
+            );
+            if (props.onChange) props.onChange(profession);
+          }}
+          caption="Name"
+          text={profession.label}
+        />
+        <CaptionedText
+          editable={editable}
+          onChange={(role: string) => {
+            setProfession(
+              Object.assign({}, profession, { role }) as IProfession
+            );
+            if (props.onChange) props.onChange(profession);
+          }}
+          caption="Role"
+          text={profession.role}
+        />
+        {profession.isAdvanced && (
+          <Typography variant="subtitle2" display="block" gutterBottom>
+            {"Advanced Profession"}
+          </Typography>
+        )}
       </div>
       <div>
-        <CaptionedText caption="Description" text={profession.description} />
+        <CaptionedText
+          editable={editable}
+          multiline
+          onChange={(description: string) => {
+            setProfession(
+              Object.assign({}, profession, { description }) as IProfession
+            );
+            if (props.onChange) props.onChange(profession);
+          }}
+          caption="Description"
+          text={profession.description}
+        />
       </div>
       <div>
         <Typography variant="caption" display="block" gutterBottom>
           Main profile
         </Typography>
-        <ProfileTable profiles={[profession.mainProfile]} />
+        <ProfileTable
+          profiles={[{ profile: profession.mainProfile, editable }]}
+        />
       </div>
       <div>
         <Typography variant="caption" display="block" gutterBottom>
           Secondary profile
         </Typography>
-        <ProfileTable profiles={[profession.secondaryProfile]} />
+        <ProfileTable
+          profiles={[{ profile: profession.secondaryProfile, editable }]}
+        />
       </div>
       <div>
         <CaptionedText caption="Talents" text={profession.talents.join(", ")} />
       </div>
-      <div>
-        <CaptionedText caption="Skills">
-          <div className={chipClasses.root}>
-            {profession.skills
-              .sort((a, b) => {
-                const lookup = {
-                  BASIC: 0,
-                  VARIABLE: 1,
-                  COMPOSITE: 2,
-                };
-                return lookup[a.type] - lookup[b.type];
-              })
-              .map((skill, index) => (
-                <SkillChip key={`${skill.type}.${index}`} skill={skill} />
-              ))}
-          </div>
-        </CaptionedText>
-      </div>
     </div>
   );
 };
+
 /*
   return (
     <div className={classes.root}>

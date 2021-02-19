@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { IProfession } from "../models/IProfession";
 import { ProfessionCard } from "./ProfessionCard";
+import { Api } from "../api/Api";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -19,7 +20,10 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const ProfessionAccordion = (props: { profession: IProfession }) => {
+export const ProfessionAccordion = (props: {
+  profession: IProfession;
+  api: Api;
+}) => {
   const classes = useStyles();
 
   return (
@@ -35,7 +39,7 @@ export const ProfessionAccordion = (props: { profession: IProfession }) => {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <ProfessionCard profession={props.profession} />
+          <ProfessionCard api={props.api} profession={props.profession} />
         </AccordionDetails>
       </Accordion>
     </div>

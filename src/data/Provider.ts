@@ -13,6 +13,6 @@ export class ProfessionProvider {
 
   }
   static getAll() {
-    return ProfDefs as { [index in Professions]: IProfession;} ;
+    return ProfDefs as { [index: string]: IProfession; };
   }
 }

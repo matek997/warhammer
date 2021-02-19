@@ -111,4 +111,8 @@ export class ProfessionBuilder {
       numberOfAdvances: 0,
     };
   }
+
+  getPossibleAdvancements() {
+    
+  }
 }
