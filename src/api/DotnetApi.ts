@@ -1,16 +1,14 @@
 import { ProfessionBuilder } from "../misc/ProfessionBuilder";
 import { Api } from "./Api";
 import { CurrentUser } from "./User";
-enum Actions {
-  SIGNIN = "Signin",
-}
+
 export class DotnetApi extends Api {
   constructor(config: string) {
     super("http://localhost:8000");
   }
   async signin(email: string, password: string): Promise<boolean> {
     // return new CurrentUser('user@example.net', 'token');
-    const response = await fetch(this.getEndpointUrl(Actions.SIGNIN), {
+    const response = await fetch(this.getEndpointUrl('User/Signin'), {
       method: "POST",
       //  headers: this.getHeaders(),
       body: JSON.stringify({ email, password }),
@@ -34,7 +32,7 @@ export class DotnetApi extends Api {
 
   async isSignedin() {
     try {
-      const res = await fetch(this.getEndpointUrl(Actions.SIGNIN), {
+      const res = await fetch(this.getEndpointUrl('User/Signin'), {
         headers: this.getHeaders(),
       });
       return res.status === 200;
@@ -44,11 +42,25 @@ export class DotnetApi extends Api {
   }
 
   async getProfession(id: string | string[]) {
-    return new ProfessionBuilder().getEmpty();
+    const res = await fetch(this.getEndpointUrl('Profession/GetProfession'), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ professionId: id })
+    });
+
+    return await res.json();
   }
 
   async getProfessionList() {
-    return [];
+    const res = await fetch(this.getEndpointUrl('Profession/GetProfessions'), {
+      method: "GET"
+
+    });
+
+    return (await res.json()).map((el: string) => { return { id: el, label: el } })
+
   }
   private getHeaders() {
     return {
@@ -56,7 +68,7 @@ export class DotnetApi extends Api {
       "Content-Type": "application/json",
     };
   }
-  private getEndpointUrl(endpoint: Actions) {
-    return `${this.config}/User/${endpoint}`;
+  private getEndpointUrl(endpoint: string) {
+    return `${this.config}/${endpoint}`;
   }
 }

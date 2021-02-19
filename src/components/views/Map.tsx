@@ -95,6 +95,7 @@ export const Map = (props: IViewProps) => {
       setLoading(false);
 
       setFocus(res as IProfession);
+      console.log((res as IProfession).id);
     });
   };
   return (

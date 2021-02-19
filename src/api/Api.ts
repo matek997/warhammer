@@ -30,7 +30,6 @@ export abstract class Api {
 
 	abstract getProfession(id: string | string[]): Promise<IProfession | IProfession[]>
 
-	abstract query(query: string, target: QueryTargets): Promise<Array<SkillDef | string>>
 }
 
 

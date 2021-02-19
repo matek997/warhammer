@@ -2,8 +2,8 @@ import TextField from "@material-ui/core/TextField";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import { useEffect, useState } from "react";
-import { ISearch } from "../../api/Search/ISearch";
 import React from "react";
+import { ISearch } from "../../api/Search/ISearch";
 
 const SEARCH_DELAY = 300;
 export const SearchList = function <T>(props: {

@@ -7,13 +7,7 @@ export const getApi = (): Api => {
   const api = process.env.URL_API ?? "";
   const config = process.env.URL_API ?? "";
   return new DotnetApi(config);
-  switch (api) {
-    case "DOTNETCORE":
-      return new DotnetApi(config);
-    case "STATIC":
-    default:
-      return new StaticApi(config);
-  }
+
 };
 
 export const ApiContext = React.createContext({

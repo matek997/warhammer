@@ -6,10 +6,8 @@ import { ProfileTable } from "./ProfileTable";
 import { Typography } from "@material-ui/core";
 import { SkillChip } from "./SkillChip";
 import { useState } from "react";
-import { SearchList } from "./SearchList/SearchList";
 import { SkillResult } from "./SearchList/SkillResult";
 import { QueryTargets, Api } from "../api/Api";
-import { TextSearch } from "../api/Search/TextSearch";
 import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
@@ -40,6 +38,7 @@ export const ProfessionCard = (props: {
   const chipClasses = chipStyles();
   const { editable } = props;
   const [profession, setProfession] = useState(props.profession);
+  console.log(profession.id);
   return (
     <div className={classes.root}>
       <div style={{ display: "flex", justifyContent: "space-around" }}>
@@ -104,7 +103,6 @@ export const ProfessionCard = (props: {
       <div>
         <CaptionedText caption="Talents" text={profession.talents.join(", ")} />
       </div>
-
     </div>
   );
 };

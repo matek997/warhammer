@@ -3,13 +3,8 @@ import React, { useState } from "react";
 import { SkillDef } from "../models/SkillDef";
 import { SkillChip } from "./SkillChip";
 
-import { SearchList } from "./SearchList/SearchList";
+import { Api } from "../api/Api";
 
-import { SkillResult } from "./SearchList/SkillResult";
-
-import { QueryTargets, Api } from "../api/Api";
-
-import { TextSearch } from "../api/Search/TextSearch";
 import { CaptionedText } from "./CaptionedText";
 
 const chipStyles = makeStyles((theme: Theme) =>
@@ -42,13 +37,13 @@ export const ProfessionSkills = (props: {
         <CaptionedText caption="Skills">
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
-              <SearchList
+              {/* <SearchList
                 search={new TextSearch(api, QueryTargets.SKILLS)}
                 onItemClick={(item: any) => {
                   console.log(item);
                 }}
                 resultComponent={SkillResult}
-              />
+              /> */}
             </Grid>
             <Grid item xs={12} sm={6}>
               <CaptionedText caption="Chosen skills"></CaptionedText>

@@ -9,6 +9,7 @@ export class TextSearch implements ISearch<string | SkillDef> {
     protected readonly target: QueryTargets
   ) { }
   async search(string: string): Promise<Array<string | SkillDef>> {
-    return this.api.query(string, this.target);
+
+    return [];
   }
 }
