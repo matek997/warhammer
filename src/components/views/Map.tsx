@@ -92,10 +92,9 @@ export const Map = (props: IViewProps) => {
   const handleChange = (val: string) => {
     setLoading(true);
     props.api.getProfession(val).then((res) => {
-      setLoading(false);
-
       setFocus(res as IProfession);
       console.log((res as IProfession).id);
+      setLoading(false);
     });
   };
   return (
