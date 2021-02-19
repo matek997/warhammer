@@ -1,48 +1,62 @@
-
-
-
-import { ProfessionBuilder } from '../misc/ProfessionBuilder';
-import { Api, QueryTargets } from './Api';
-
-
-
+import { ProfessionBuilder } from "../misc/ProfessionBuilder";
+import { Api } from "./Api";
+import { CurrentUser } from "./User";
+enum Actions {
+  SIGNIN = "Signin",
+}
 export class DotnetApi extends Api {
-	async signin(email: string, password: string): Promise<boolean> {
-		// return new CurrentUser('user@example.net', 'token');
-		return true;
-	}
-	async signout(): Promise<boolean> {
+  constructor(config: string) {
+    super("http://localhost:8000");
+  }
+  async signin(email: string, password: string): Promise<boolean> {
+    // return new CurrentUser('user@example.net', 'token');
+    const response = await fetch(this.getEndpointUrl(Actions.SIGNIN), {
+      method: "POST",
+      //  headers: this.getHeaders(),
+      body: JSON.stringify({ email, password }),
+    });
+    const body: { token: string; email: string } = await response.json();
+    if (typeof body === "object") {
+      const { token, email } = body;
+      this._user = new CurrentUser(token, email, {});
+      return true;
+    }
+    return false;
+  }
+  async signout(): Promise<boolean> {
+    if (this.user) this.user.token = "";
+    return true;
+  }
 
-		// const args = new EndpointArgs(this._user?.token ?? '');
+  async signup(email: string, password: string): Promise<boolean> {
+    return true; //return new CurrentUser('user@example.net', 'token');
+  }
 
-		// this.fetch(this.getEndpointUrl('signout'),{
-		// 	method:'GET',
+  async isSignedin() {
+    try {
+      const res = await fetch(this.getEndpointUrl(Actions.SIGNIN), {
+        headers: this.getHeaders(),
+      });
+      return res.status === 200;
+    } catch (e) {
+      return false;
+    }
+  }
 
-		// })
-		return true;
-	}
+  async getProfession(id: string | string[]) {
+    return new ProfessionBuilder().getEmpty();
+  }
 
-	async signup(email: string, password: string): Promise<boolean> {
-		return true; //return new CurrentUser('user@example.net', 'token');
-	}
-
-	async isSignedin() {
-		return true;
-	}
-
-	async getProfession(id: string | string[]) {
-		return (new ProfessionBuilder()).getEmpty();
-	}
-
-	async getProfessionList() {
-		return [];
-	}
-
-	private getEndpointUrl(endpoint: string) {
-		return `${this.config}/User/${endpoint}`;
-	}
-
-	async query<T>(query: string, target: QueryTargets): Promise<Array<T>> {
-		return [] as T[];
-	}
+  async getProfessionList() {
+    return [];
+  }
+  private getHeaders() {
+    return {
+      Authority: `Bearer ${this.user?.token}`,
+      "Content-Type": "application/json",
+    };
+  }
+  private getEndpointUrl(endpoint: Actions) {
+    return `${this.config}/User/${endpoint}`;
+  }
 }
