@@ -2,11 +2,11 @@ import { ProfessionBuilder } from "../misc/ProfessionBuilder";
 import { Api } from "./Api";
 import { CurrentUser } from "./User";
 enum Actions {
-  SIGNIN = "Login",
+  SIGNIN = "Signin",
 }
 export class DotnetApi extends Api {
   constructor(config: string) {
-    super("http://localhost:44342");
+    super("http://localhost:8000");
   }
   async signin(email: string, password: string): Promise<boolean> {
     // return new CurrentUser('user@example.net', 'token');
@@ -57,6 +57,6 @@ export class DotnetApi extends Api {
     };
   }
   private getEndpointUrl(endpoint: Actions) {
-    return `${this.config}/Users/${endpoint}`;
+    return `${this.config}/User/${endpoint}`;
   }
 }
