@@ -40,6 +40,8 @@ const signedinRoutes: RouteDef[] = [
     label: "Create profession",
     icon: <AddBoxIcon />,
   },
+  { url: "/warhammer/chat", label: "Chat", icon: <MeetingRoomIcon /> },
+
   { url: "/warhammer/signout", label: "Signout", icon: <MeetingRoomIcon /> },
 ];
 
@@ -70,6 +72,7 @@ export const TopBar = (props: { user?: CurrentUser }) => {
         </IconButton>
         <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
           <List>
+            {props.user && <div>{props.user.email}</div>}
             {routes.map((el) => (
               <MenuLink
                 url={el.url}

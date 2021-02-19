@@ -18,6 +18,7 @@ export const Authorization = (
 ) => {
   const classes = useStyles();
   const [signedin, setSignedin] = useState(false);
+  const [error, setError] = useState(false);
   const { api, refresh } = props;
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -33,6 +34,8 @@ export const Authorization = (
     const handlePromise = (res: boolean) => {
       setLoading(false);
       setSignedin(res);
+
+      if (!res) setError(true);
       refresh();
     };
     if (props.action === "SIGNIN") {
@@ -48,11 +51,17 @@ export const Authorization = (
         <CircularProgress />
       ) : signedin ? (
         <Typography variant="h3" display="block" gutterBottom>
-          Signed in as {api.user?.profile.name}
+          Signed in as {api.user?.email}
           <Redirect to="/warhammer" />
         </Typography>
       ) : (
         <LoginForm onSubmit={handleSubmit} />
+      )}
+      {error && (
+        <Typography variant="h3" display="block" gutterBottom>
+          Something went wrong, make sure your credentials are valid and try
+          later.
+        </Typography>
       )}
     </Container>
   );

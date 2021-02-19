@@ -1,5 +1,5 @@
 import { Box } from "@material-ui/core";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { TopBar } from "../TopBar";
 import { IViewProps } from "../views/IViewProps";
 
@@ -13,7 +13,7 @@ export const MainLayout = (
   api.isSignedin().then(setSignedin);
   return (
     <Box>
-      <TopBar user={signedin ? api.user : undefined} />
+      <TopBar user={api.user} />
       {props.children}
     </Box>
   );

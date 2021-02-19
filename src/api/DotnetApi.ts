@@ -7,16 +7,23 @@ export class DotnetApi extends Api {
     super("http://localhost:8000");
   }
   async signin(email: string, password: string): Promise<boolean> {
-    // return new CurrentUser('user@example.net', 'token');
-    const response = await fetch(this.getEndpointUrl('User/Signin'), {
+
+    const response = await fetch('http://localhost:8000/User/Signin', {
       method: "POST",
-      //  headers: this.getHeaders(),
-      body: JSON.stringify({ email, password }),
-    });
-    const body: { token: string; email: string } = await response.json();
-    if (typeof body === "object") {
+      headers: {
+        "Content-Type": "application/json",
+        "accept": "text/plain"
+      },
+      body: JSON.stringify({
+        email,
+        password
+      }),
+    });//.then(res => res.json().then(console.log))
+    const body: any = await response.json();
+    console.log(body);
+    if (typeof body === 'object' && !body.errorCode) {
       const { token, email } = body;
-      this._user = new CurrentUser(token, email, {});
+      this._user = new CurrentUser(email, token, {});
       return true;
     }
     return false;
@@ -26,19 +33,38 @@ export class DotnetApi extends Api {
     return true;
   }
 
-  async signup(email: string, password: string): Promise<boolean> {
-    return true; //return new CurrentUser('user@example.net', 'token');
+  async signup(_email: string, password: string): Promise<boolean> {
+    const response = await fetch('http://localhost:8000/User/Signup', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "accept": "text/plain"
+      },
+      body: JSON.stringify({
+        email: _email,
+        password
+      }),
+    });
+    const body: any = await response.json();
+
+    console.log(body);
+    if (typeof body === 'object' && !body.errorCode) {
+      const { token, email } = body;
+      this._user = new CurrentUser(email, token, {});
+      return true;
+    }
+    return false;
   }
 
-  async isSignedin() {
-    try {
-      const res = await fetch(this.getEndpointUrl('User/Signin'), {
+  async isSignedin(): Promise<boolean> {
+    return new Promise((resolve) => {
+      fetch(this.getEndpointUrl('User/SignedIn'), {
+        method: 'POST',
         headers: this.getHeaders(),
-      });
-      return res.status === 200;
-    } catch (e) {
-      return false;
-    }
+      })
+        .then((res) => resolve(res.status === 200))
+        .catch(() => resolve(false));
+    });
   }
 
   async getProfession(id: string | string[]) {

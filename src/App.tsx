@@ -11,6 +11,7 @@ import { useState } from "react";
 import { Signout } from "./components/views/Signout";
 import { IViewProps } from "./components/views/IViewProps";
 import { CreateProfession } from "./components/views/CreateProfession";
+import { Chat } from "./components/views/Chat";
 function App() {
   const [activeApi, setActiveApi] = useState({ api: getApi() });
 
@@ -37,6 +38,9 @@ function App() {
               refresh={ctx.refresh}
               action="SIGNIN"
             />
+          </Route>
+          <Route path="/warhammer/chat" exact>
+            <Chat api={ctx.api} refresh={ctx.refresh} />
           </Route>
           <Route path="/warhammer/signup" exact>
             <Authorization
