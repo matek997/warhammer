@@ -21,6 +21,7 @@ export const LoginForm = (props: LoginFormProps) => {
                 name="email"
                 size="small"
                 variant="outlined"
+                type="email"
                 required
               />
             </Grid>
