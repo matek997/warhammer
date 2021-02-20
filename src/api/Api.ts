@@ -18,6 +18,8 @@ export abstract class Api {
 	constructor(protected readonly config: string) {
 
 	}
+	getConfig = () => this.config;
+	
 	abstract signin(email: string, password: string): Promise<boolean>;
 
 	abstract signout(): Promise<boolean>
