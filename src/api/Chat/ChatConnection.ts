@@ -22,8 +22,10 @@ export class ChatConnection {
 	}
 
 	async start() {
-		if (!this.started)
+		if (!this.started) {
 			await this.connection.start();
+		}
+
 		this.started = true;
 	}
 

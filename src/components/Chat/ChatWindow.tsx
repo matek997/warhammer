@@ -5,6 +5,7 @@ import {
   MenuItem,
   Typography,
 } from "@material-ui/core";
+import * as signalR from "@microsoft/signalr";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Select from "@material-ui/core/Select";
