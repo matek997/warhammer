@@ -10,18 +10,21 @@ import { ChatConnection, Conn } from "../../api/Chat/ChatConnection";
 import { ChatWindow } from "../Chat/ChatWindow";
 import { IViewProps } from "./IViewProps";
 import * as signalR from "@microsoft/signalr";
+import { Redirect } from "react-router-dom";
 
-export const Chat = (props: IViewProps) => {
+export const Chat = (props: IViewProps & { chat: ChatConnection }) => {
   const [loading, setLoading] = useState(true);
   const [messages, setMessages] = useState<string[]>([]);
 
-  let connection = Conn;
+  let connection = props.chat;
   const onSend = (msg: string) => {
     connection.send(msg);
   };
   connection.onMessage = (msg: string) => {
     setMessages(messages.concat([msg]));
   };
+
+  if (!props.api.user) return <Redirect to="/warhammer/signin" />;
 
   return (
     <Container>

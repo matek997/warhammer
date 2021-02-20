@@ -4,7 +4,7 @@ import { DotnetApi } from './DotnetApi';
 import React from 'react';
 export const getApi = (): Api => {
   const api = process.env.URL_API ?? 'DOTNETCORE';
-  const config = process.env.URL_API ?? 'http://localhost8000';
+  const config = process.env.URL_API ?? 'http://localhost:8000';
   switch (api) {
     case 'STATIC':
       return new StaticApi(config);

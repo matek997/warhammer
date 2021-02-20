@@ -16,6 +16,7 @@ export class ChatConnection {
 	constructor(protected api: Api) {
 		this.connection = new signalR.HubConnectionBuilder()
 			.withUrl(this.api.getConfig() + "/chat")
+			//	.withUrl("https://localhost:44342/chat")
 			.build();
 		this.connection.on(this.NAME_FEED, (msg: any) => this.onMessage && this.onMessage(msg));
 		this.connection.on(this.ECHO, (msg: any) => this.onEcho && this.onEcho(msg));
@@ -25,6 +26,7 @@ export class ChatConnection {
 	async start() {
 		if (!this.started) {
 			await this.connection.start();
+			console.log('started')
 		}
 
 		this.started = true;
@@ -32,7 +34,7 @@ export class ChatConnection {
 
 	async send(msg: string) {
 		if (this.started)
-			return this.connection.send(this.NAME_FEED, msg);
+			return this.connection.send(this.NAME_FEED, this.api.user?.email, msg);
 	}
 
 	async echo(msg: string) {
