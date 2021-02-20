@@ -4,7 +4,7 @@ import { CurrentUser } from "./User";
 
 export class DotnetApi extends Api {
   constructor(config: string) {
-    super("https://localhost:44342");
+    super(config);
     //  super("http://localhost:8000");
   }
   async signin(email: string, password: string): Promise<boolean> {
@@ -35,7 +35,7 @@ export class DotnetApi extends Api {
   }
 
   async signup(_email: string, password: string): Promise<boolean> {
-    const response = await fetch('http://localhost:8000/User/Signup', {
+    const response = await fetch(this.config + '/User/Signup', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
