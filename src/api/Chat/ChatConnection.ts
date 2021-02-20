@@ -1,4 +1,4 @@
-import signalR from "@microsoft/signalr";
+import * as signalR from "@microsoft/signalr";
 import { Api } from "../Api";
 
 

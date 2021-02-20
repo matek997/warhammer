@@ -4,7 +4,8 @@ import { CurrentUser } from "./User";
 
 export class DotnetApi extends Api {
   constructor(config: string) {
-    super("http://localhost:8000");
+    super("https://localhost:44342");
+    //  super("http://localhost:8000");
   }
   async signin(email: string, password: string): Promise<boolean> {
 

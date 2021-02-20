@@ -15,6 +15,9 @@ export const Chat = (props: IViewProps) => {
   const [messages, setMessages] = useState<string[]>([]);
 
   let connection = new ChatConnection(props.api);
+  const onSend = (msg: string) => {
+    connection.send(msg);
+  };
   connection.onMessage = (msg) => {
     setMessages(messages.concat([msg]));
   };
@@ -26,7 +29,11 @@ export const Chat = (props: IViewProps) => {
 
   return (
     <Container>
-      {loading ? <CircularProgress /> : <ChatWindow messages={messages} />}
+      {loading ? (
+        <CircularProgress />
+      ) : (
+        <ChatWindow onSend={onSend} messages={messages} />
+      )}
     </Container>
   );
 };

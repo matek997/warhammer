@@ -8,20 +8,31 @@ import {
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Select from "@material-ui/core/Select";
-import classes from "*.module.css";
 import React from "react";
+import { ChatMessage } from "./ChatMessage";
+import { ChatInput } from "./ChatInput";
 
-export const ChatWindow = () => {
+type ChatProps = {
+  messages: string[];
+  onSend: (msg: string) => void;
+};
+export const ChatWindow = (props: ChatProps) => {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12}>
-        <Paper className={classes.paper}>1</Paper>
+        <Paper></Paper>
       </Grid>
       <Grid item xs={12} sm={6}>
-        <Paper className={classes.paper}>2</Paper>
+        <Paper>
+          {props.messages.map((msg) => (
+            <ChatMessage message={msg} />
+          ))}
+        </Paper>
       </Grid>
       <Grid item xs={12} sm={6}>
-        <Paper className={classes.paper}>3</Paper>
+        <Paper>
+          <ChatInput onSend={props.onSend} />
+        </Paper>
       </Grid>
     </Grid>
   );
