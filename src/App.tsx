@@ -13,13 +13,13 @@ import { IViewProps } from "./components/views/IViewProps";
 import { CreateProfession } from "./components/views/CreateProfession";
 import { Chat } from "./components/views/Chat";
 function App() {
-  const [activeApi, setActiveApi] = useState({ api: getApi() });
+  // const [activeApi, setActiveApi] = useState({ api: getApi() });
 
   const ctx: IViewProps = {
-    api: activeApi.api,
+    api: getApi(),
     refresh: () => {
-      const a = { api: activeApi.api };
-      setActiveApi(a);
+      // const a = { api: activeApi.api };
+      // setActiveApi(a);
     },
   };
   return (

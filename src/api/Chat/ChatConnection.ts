@@ -1,5 +1,6 @@
 import * as signalR from "@microsoft/signalr";
 import { Api } from "../Api";
+import { getApi } from "../ApiContext";
 
 
 type MessageCallback = ((msg: string) => void);
@@ -30,11 +31,17 @@ export class ChatConnection {
 	}
 
 	async send(msg: string) {
-		return this.connection.send(this.NAME_FEED, msg);
+		if (this.started)
+			return this.connection.send(this.NAME_FEED, msg);
 	}
 
 	async echo(msg: string) {
-		return this.connection.send(this.ECHO, msg);
+		if (this.started)
+			return this.connection.send(this.ECHO, msg);
 	}
 
 }
+const _conn = new ChatConnection(getApi())
+_conn.start();
+
+export const Conn = _conn;
