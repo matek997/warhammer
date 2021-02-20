@@ -29,7 +29,7 @@ export class DotnetApi extends Api {
     return false;
   }
   async signout(): Promise<boolean> {
-    if (this.user) this.user.token = "";
+    this._user = undefined;
     return true;
   }
 
